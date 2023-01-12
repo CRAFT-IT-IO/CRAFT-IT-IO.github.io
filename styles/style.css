@@ -1,0 +1,208 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/tt_font.otf);
+}
+
+h1, h2, h3, h4, h5{
+    font-family:myFirstFont;
+}
+
+div.container{
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-areas:
+            "header header-title header-menu"
+            "content content content"
+            "footer footer footer";
+}
+
+div.header-title{
+    grid-area: header-title;
+    display: grid;
+    place-content: center;
+}
+
+div.header{
+    grid-area: header;
+    display: grid;
+    place-content: center;
+}
+
+div.header-menu{
+    grid-area: header-menu;
+    display: grid;
+    place-content: center;
+}
+
+div.content{
+    grid-area: content;
+    display: grid;
+    place-content: center;
+}
+
+div.footer{
+    grid-area: footer;
+    display: grid;
+    place-content: center;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 99%;
+    width: 99%;
+    margin: 0 auto;
+    display: grid;
+    align-self: stretch;
+}
+
+.content-image {
+    display: grid;
+    align-items: center;
+    align-content: center;
+    background: white;
+}
+
+.p {
+    width:100%;
+    height:100%;
+    position:absolute;
+    display: block;
+}
+
+.a {
+    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 50%, 70% 25%, 70% 0%);
+    left: 38%;
+    width: 15%;
+    top: 30%;
+    height: 40%;
+    animation:a 3s ;
+    animation-fill-mode: forwards;
+}
+
+.b {
+        height: 70%;
+        top: 0;
+        width: 38%;
+        background: white;
+        animation:a2 2s;
+        animation-delay: 1s;
+        animation-fill-mode: forwards;
+}
+
+.c {
+    clip-path: polygon(0% 0%, 0% 80%, 5% 88%, 15% 100%, 100% 100%, 100% 0%);
+    height: 70%;
+    top: 0;
+    width: 38%;
+    left: 50%;
+    background: white;
+    animation:a3 2s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.d {
+    height: 10%;
+    top: 80%;
+    width: 100%;
+    left: 0;
+    background: white;
+    animation:a4 1s;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.e {
+    height: 35%;
+    top: 20%;
+    width: 15%;
+    left: 75%;
+    background: white;
+    animation:a5 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes a {
+    from {
+        background: white;
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes a2 {
+    from {
+        left: 0;
+    }
+
+    to{
+        left: -100%;
+    }
+}
+
+@keyframes a3 {
+    from {
+        left: 50%;
+    }
+
+    to{
+        left: 200%;
+    }
+}
+
+@keyframes a4 {
+    from {
+        top: 80%;
+    }
+
+    to{
+        top: 90%;
+    }
+}
+
+@keyframes a5 {
+    from {
+        left: 75%;
+    }
+
+    to{
+        left: 150%;
+    }
+}
+
+
+
+.typewriter h4 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid black; /* The typewriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation:
+            typing 8s steps(60, end),
+            blink-caret .75s step-end infinite;
+    animation-delay: 3s;
+    width: 0;
+    border-color: transparent;
+    animation-fill-mode: forwards;
+}
+/* The typing effect */
+@keyframes typing {
+    from {}
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { }
+    50% { border-color: black; }
+}
