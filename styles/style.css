@@ -2,12 +2,23 @@
     font-family: myFirstFont;
     src: url(../fonts/tt_font.otf);
 }
+body {
+    position: relative;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+body,
+html { height: 100%;}
 
 h1, h2, h3, h4, h5{
     font-family:myFirstFont;
 }
 
 div.container{
+    height: 100%;
+    width: 100%;
     display: grid;
     align-self: stretch;
     grid-template-columns: 50px 1fr 50px;
@@ -179,19 +190,18 @@ body{
     }
 }
 
-
-
-.typewriter h4 {
+.typewriter h3 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid black; /* The typewriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
+    /*letter-spacing: .15em; !* set it if the element is H4*!*/
     animation:
-            typing 8s steps(60, end),
+            typing 6s steps(68, end),
             blink-caret .75s step-end infinite;
     animation-delay: 3s;
     width: 0;
+    float: left;
     border-color: transparent;
     animation-fill-mode: forwards;
 }
