@@ -41,6 +41,10 @@ div.header{
     place-content: center;
 }
 
+div.header img.logo {
+    width: 100px;
+}
+
 div.header-menu{
     grid-area: header-menu;
     display: grid;
@@ -48,9 +52,55 @@ div.header-menu{
 }
 
 div.content{
+    position: relative;
     grid-area: content;
     display: grid;
     place-content: center;
+}
+
+div.home-2-content div.card
+{
+    width: 70%;
+    position: relative;
+    left: -100%;
+}
+div.home-2-content div.card div.card-body {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 50px 1fr 30px;
+    grid-template-areas:
+            "card-header card-header"
+            "card-image card-content"
+            "card-footer card-footer";
+}
+.card-title{
+    grid-area: card-header;
+}
+.card-image{
+    grid-area: card-image;
+    display: grid;
+    align-self: stretch;
+    place-content: stretch;
+}
+.card-text{
+    grid-area: card-content;
+
+}
+.card-link{
+    grid-area: card-footer;
+    place-self: center;
+}
+
+
+
+div.home-2-content{
+    place-self: stretch;
+    position: relative;
+    grid-area: content;
+    display: grid;
+    grid-template-rows: 0.3fr 0.3fr 0.3fr;
+    grid-gap: 5px;
 }
 
 div.footer{
@@ -72,11 +122,19 @@ body{
     align-self: stretch;
 }
 
+
+/* Logo effect */
+
 .content-image {
+    position: relative;
     display: grid;
     align-items: center;
     align-content: center;
     background: white;
+}
+
+.logo-effect{
+    width: 100%; height: 100%
 }
 
 .p {
@@ -96,46 +154,46 @@ body{
     animation-fill-mode: forwards;
 }
 
-.b {
+.cr {
         height: 70%;
         top: 0;
         width: 38%;
         background: white;
-        animation:a2 2s;
+        animation:cr 2s;
         animation-delay: 1s;
         animation-fill-mode: forwards;
 }
 
-.c {
+.ft {
     clip-path: polygon(0% 0%, 0% 80%, 5% 88%, 15% 100%, 100% 100%, 100% 0%);
     height: 70%;
     top: 0;
     width: 38%;
     left: 50%;
     background: white;
-    animation:a3 2s;
+    animation:ft 2s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
 }
 
-.d {
+.it_makes_sense {
     height: 10%;
     top: 80%;
     width: 100%;
     left: 0;
     background: white;
-    animation:a4 1s;
+    animation:it_makes_sense 1s;
     animation-delay: 1.5s;
     animation-fill-mode: forwards;
 }
 
-.e {
+.red_circle {
     height: 35%;
     top: 20%;
     width: 15%;
     left: 75%;
     background: white;
-    animation:a5 2s;
+    animation:red_circle 2s;
     animation-delay: 2s;
     animation-fill-mode: forwards;
 }
@@ -150,7 +208,7 @@ body{
     }
 }
 
-@keyframes a2 {
+@keyframes cr {
     from {
         left: 0;
     }
@@ -160,7 +218,7 @@ body{
     }
 }
 
-@keyframes a3 {
+@keyframes ft {
     from {
         left: 50%;
     }
@@ -170,7 +228,7 @@ body{
     }
 }
 
-@keyframes a4 {
+@keyframes it_makes_sense {
     from {
         top: 80%;
     }
@@ -180,7 +238,7 @@ body{
     }
 }
 
-@keyframes a5 {
+@keyframes red_circle {
     from {
         left: 75%;
     }
@@ -188,6 +246,12 @@ body{
     to{
         left: 150%;
     }
+}
+/* Logo effect */
+
+/* Typing effect */
+.typewriter{
+    line-height: 30px; width: 735px
 }
 
 .typewriter h3 {
@@ -205,14 +269,52 @@ body{
     border-color: transparent;
     animation-fill-mode: forwards;
 }
-/* The typing effect */
+
 @keyframes typing {
     from {}
     to { width: 100% }
 }
 
-/* The typewriter cursor effect */
 @keyframes blink-caret {
     from, to { }
     50% { border-color: black; }
 }
+/* Typing effect */
+
+/*Arrow scrolling*/
+.btn-descubre{ opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);position: absolute; bottom: 5%; left: 50%;}
+.btn-descubre span, .btn-descubre-detalle span {display: block; color: rgba(256,256,256,.44);
+    font-size: 20px; margin-bottom: 20px; transition: all .3s;}
+.btn-descubre .arrow-down, .btn-descubre-detalle .arrow-down
+{
+    display: block; margin:0 auto;
+    opacity: 0;
+    animation: jump .6s linear alternate infinite;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+}
+.btn-descubre i.arrow-down{ font-size: 50px; }
+
+@keyframes jump {
+    from {
+        opacity: 1;
+        transform: translateY(0); -webkit-transform: translateY(0); -o-transform: translateY(0); -moz-transform: translateY(0);}
+    to {opacity:1; translateY(10px); -webkit-transform: translateY(10px); -o-transform: translateY(10px); -moz-transform: translateY(10px);}
+}
+
+/*Arrow scrolling*/
+
+/*Dot menu*/
+.dots {width: 10px;}
+.dot {height: 10px; margin-bottom: 25px;}
+.dots {position: absolute; top: 50%; right: 30px; width: 15px; z-index: 1000000; transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); -moz-transform: translateY(-50%);}
+.dot {display: block; width: 100%; position: relative; height: 15px; border:solid 2px #cc0000 ;
+    margin-bottom: 40px; cursor: pointer; transition: all .3s; border-radius: 50%;}
+.dot.active {border:solid 2px #000000 ; background-color: #000000 ;}
+.dot:hover {border:solid 2px #000000 ;}
+.dot:hover::before {opacity: 1 !important; right: 15px !important;}
+.dot:last-child {margin-bottom: 0;}
+.dot::before {content:attr(data-dot); position: absolute; top: -5px; right: 5px; white-space: nowrap;
+    padding: 5px 10px; border-radius: 5px; opacity: 0; color: #000000 ; font-size: 14px; text-transform: uppercase;
+    font-weight: 700; transition: all .3s;}

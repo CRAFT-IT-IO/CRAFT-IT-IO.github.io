@@ -24,4 +24,20 @@ $(document).ready(function () {
     $('[data-toggle="offcanvas"]').click(function () {
         $('#wrapper').toggleClass('toggled');
     });
+
+    // dot menu
+    $('[data-menu]:not(#btn-ag)').click(function(){
+        var sec = $(this).data('menu');
+        if(window.innerWidth > 800){
+            $('.dot').removeClass('active');
+            $(this).addClass('active');
+            $.scrollify.move('#'+sec);
+        } else {
+            $(this).addClass('active');
+            $('html, body').animate({scrollTop: ($('[data-section='+sec+']').offset().top)}, 1000);
+            $('.toggle-menu').removeClass('active');
+            $('.main-nav').slideUp();
+        }
+    });
+
 });
