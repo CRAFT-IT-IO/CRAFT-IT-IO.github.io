@@ -1,32 +1,75 @@
+@import "menu.css";
+@import "button.css";
+@import "dots.css";
+@import "home/logo-effects.css";
+@import "home/typing-effect.css";
+
 @font-face {
     font-family: myFirstFont;
     src: url(../fonts/tt_font.otf);
 }
+
+@font-face {
+    font-family: madeFutureXHeader;
+    src: url(../fonts/MADE_Future_X_HEADER_Regular.otf);
+}
+
 body {
     position: relative;
     overflow-x: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
+        margin: 0 auto;
+        align-self: stretch;
 }
+
+.hide{
+    display: none;
+}
+
+.colorBlack{
+    color: black !important;
+}
+
 body,
-html { height: 100%;}
+html { height: 100%; width: 100%}
+/*section{ padding-top: 50px; }*/
 
-h1, h2, h3, h4, h5{
-    font-family:myFirstFont;
+* { font-family:myFirstFont; }
+section.craft-it, div.craft-it{
+    padding-top: 100px;
 }
 
-div.container{
-    height: 100%;
+div.container {
+    padding: 0;
     width: 100%;
+}
+
+/*header */
+header{
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: white;
+    z-index: 1000000;
+}
+
+header .header-content{
+    height: 100%;
     display: grid;
-    align-self: stretch;
-    grid-template-columns: 50px 1fr 50px;
-    grid-template-rows: 100px 1fr 50px;
-    grid-template-areas:
-            "header header-title header-menu"
-            "content content content"
-            "footer footer footer";
+    place-content: center;
+    place-self: stretch;
+    grid-template-columns: 1fr 100px;
+    grid-template-rows: 1fr;
+    grid-template-areas: "header-logo header-menu";
+}
+
+div.header-logo{
+    grid-area: header-logo;
+    display: grid;
+    grid-template-columns: 0.3fr 0.7fr;
 }
 
 div.header-title{
@@ -35,14 +78,9 @@ div.header-title{
     place-content: center;
 }
 
-div.header{
-    grid-area: header;
-    display: grid;
-    place-content: center;
-}
-
-div.header img.logo {
-    width: 100px;
+div.header-logo img.logo {
+    width: 100%;
+    position: relative;
 }
 
 div.header-menu{
@@ -50,271 +88,137 @@ div.header-menu{
     display: grid;
     place-content: center;
 }
+/*header */
 
-div.content{
-    position: relative;
-    grid-area: content;
-    display: grid;
-    place-content: center;
-}
-
-div.home-2-content div.card
-{
-    width: 70%;
-    position: relative;
-    left: -100%;
-}
-div.home-2-content div.card div.card-body {
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-    display: grid;
-    grid-template-columns: 250px 1fr;
-    grid-template-rows: 50px 1fr 30px;
-    grid-template-areas:
-            "card-header card-header"
-            "card-image card-content"
-            "card-footer card-footer";
-}
-.card-title{
-    grid-area: card-header;
-}
-.card-image{
-    grid-area: card-image;
-    display: grid;
-    align-self: stretch;
-    place-content: stretch;
-}
-.card-text{
-    grid-area: card-content;
-
-}
-.card-link{
-    grid-area: card-footer;
-    place-self: center;
-}
-
-
-
-div.home-2-content{
-    place-self: stretch;
-    position: relative;
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 0.3fr 0.3fr 0.3fr;
-    grid-gap: 5px;
-}
 
 div.footer{
+    color: white;
     grid-area: footer;
     display: grid;
-    place-content: center;
+    background: black;
+    grid-template-rows: 1fr 100px 5px 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: ". . sloganright"
+    "sloganleft sloganleft sloganleft"
+    "footerseparator footerseparator footerseparator"
+    "footerendleft . footerendright";
 }
 
-html{
+div.footer-slogan-left{
+    grid-area: sloganleft;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 0.3fr 1fr 0.3fr 1fr 0.3fr;
+    grid-column-gap: 10px;
+    padding-left: 20px;
+}
+
+.footer-slogan-left img{
+    height: 50px; width: 50px;
+}
+
+.dream-stamp, .draft-stamp, .craft-stamp {
+    align-self: center;
+    justify-self: start;
+}
+
+.dream, .draft, .craft{
+    place-self: end;
+}
+
+.footer-slogan-right > *{
+display: block;
+}
+
+div.footer-slogan-left *{
+    font-family: madeFutureXHeader;
+    font-size: 40px;
+}
+
+div.footer-slogan-right{
+    grid-area: sloganright;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.3fr auto;
+}
+
+div.footer-slogan-right .info-content{
+    display: grid;
+    grid-template-rows: repeat(auto-fit, minmax(25px, 0.1fr));
+}
+
+div.footer-separator{
+    grid-area: footerseparator;
+    border-bottom: 2px solid gray;
+}
+div.footer-end-left{
+    grid-area: footerendleft;
+    place-self: center;
+}
+div.footer-end-right{
+    grid-area: footerendright;
+    align-self: center;
+    justify-self: end;
+}
+
+div.footer-end-right .buttons{
+    padding-right: 15px;
+}
+
+div.footer-end-right .buttons a{
+    color: unset;
+    text-decoration: none;
+}
+
+div.footer-end-right .buttons i.fa {
+    font-size: 20px;
+}
+
+.underline-effect {position: relative; color: white}
+.section-animated .underline-effect .back-color{
     height: 100%;
-    width: 100%;
-}
-
-body{
-    height: 99%;
-    width: 99%;
-    margin: 0 auto;
-    display: grid;
-    align-self: stretch;
-}
-
-
-/* Logo effect */
-
-.content-image {
-    position: relative;
-    display: grid;
-    align-items: center;
-    align-content: center;
-    background: white;
-}
-
-.logo-effect{
-    width: 100%; height: 100%
-}
-
-.p {
-    width:100%;
-    height:100%;
-    position:absolute;
-    display: block;
-}
-
-.a {
-    clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 50%, 70% 25%, 70% 0%);
-    left: 38%;
-    width: 15%;
-    top: 30%;
-    height: 40%;
-    animation:a 3s ;
-    animation-fill-mode: forwards;
-}
-
-.cr {
-        height: 70%;
-        top: 0;
-        width: 38%;
-        background: white;
-        animation:cr 2s;
-        animation-delay: 1s;
-        animation-fill-mode: forwards;
-}
-
-.ft {
-    clip-path: polygon(0% 0%, 0% 80%, 5% 88%, 15% 100%, 100% 100%, 100% 0%);
-    height: 70%;
-    top: 0;
-    width: 38%;
-    left: 50%;
-    background: white;
-    animation:ft 2s;
-    animation-delay: 1s;
-    animation-fill-mode: forwards;
-}
-
-.it_makes_sense {
-    height: 10%;
-    top: 80%;
-    width: 100%;
-    left: 0;
-    background: white;
-    animation:it_makes_sense 1s;
-    animation-delay: 1.5s;
-    animation-fill-mode: forwards;
-}
-
-.red_circle {
-    height: 35%;
-    top: 20%;
-    width: 15%;
-    left: 75%;
-    background: white;
-    animation:red_circle 2s;
-    animation-delay: 2s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes a {
-    from {
-        background: white;
-        opacity: 1;
-    }
-    to{
-        opacity: 0;
-    }
-}
-
-@keyframes cr {
-    from {
-        left: 0;
-    }
-
-    to{
-        left: -100%;
-    }
-}
-
-@keyframes ft {
-    from {
-        left: 50%;
-    }
-
-    to{
-        left: 200%;
-    }
-}
-
-@keyframes it_makes_sense {
-    from {
-        top: 80%;
-    }
-
-    to{
-        top: 90%;
-    }
-}
-
-@keyframes red_circle {
-    from {
-        left: 75%;
-    }
-
-    to{
-        left: 150%;
-    }
-}
-/* Logo effect */
-
-/* Typing effect */
-.typewriter{
-    line-height: 30px; width: 735px
-}
-
-.typewriter h3 {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid black; /* The typewriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    /*letter-spacing: .15em; !* set it if the element is H4*!*/
-    animation:
-            typing 6s steps(68, end),
-            blink-caret .75s step-end infinite;
-    animation-delay: 3s;
+    position: absolute;
+    left: -10%;
+    z-index: -1;
+    background-color: black;
     width: 0;
-    float: left;
-    border-color: transparent;
-    animation-fill-mode: forwards;
+    opacity: 0;
+    -webkit-animation: underlineEffet 2s ease 0.25s forwards;
+    -o-animation: underlineEffet 2s ease 0.25s forwards;
+    animation: underlineEffet 2s ease 0.25s forwards;
 }
 
-@keyframes typing {
-    from {}
-    to { width: 100% }
+@keyframes underlineEffet {
+    to { width: 120%;
+        opacity: 1; }
 }
-
-@keyframes blink-caret {
-    from, to { }
-    50% { border-color: black; }
-}
-/* Typing effect */
 
 /*Arrow scrolling*/
-.btn-descubre{ opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);position: absolute; bottom: 5%; left: 50%;}
-.btn-descubre span, .btn-descubre-detalle span {display: block; color: rgba(256,256,256,.44);
-    font-size: 20px; margin-bottom: 20px; transition: all .3s;}
-.btn-descubre .arrow-down, .btn-descubre-detalle .arrow-down
+.btn-next-page{
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    position: fixed;
+    bottom: 3%;
+    left: 50%;
+    z-index: 999999;
+}
+
+.btn-next-page .arrow-down
 {
     display: block; margin:0 auto;
     opacity: 0;
     animation: jump .6s linear alternate infinite;
-    animation-delay: 3s;
     animation-fill-mode: forwards;
 }
-.btn-descubre i.arrow-down{ font-size: 50px; }
+
+.btn-next-page i.arrow-down{ font-size: 30px; color: white;}
 
 @keyframes jump {
     from {
         opacity: 1;
-        transform: translateY(0); -webkit-transform: translateY(0); -o-transform: translateY(0); -moz-transform: translateY(0);}
-    to {opacity:1; translateY(10px); -webkit-transform: translateY(10px); -o-transform: translateY(10px); -moz-transform: translateY(10px);}
+        transform: translateY(0);
+    }
+    to {
+        opacity:1; transform: translateY(10px);
+    }
 }
-
 /*Arrow scrolling*/
-
-/*Dot menu*/
-.dots {width: 10px;}
-.dot {height: 10px; margin-bottom: 25px;}
-.dots {position: absolute; top: 50%; right: 30px; width: 15px; z-index: 1000000; transform: translateY(-50%);
-    -webkit-transform: translateY(-50%); -o-transform: translateY(-50%); -moz-transform: translateY(-50%);}
-.dot {display: block; width: 100%; position: relative; height: 15px; border:solid 2px #cc0000 ;
-    margin-bottom: 40px; cursor: pointer; transition: all .3s; border-radius: 50%;}
-.dot.active {border:solid 2px #000000 ; background-color: #000000 ;}
-.dot:hover {border:solid 2px #000000 ;}
-.dot:hover::before {opacity: 1 !important; right: 15px !important;}
-.dot:last-child {margin-bottom: 0;}
-.dot::before {content:attr(data-dot); position: absolute; top: -5px; right: 5px; white-space: nowrap;
-    padding: 5px 10px; border-radius: 5px; opacity: 0; color: #000000 ; font-size: 14px; text-transform: uppercase;
-    font-weight: 700; transition: all .3s;}

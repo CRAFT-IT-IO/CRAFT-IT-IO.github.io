@@ -1,0 +1,59 @@
+div.content{
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-content: center;
+}
+
+div.header-logo img.logo{
+    display: none;
+    left: 50%;
+}
+
+div.container{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr 300px;
+    grid-template-areas: ". content ." "console console console"
+}
+
+:is([data-section="home-part-4"], [data-section="home-part-3"]) div.container{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". content ."
+}
+:is([data-section="home-part-4"], [data-section="home-part-3"]) div.content{
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-content: center;
+    grid-gap: 15%;
+}
+
+[data-section="home-part-5"] div.container{
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr 0.5fr;
+    grid-template-areas: ". content ." "footer footer footer"
+}
+
+[data-section="home-part-5"] div.content{
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-content: center;
+    grid-gap: 10%;
+}

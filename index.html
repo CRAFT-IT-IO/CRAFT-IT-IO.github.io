@@ -4,127 +4,197 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel = "icon" href ="images/favicon.png" type = "image/x-icon">
-    <!-- Latest compiled and minified CSS -->
+    <link rel = "icon" href="images/favicon.png" type = "image/x-icon">
     <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollify.js"></script>
+
+    <script src="js/libs/jquery.scrollify.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
     <script src="js/menu/menu.js"></script>
+    <script src="js/menu/dot-menu.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" type="text/css" href="styles/menu.css">
+    <link rel="stylesheet" type="text/css" href="styles/home/home.css">
+    <link rel="stylesheet" type="text/css" href="styles/home/home2.css">
     <title>Craft IT</title>
     <style>
-
     </style>
 </head>
 <body>
-    <section class="craft-it" data-section="home" style="height: auto; visibility: visible;">
-                <div class="container">
-                    <div class="header">
-                        <img src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo" class="logo"/>
-                    </div>
-                    <div class="header-title">
-                        <h1> IT makes sense.</h1>
-                    </div>
-                    <div class="header-menu" id="wrapper">
-                        <div class="overlay"></div>
-                        <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-                            <span class="hamb-top"></span>
-                            <span class="hamb-middle"></span>
-                            <span class="hamb-bottom"></span>
-                        </button>
-                        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-                            <ul class="nav sidebar-nav">
-                                <li class="sidebar-brand">
-                                    <a href="index.html">Craft-IT</a>
-                                </li>
-                                <li>
-                                    <a href="./pages/consultance.html">Consultance</a>
-                                </li>
-                                <li>
-                                    <a href="./pages/moodys.html">Moody's</a>
-                                </li>
-                                <li>
-                                    <a href="./pages/about.html">About</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="content">
-                        <div class="content-image">
-                            <img class="logo-effect" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/>
-                            <div class="p a"></div>
-                            <div class="p cr"></div>
-                            <div class="p ft"></div>
-                            <div class="p it_makes_sense"></div>
-                            <div class="p red_circle"></div>
-                        </div>
-                        <div class="typewriter">
-                            <h3>A new innovative IT consulting company based on a crafter approach.</h3>
-                        </div>
-                        <div class="btn-descubre">
-                            <i class="arrow-down fa fa-chevron-down" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <!--                        Footer-->
-                    </div>
+<div class="dots">
+    <div class="dot active" data-menu="home"></div>
+    <div class="dot" data-menu="home-part-2"></div>
+    <div class="dot" data-menu="home-part-3"></div>
+    <div class="dot" data-menu="home-part-4"></div>
+    <div class="dot" data-menu="home-part-5"></div>
+</div>
+<div class="btn-next-page">
+    <i class="arrow-down fa fa-chevron-down" aria-hidden="true" alt="next-section"></i>
+</div>
+<header>
+    <div class="header-content">
+        <div class="header-logo">
+            <img src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo" class="logo"/>
+        </div>
+        <div class="header-menu" id="wrapper">
+            <div class="overlay hide"></div>
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+                <span class="hamb-top"></span>
+                <span class="hamb-middle"></span>
+                <span class="hamb-bottom"></span>
+            </button>
+            <nav class="navbar navbar-inverse navbar-fixed-top is-closed" id="sidebar-wrapper"  role="navigation">
+                <ul class="nav sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="index.html">Craft-IT</a>
+                    </li>
+                    <li>
+                        <a href="./pages/bespoken-solution.html">Bespoken Solution</a>
+                    </li>
+                    <li>
+                        <a href="pages/ma.html">Moody's Analytics</a>
+                    </li>
+                    <li>
+                        <a href="pages/craft-it-vision.html">Craft IT vision</a>
+                    </li>
+                    <!--                    <li>-->
+                    <!--                        <a href="pages/bespoken-solution.html">About</a>-->
+                    <!--                    </li>-->
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</header>
+<section class="craft-it" data-section="home" data-index="1" style="height: auto; visibility: visible;">
+    <div class="container">
+        <div class="content">
+            <div class="content-image">
+                <img class="logo-effect" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/>
+                <div class="p a"></div>
+                <div class="p cr"></div>
+                <div class="p ft"></div>
+                <div class="p it_makes_sense"></div>
+                <div class="p red_circle"></div>
+            </div>
+        </div>
+        <div class="typewriter">
+            <h3 class="message">/Craft-IT >&nbsp;&nbsp;An innovative IT consulting company based on a crafter approach.</h3>
+            <div class="cursor"></div>
+        </div>
+    </div>
+</section>
+<section class="craft-it" data-section="home-part-2" data-index="2" style="height: auto; visibility: visible;">
+    <div class="container-home-part-2">
+        <div class="title title-1" data-title="1">
+            <h1 class="title-1 part-1" >IT Solution</h1>
+            <img alt="Craft-IT stamp" class="stamp" src="images/favicon.png"/>
+            <h1 class="title-1 part-2">Factory</h1>
+        </div>
+        <div class="title title-2" data-title="2">
+            <h1 class="title-2 part-1">For Bespoken</h1>
+            <h1 class="title-2 part-2">Solution</h1>
+        </div>
+        <div class="title title-3" data-title="3">
+            <h1 class="title-3 part-1">In Risk</h1>
+            <h1 class="title-3 part-2">Management</h1>
+        </div>
+    </div>
+</section>
+<section class="craft-it" data-section="home-part-3" data-index="3" style="height: auto; visibility: visible;">
+    <div class="container">
+        <div class="content">
+            <h2 style="text-align: center; font-size: 50px; padding: 0 20px">
+                <span style="display: block;">It's up to the IT to adapt to your needs.</span>
+                <span class="underline-effect">
+                        <span class="text">Not you</span>
+                        <span class="back-color"></span>
+                    </span>
+            </h2>
+            <div style="text-align: center; padding: 0 20px">
+                    <span style="font-size: 25px;">Our IT Crafter team design and develop solutions tailored to your needs thanks to a bespoken
+                    approach and focusing on quality.<span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="craft-it" data-section="home-part-4" data-index="3" style="height: auto; visibility: visible;">
+    <div class="container">
+        <div class="content">
+            <h2 style="text-align: center; font-size: 50px; padding: 0 20px">
+                <span style="display: block;">In Partnership with.</span>
+                <span class="underline-effect">
+                        <span class="text">Moody's Analytics</span>
+                        <span class="back-color"></span>
+                    </span>
+            </h2>
+            <div style="text-align: center; padding: 0 20px">
+                    <span style="font-size: 25px;">
+                    Moody’s Analytics and CRAFT IT company announced their partnership to offer best-of-breed
+                        technology, implementation, and consulting solutions that help clients to respond to
+                        their financial and credit risk operational needs by providing first-class full
+                        services globally.
+                        </span>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="craft-it" data-section="home-part-5" data-index="3" style="height: auto; visibility: visible;">
+    <div class="container">
+        <div class="content">
+            <h2 style="text-align: center; font-size: 50px; padding: 0 20px">
+                <span style="display: block;">How is the </span>
+                <span class="underline-effect">
+                        <span class="text">crafter</span>
+                        <span class="back-color"></span>
+                    </span>
+                <span style="display: block;">approach different ?</span>
+            </h2>
+            <div style="text-align: center; padding: 0 20px">
+                <button class="find-out">
+                    <span class="arrow">Find out here</span>
+                </button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-slogan-left">
+                <span class="dream">DREAM</span>
+                <div class="dream-stamp">
+                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
                 </div>
-            </section>
-    <section class="craft-it" data-section="home-2" style="height: auto; visibility: visible;">
-                <div class="container">
-                    <div class="header">
-                        <img src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo" style="width:100px;" class="logo"/>
-                    </div>
-                    <div class="header-title"><h1>Title 2</h1></div>
-                    <div class="header-menu"></div>
-                    <div class="home-2-content">
-                            <div class="dots" style="opacity: 1; transform: matrix(1, 0, 0, 1, 0, -92.5);">
-                                <div class="dot active" data-menu="home" data-dot="home"></div>
-                                <div class="dot" data-menu="home-2" data-dot="moodys"></div>
-                                <div class="dot" data-menu="consultance" data-dot="consultance"></div>
-                                <div class="dot" data-menu="about" data-dot="about"></div>
-                            </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title"><h4>Panel title</h4></div>
-                                <div class="card-image"><img style="height: 100%; width: 100%" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/></div>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <a href="#!" class="card-link">Learn more...</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title"><h4>Panel title</h4></div>
-                                <div class="card-image"><img style="height: 100%; width: 100%" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/></div>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <a href="#!" class="card-link">Learn more...</a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-title"><h4>Panel title</h4></div>
-                                <div class="card-image"><img style="height: 100%; width: 100%" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/></div>
-                                <p class="card-text">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                </p>
-                                <a href="#!" class="card-link">Learn more...</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer">
-                        <h5> Dream it, draft it, craft it.</h5>
-                    </div>
+                <span class="draft">DRAFT</span>
+                <div class="draft-stamp">
+                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
                 </div>
-            </section>
+                <span class="craft">CRAFT</span>
+                <div class="craft-stamp">
+                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
+                </div>
+            </div>
+            <div class="footer-slogan-right">
+                <h2>Craft-IT SRL</h2>
+                <div class="info-content">
+                    <span>Avenue Louise 231</span>
+                    <span>1050 Brussels</span>
+                    <span>Belgium</span>
+                    <span>NN : xxx-xxxx-xx-x-x-x</span>
+                </div>
+            </div>
+            <div class="footer-separator"></div>
+            <div class="footer-end-left">
+                © <span class="footer-copyright"></span> Craft-IT. All rights reserved.
+            </div>
+            <div class="footer-end-right">
+                <div class="buttons">
+                    <a href="https://www.linkedin.com/company/craft-it-solution/" target=“_blank”>
+                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
