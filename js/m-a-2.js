@@ -126,19 +126,6 @@ function refreshBackColorNextbutton(currentIndex, lastPageIndex, currentSection)
     currentIndex == lastPageIndex ? nextIcon.hide() : nextIcon.show();
 }
 
-function refreshSelectionDotMenuItem(sectionName){
-    $('.dot').removeClass('active');
-    $('.dot[data-menu="' + sectionName +'"]').addClass('active');
-}
-
-function refreshSelectedSection(currentSection, currentIndex){
-    if(currentIndex == 0)
-        currentSection.addClass('animated');
-
-    $('.section-animated').removeClass('section-animated');
-    currentSection.addClass('section-animated');
-}
-
 function beforeScrollifyHomePage(index, sections){
     let currentSection = sections[index];
     let sectionName = currentSection.attr('data-section');
