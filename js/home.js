@@ -1,9 +1,4 @@
 $(function() {
-    /* redirect*/
-    $('.find-out').on('click', function(){
-        redirect('/pages/bespoken-solution.html');
-    });
-
     $('.header-logo .logo').click(function(){
         $.scrollify.move("#home");
     });

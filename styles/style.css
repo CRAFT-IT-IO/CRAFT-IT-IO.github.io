@@ -1,8 +1,11 @@
+@import "section.css";
 @import "menu.css";
 @import "button.css";
 @import "dots.css";
 @import "home/logo-effects.css";
-@import "home/typing-effect.css";
+@import "typing-effect.css";
+@import "tools/text-block.css";
+@import "tools/animation.css";
 
 @font-face {
     font-family: myFirstFont;
@@ -17,8 +20,8 @@
 body {
     position: relative;
     overflow-x: hidden;
-        margin: 0 auto;
-        align-self: stretch;
+    margin: 0 auto;
+    align-self: stretch;
 }
 
 .hide{
@@ -29,14 +32,9 @@ body {
     color: black !important;
 }
 
-body,
-html { height: 100%; width: 100%}
-/*section{ padding-top: 50px; }*/
+body, html { height: 100%; width: 100%; }
 
 * { font-family:myFirstFont; }
-section.craft-it, div.craft-it{
-    padding-top: 100px;
-}
 
 div.container {
     padding: 0;
@@ -174,24 +172,6 @@ div.footer-end-right .buttons i.fa {
     font-size: 20px;
 }
 
-.underline-effect {position: relative; color: white}
-.section-animated .underline-effect .back-color{
-    height: 100%;
-    position: absolute;
-    left: -10%;
-    z-index: -1;
-    background-color: black;
-    width: 0;
-    opacity: 0;
-    -webkit-animation: underlineEffet 2s ease 0.25s forwards;
-    -o-animation: underlineEffet 2s ease 0.25s forwards;
-    animation: underlineEffet 2s ease 0.25s forwards;
-}
-
-@keyframes underlineEffet {
-    to { width: 120%;
-        opacity: 1; }
-}
 
 /*Arrow scrolling*/
 .btn-next-page{
@@ -222,3 +202,7 @@ div.footer-end-right .buttons i.fa {
     }
 }
 /*Arrow scrolling*/
+
+.place-horizontal-contents *{
+    display: inline-block;
+}

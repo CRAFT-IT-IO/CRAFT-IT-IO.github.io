@@ -5,7 +5,9 @@ function initScrollify(callbacks, mainPage, section){
         sectionName : "section", // [data-section]
         scrollbars: false,
         scrollSpeed: 1500,
+        updateHash: false,
         easing: "easeOutExpo",
+        // interstitialSection: '.craft-it.footer, .footer',
         standardScrollElements : '.section-container, .dots',
         before: scrollifyBefore,
         after: callbacks.after,
@@ -13,21 +15,117 @@ function initScrollify(callbacks, mainPage, section){
         afterRender: callbacks.afterRender
     });
     scrollifyCallBacks = callbacks;
-    $.scrollify.move('#' + mainPage);
+    $.scrollify.move('#home');
 }
 
 $(window).on('wheel', function(e){
     let currentSection = $.scrollify.current();
-    let currentSectionName = $.scrollify.current().data('section');
 
+    if(currentSection == null)
+        return;;
+
+    let currentSectionName = $.scrollify.current().data('section');
     console.log('current section : ' + currentSectionName);
 
     if(!currentSection.is('.section-container'))
     return;
 
     let delta = getDelta(e);
-    subSectioncrolling(delta > 0 ? 0 : 2, currentSection, true);
+    let currentSectionIndex = $.scrollify.currentIndex();
+    subSectioncrolling(delta > 0 ? --currentSectionIndex : ++currentSectionIndex, currentSection, true);
 });
+/* Scrollify */
+var isScrolling = false;
+function subSectioncrolling(indexToDisplay, currentSection, changeSelection){
+    if(isScrolling)   return;
+
+    let subSectionIndex = $.scrollify.currentIndex();
+    let displayNextElt = indexToDisplay > subSectionIndex;
+    let subSections = currentSection.find('.sub-section');
+    let nbSubSections = subSections.length;
+
+    if(nbSubSections == 0)
+        return;
+
+    isScrolling = true;
+    let selectedSubSection = subSections.filter('.selected');
+    let currentSubSectionIndex = 0;
+
+    if(selectedSubSection.length == 0) {
+        selectedSubSection = $(subSections[0]);
+        selectedSubSection.addClass('selected');
+        displayNextElt = true;
+        currentSubSectionIndex = 1
+    }else{
+        currentSubSectionIndex = subSections.index(selectedSubSection) + 1;
+    }
+    let istoDown = true;
+    if(changeSelection) {
+        if (displayNextElt) {
+            istoDown = true;
+            ++currentSubSectionIndex;
+        } else {
+            istoDown = false;
+            --currentSubSectionIndex;
+        }
+    }
+
+    let oldSelection = selectedSubSection;
+    if(currentSubSectionIndex > 0 && currentSubSectionIndex <= nbSubSections) {
+        selectedSubSection.removeClass('selected');
+        selectedSubSection = $(subSections[currentSubSectionIndex - 1]);
+        selectedSubSection.addClass('selected');
+    }
+    else{
+        if(currentSubSectionIndex <= 0){
+            if($.scrollify.currentIndex() != 0)
+                $.scrollify.previous();
+        }
+        else if($.scrollify.currentIndex() != $('section.craft-it').length)
+            $.scrollify.next()
+
+        isScrolling = false;
+        return;
+    }
+
+    if(changeSelection) {
+        let container = currentSection.find('.sub-section-container');
+        let topPosition = 0;
+        console.log('current Index : ' + currentSubSectionIndex);
+        console.log('is to down : ' + istoDown);
+        if(istoDown)
+            topPosition = parseInt(container.css('top')) -(oldSelection.height() / 2);
+        else {
+            if(currentSubSectionIndex == 1)
+                topPosition = 0;
+            else
+                topPosition = parseInt(container.css('top')) + (oldSelection.height() / 2);
+        }
+
+        console.log(' new top : ' + topPosition);
+        // fake animate because transform property doesn't work with animate
+        container.animate({  top: topPosition + 'px'}, {
+            duration: 1000
+        });
+    }
+
+    subSections.find('*').css('opacity', 0.1);
+    subSections.find('img').css('opacity', 0);
+
+    selectedSubSection.find('*').not('img').animate(
+        {
+            'opacity': 1
+        }, 1000, function() {
+                isScrolling = false;
+        });
+
+    selectedSubSection.find('img').animate(
+        {
+            'opacity': 1
+        }, 2000, function() {
+            isScrolling = false;
+        });
+}
 
 function getDelta(e){
     let  value;
@@ -69,74 +167,6 @@ function refreshSelectedSection(currentSection, currentIndex){
     currentSection.addClass('section-animated');
 }
 
-/* Scrollify */
-var isScrolling = false;
-function subSectioncrolling(indexToDisplay, currentSection, changeSelection){
-    if(isScrolling)   return;
-
-    isScrolling = true;
-    let subSectionIndex = 1;
-    let displayNextElt = indexToDisplay > subSectionIndex;
-    let subSections = currentSection.find('.sub-section');
-    let nbSections = subSections.length;
-
-    if(nbSections == 0)
-        return;
-
-    let selectedSubSection = subSections.filter('.selected');
-    let currentSubSectionIndex = 0;
-
-    if(selectedSubSection.length == 0) {
-        selectedSubSection = $(subSections[0]);
-        selectedSubSection.addClass('selected');
-        displayNextElt = true;
-        currentSubSectionIndex = 1
-    }else{
-        currentSubSectionIndex = subSections.index(selectedSubSection) + 1;
-    }
-    if(changeSelection)
-        displayNextElt ? ++currentSubSectionIndex : --currentSubSectionIndex;
-
-    if(currentSubSectionIndex > 0 && currentSubSectionIndex <= nbSections) {
-        selectedSubSection.removeClass('selected');
-        selectedSubSection = $(subSections[currentSubSectionIndex - 1]);
-        selectedSubSection.addClass('selected');
-    }
-    else{
-        currentSubSectionIndex <= 0 ? $.scrollify.previous() : $.scrollify.next();
-        isScrolling = false;
-        return;
-    }
-    if(changeSelection) {
-        let topPosition = (currentSubSectionIndex - 1) * -20;
-        let container = currentSection.find('.sub-section-container');
-
-        // fake animate because transform property doesn't work with animate
-        container.animate({  top: topPosition + '%'}, {
-            duration: 1000
-        });
-    }
-
-    subSections.find('*').css('opacity', 0.1);
-    subSections.find('img').css('opacity', 0);
-
-    selectedSubSection.find('*').not('img').animate(
-        {
-            'opacity': 1
-        }, 1000, function() {
-            if(currentSubSectionIndex != 1)
-                isScrolling = false;
-        });
-
-    selectedSubSection.find('img').animate(
-        {
-            'opacity': 1
-        }, 2000, function() {
-            isScrolling = false;
-        });
-}
-
-
 function redirect(page){
     let overlay = $('.overlay');
     if(overlay.length == 0){
@@ -162,6 +192,17 @@ $(function() {
 
     $('.btn-next-page').on('click', function(){
         $.scrollify.next();
+    });
+
+    $('.find-out').on('click', function(e){
+        if($(this).data('move-to') != null) {
+            $.scrollify.move('#' + $(this).data('move-to'));
+            e.preventDefault();
+            return;
+        }
+
+        if($(this).data('redirect-to') != null)
+            redirect($(this).data('redirect-to'));
     });
 });
 

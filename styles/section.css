@@ -1,0 +1,66 @@
+section.craft-it, div.craft-it{
+    padding-top: 100px;
+    overflow: hidden;
+    display: flex;
+    place-self: stretch;
+    place-items: stretch;
+    height: 100%;
+    width: 100%;
+}
+
+.sub-section-container{
+    position: relative;
+    display: grid;
+    grid-gap: 50px;
+    top: 0;
+}
+
+.sub-section-container .sub-section:not(:first-child){
+    align-self: center;
+}
+
+/*section.craft-it .container{*/
+/*    display: grid;*/
+/*    place-content: stretch;*/
+/*    grid-template-rows: 1fr 0.4fr;*/
+/*    grid-template-areas: "content" "footer";*/
+/*}*/
+
+section.craft-it .container.with-console .content{
+    grid-area: content;
+    display: grid;
+    grid-template-rows: 200px 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "console" "main-content";
+}
+
+/* FOOTER */
+div.container div.footer{
+    grid-area: footer;
+}
+
+.craft-it .container.with-footer.with-console .content{
+    place-items: stretch;
+}
+
+.craft-it .container.with-footer{
+    display: grid;
+    place-content: stretch;
+    grid-template-rows: 1fr 0.4fr;
+    grid-template-areas: "content" "footer";
+}
+
+.craft-it .container.with-footer .content{
+    grid-area: content;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+    place-items: center;
+}
+
+/* titles */
+section.craft-it .container .content h2{
+    text-align: center;
+    font-size: 4vw;
+    padding: 0 20px
+}

@@ -1,45 +1,8 @@
-.bespoken-solution header .header-logo .logo { display: block; left: 0; }
-
-.craft-it:not(.ignore){
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
-
-section.craft-it.ignore, div.craft-it.ignore{
-    display: flex;
-    height: 40%;
-    width: 100%;
-}
-
-.craft-it .container.with-footer{
-    display: grid;
-    place-content: stretch;
-    grid-template-rows: 1fr 0.4fr;
-    grid-template-areas: "content" "footer";
-}
-
 .craft-it .container{
     display: grid;
     place-content: stretch;
     grid-template-rows: 1fr;
     grid-template-areas: "content";
-}
-
-.container .content{
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas: "content";
-}
-
- .container.with-console .content{
-    grid-area: content;
-    display: grid;
-    grid-template-rows: 200px 1fr;
-    grid-template-columns: 1fr;
-    grid-template-areas: "console" "content";
 }
 
 .main-content{
@@ -51,97 +14,8 @@ section.craft-it.ignore, div.craft-it.ignore{
     position: relative;
 }
 
-.footer{
-    grid-area: footer;
-}
-
 /* Typing effect */
-.typewriter{
-    margin-top: 20px;
-    grid-area: console;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    height: 150px;
-    background-color: #1a1a1a;
-    padding: 35px 25px;
-}
-.typewriter *{
-    display: inline-block;
-    color: white;
-}
-
-.typewriter .cursor{
-    width: 15px;
-    height: 25px;
-    animation:  blink-caret .75s step-end infinite;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-}
-
-.typewriter .message {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    float: left;
-    width: 0;
-    animation: typing 4.5s steps(78, end) forwards;
-}
-
-@keyframes typing {
-    from { width: 120px; }
-    25% { width: 120px;  }
-    to { width: 745px; }
-}
-
-@keyframes blink-caret {
-    from {    border-bottom: .15em solid white; }
-    50% { border-color: black; }
-    to {border-color: white; }
-}
-/* Typing effect */
-
-.underline-effect.back-color{
-    background-color: black;
-    -webkit-animation: underlineEffet 2s ease 4s forwards;
-    -o-animation: underlineEffet 2s ease 4s forwards;
-    animation: underlineEffet 2s ease 4s forwards;
-}
-
-@keyframes underlineEffet {
-    to { background-color: #C00E0E }
-}
-
-/* animations */
-
-.section-animated .main-content.from-right{
-    -webkit-animation: show-from-right 2s ease forwards;
-    -o-animation: show-from-right 2s ease forwards;
-    animation: show-from-right 2s ease forwards;
-}
-
-@keyframes show-from-right {
-    from {
-            /*left: 100%;*/
-            opacity: 0.2;
-    }
-    to {
-        /*left: 0;*/
-        opacity: 1;
-    }
-}
-
-.section-animated .main-content.from-left{
-    -webkit-animation: show-from-left 2s ease forwards;
-    -o-animation: show-from-left 2s ease  forwards;
-    animation: show-from-left 2s ease forwards;
-}
-
-@keyframes show-from-left {
-    from {
-        /*left: -100%;*/
-        opacity: 0.2;
-    }
-    to {
-        /*left: 0;*/
-        opacity: 1;
-    }
+.typewriter .message.credit-lens {
+    animation: typing 1.5s steps(15, end) forwards;
+    animation-delay: 2s;
 }

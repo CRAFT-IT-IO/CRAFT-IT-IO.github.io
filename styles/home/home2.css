@@ -17,76 +17,56 @@ div.container-home-part-2{
             ". title-3 .";
 }
 
-:is(.title-1, .title-2, .title-3) h1 {
-    font-size: 120px;
+:is(.title-1, .title-2, .title-3) h2 {
+    font-size: 85px;
     color: white;
+    padding-left: 20vw;
+    text-indent: -20vw;
+    margin-bottom: 6.25vw;
 }
 
 div.title-1{
     grid-area: title-1;
     display: grid;
     grid-template-columns: 1fr 250px;
-    grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
     "title-part1 stamp"
-    "title-part2 stamp";
-}
-
-div.title-1 .title-1.part-2{
-    grid-area: title-part2;
-    justify-self: end;
-    align-self: start;
 }
 
 div.title-1 .title-1.part-1{
     grid-area: title-part1;
-    align-self: end;
+    align-self: center;
 }
 
 div.title-1 img.stamp{
     grid-area: stamp;
-    place-self: center;
+    place-self: start;
 }
 
 div.title-2{
     grid-area: title-2;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
-    "title-2-part-1"
-    "title-2-part-2";
+    "title-2-part-1";
 }
 
 div.title-2 .title-2.part-1{
-    grid-area: title-2-part-1;
-    align-self: end;
-    justify-self: end;
-}
 
-div.title-2 .title-2.part-2{
-    grid-area: title-2-part-2;
-    justify-self: end;
-    align-self: start;
+    grid-area: title-2-part-1;
+    place-self: center;
 }
 
 div.title-3{
     grid-area: title-3;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0.5fr 0.5fr;
     grid-template-areas:
-    "title-3-part-1"
-    "title-3-part-2";
+    "title-3-part-1";
 }
 
 div.title-3 .title-3.part-1{
     grid-area: title-3-part-1;
-    align-self: end;
-}
-
-div.title-3 .title-3.part-2{
-    grid-area: title-3-part-2;
+    align-self: center;
     justify-self: end;
-    align-self: start;
 }

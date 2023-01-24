@@ -57,3 +57,7 @@ div.container{
     place-content: center;
     grid-gap: 10%;
 }
+
+.typewriter{
+    height: 300px;
+}

@@ -28,10 +28,10 @@ function checkVisibilityNextButton(currentIndex, sections){
 function refreshBackColorNextbutton(currentIndex, lastPageIndex, currentSection) {
     let nextIcon = $('.btn-next-page');
     nextIcon.find('i').removeClass('colorBlack');
-        let backgroundColor = currentSection.css('background-color');
-        if (backgroundColor == 'rgba(0, 0, 0, 0)' ||
-            backgroundColor == 'white')
-            nextIcon.find('i').addClass('colorBlack');
+    let backgroundColor = currentSection.css('background-color');
+    if (backgroundColor == 'rgba(0, 0, 0, 0)' ||
+        backgroundColor == 'white')
+        nextIcon.find('i').addClass('colorBlack');
 
     currentIndex == lastPageIndex ? nextIcon.hide() : nextIcon.show();
 }
