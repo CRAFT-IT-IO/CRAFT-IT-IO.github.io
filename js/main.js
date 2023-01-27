@@ -1,5 +1,11 @@
 var scrollifyCallBacks = { };
-function initScrollify(callbacks, mainPage, section){
+var scrollifyScrollAnimation
+function initScrollify(callbacks, mainPage, section, scrollAnimation){
+    if(scrollAnimation == null)
+        scrollAnimation = true;
+
+    scrollifyScrollAnimation = scrollAnimation;
+
     $.scrollify({
         section : section + '', // convert to string otherwise it thinks it is an object.
         sectionName : "section", // [data-section]
@@ -7,7 +13,7 @@ function initScrollify(callbacks, mainPage, section){
         scrollSpeed: 1500,
         updateHash: false,
         easing: "easeOutExpo",
-        // interstitialSection: '.craft-it.footer, .footer',
+        interstitialSection: '.craft-it.ignore',
         standardScrollElements : '.section-container, .dots',
         before: scrollifyBefore,
         after: callbacks.after,
@@ -18,19 +24,41 @@ function initScrollify(callbacks, mainPage, section){
     $.scrollify.move('#home');
 }
 
+function checkNextSection(delta){
+    let currentIndex = $.scrollify.currentIndex();
+
+    if(delta > 0){
+        $.scrollify.previous();
+        if(currentIndex == $.scrollify.currentIndex())
+            $.scrollify.next();
+    }else
+    {
+        $.scrollify.next();
+        if(currentIndex == $.scrollify.currentIndex())
+            $.scrollify.previous();
+    }
+}
+
 $(window).on('wheel', function(e){
+    console.log('wheel current : ' + $.scrollify.current());
     let currentSection = $.scrollify.current();
+    let delta = getDelta(e);
 
     if(currentSection == null)
-        return;;
+    {
+        checkNextSection(delta);
+        return;
+    }
 
     let currentSectionName = $.scrollify.current().data('section');
     console.log('current section : ' + currentSectionName);
 
     if(!currentSection.is('.section-container'))
-    return;
+    {
+        checkNextSection(delta);
+        return;
+    }
 
-    let delta = getDelta(e);
     let currentSectionIndex = $.scrollify.currentIndex();
     subSectioncrolling(delta > 0 ? --currentSectionIndex : ++currentSectionIndex, currentSection, true);
 });
@@ -93,25 +121,29 @@ function subSectioncrolling(indexToDisplay, currentSection, changeSelection){
         let topPosition = 0;
         console.log('current Index : ' + currentSubSectionIndex);
         console.log('is to down : ' + istoDown);
-        if(istoDown)
-            topPosition = parseInt(container.css('top')) -(oldSelection.height() / 2);
-        else {
-            if(currentSubSectionIndex == 1)
-                topPosition = 0;
-            else
-                topPosition = parseInt(container.css('top')) + (oldSelection.height() / 2);
-        }
+        if(scrollifyScrollAnimation) {
+            if (istoDown)
+                topPosition = parseInt(container.css('top')) - (oldSelection.height() * 0.75);
+            else {
+                if (currentSubSectionIndex == 1)
+                    topPosition = 0;
+                else
+                    topPosition = parseInt(container.css('top')) + (oldSelection.height() * 0.75);
+            }
 
-        console.log(' new top : ' + topPosition);
-        // fake animate because transform property doesn't work with animate
-        container.animate({  top: topPosition + 'px'}, {
-            duration: 1000
-        });
+            console.log(' new top : ' + topPosition);
+            // fake animate because transform property doesn't work with animate
+            container.animate({top: topPosition + 'px'}, {
+                duration: 1000
+            });
+        }
     }
 
-    subSections.find('*').css('opacity', 0.1);
+    subSections.removeClass('sub-section-animated');
+    subSections.find('*:not(.footer)').css('opacity', 0.7);
     subSections.find('img').css('opacity', 0);
 
+    selectedSubSection.addClass('sub-section-animated');
     selectedSubSection.find('*').not('img').animate(
         {
             'opacity': 1

@@ -4,46 +4,54 @@
 }
 
 div.container-home-part-2{
+    grid-gap: 0;
     position: relative;
     height: 100%;
     width: 100%;
     display: grid;
-    align-self: stretch;
+    place-items: stretch;
     grid-template-columns: 50px 1fr 50px;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr 0.5fr 1fr;
     grid-template-areas:
             ". title-1 ."
             ". title-2 ."
             ". title-3 .";
 }
 
-:is(.title-1, .title-2, .title-3) h2 {
+:is(.title-1, .title-2, .title-3) h2,
+:is(.title-1, .title-2, .title-3) p{
     font-size: 85px;
     color: white;
-    padding-left: 20vw;
-    text-indent: -20vw;
-    margin-bottom: 6.25vw;
+    /*padding-left: 20vw;*/
+    /*text-indent: -20vw;*/
+    /*margin-bottom: 6.25vw;*/
 }
 
 div.title-1{
     grid-area: title-1;
     display: grid;
-    grid-template-columns: 1fr 250px;
-    grid-template-areas:
-    "title-part1 stamp"
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: "stamp titleone";
 }
 
 div.title-1 .title-1.part-1{
-    grid-area: title-part1;
-    align-self: center;
+    font-family: madeFutureXHeader;
+    font-size: 9vw;
+    align-self: end;
 }
 
 div.title-1 img.stamp{
+    position: relative;
+    top: 15%;
+    width: 75%;
+    height: 30%;
     grid-area: stamp;
-    place-self: start;
+    align-self: center;
+    justify-self: end;
 }
 
 div.title-2{
+    justify-self: end;
     grid-area: title-2;
     display: grid;
     grid-template-columns: 1fr;
@@ -52,7 +60,6 @@ div.title-2{
 }
 
 div.title-2 .title-2.part-1{
-
     grid-area: title-2-part-1;
     place-self: center;
 }
@@ -65,8 +72,12 @@ div.title-3{
     "title-3-part-1";
 }
 
+.title.title-3.sub-section{
+    align-self: start;
+}
+
 div.title-3 .title-3.part-1{
     grid-area: title-3-part-1;
-    align-self: center;
-    justify-self: end;
+    align-self: start;
+    justify-self: start;
 }

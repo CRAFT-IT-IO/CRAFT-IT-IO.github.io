@@ -2,9 +2,9 @@
     grid-area: main-content;
     display: grid;
     place-self: stretch;
-    grid-template: 1fr 1fr 1fr / 1fr;
+    grid-template: 1fr / 1fr;
     padding: 0 100px;
-    place-items: center;
+    align-items: start;
 }
 
 .back-color-effect.back-color{
@@ -16,4 +16,16 @@
 
 @keyframes underlineEffet {
     to { background-color: #C00E0E }
+}
+
+.bespoken-solution .sub-section-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content repeat(2, 0.2fr);
+}
+
+div.footer{
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }

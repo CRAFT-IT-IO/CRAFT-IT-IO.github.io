@@ -17,6 +17,10 @@
     src: url(../fonts/MADE_Future_X_HEADER_Regular.otf);
 }
 
+.craft-it-font{
+    font-family: madeFutureXHeader;
+}
+
 body {
     position: relative;
     overflow-x: hidden;
@@ -191,6 +195,10 @@ div.footer-end-right .buttons i.fa {
 }
 
 .btn-next-page i.arrow-down{ font-size: 30px; color: white;}
+/* blue them*/
+.btn-next-page.blue i.arrow-down{ font-size: 30px; color: #0028A1;}
+/* white theme*/
+.btn-next-page.white i.arrow-down{ font-size: 30px; color: black;}
 
 @keyframes jump {
     from {

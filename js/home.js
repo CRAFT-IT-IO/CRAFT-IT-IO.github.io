@@ -36,16 +36,7 @@ function checkFirstAnimation(){
 
 function checkVisibilityNextButton(currentIndex, sections){
     let lastPageIndex = sections.length - 1;
-    let currentSection = sections [currentIndex];
     let nextIcon = $('.btn-next-page');
-
-    nextIcon.find('i').removeClass('colorBlack');
-    if(currentIndex != 0) {
-        let backgroundColor = currentSection.css('background-color');
-        if (backgroundColor == 'rgba(0, 0, 0, 0)' ||
-            backgroundColor == 'white')
-            nextIcon.find('i').addClass('colorBlack');
-    }
 
     currentIndex == lastPageIndex ? nextIcon.hide() : nextIcon.show();
 }
@@ -75,6 +66,17 @@ function beforeScrollifyHomePage(index, sections){
 
     checkVisibilityNextButton(index, sections, currentSection);
     checkvisibilityLogo(index);
+
+    let items = $('.dots, .btn-next-page');
+    items.removeClass(['black', 'blue']);
+    switch (currentSection.data('section')) {
+        case 'home-part-3':
+            items.addClass('black');
+            break;
+        case 'home-part-4':
+            items.addClass('blue');
+        break;
+    }
 
     return true;
 }

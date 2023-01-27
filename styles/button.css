@@ -2,8 +2,8 @@ button {
     display: inline-block;
     background-color: white;
     border-radius: 20px;
-    border: 0.5px solid #cccccc;
-    color: black;
+    border: 0.5px solid #C00E0E;
+    color: #C00E0E;
     text-align: center;
     font-size: 28px;
     padding: 20px;
@@ -16,11 +16,12 @@ button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
-    transition: 0.5s;
+    /*transition: 0.2s;*/
 }
 
 button.find-out:hover {
     background-color: #C00E0E;
+    color: white;
 }
 
 button:hover span:after {
