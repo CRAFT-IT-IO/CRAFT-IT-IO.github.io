@@ -1,8 +1,6 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,87 +11,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="js/libs/jquery.scrollify.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/home.js"></script>
     <script src="js/menu/menu.js"></script>
+    <script src="js/index/index.js"></script>
     <script src="js/menu/dot-menu.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" type="text/css" href="styles/home/home.css">
-    <link rel="stylesheet" type="text/css" href="styles/home/home2.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/index/index.css">
     <title>Craft IT</title>
     <style>
     </style>
 </head>
 <body>
-<div class="dots">
-    <div class="dot active" data-menu="home"></div>
-    <div class="dot" data-menu="home-part-2"></div>
-    <div class="dot" data-menu="home-part-3"></div>
-    <div class="dot" data-menu="home-part-4"></div>
-    <div class="dot" data-menu="home-part-5"></div>
-</div>
-<div class="btn-next-page">
-    <i class="arrow-down fa fa-chevron-down" aria-hidden="true" alt="next-section"></i>
-</div>
-<header>
-    <div class="header-content">
-        <div class="header-logo">
-            <img src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo" class="logo"/>
-        </div>
-        <div class="header-menu" id="wrapper">
-            <div class="overlay hide"></div>
-            <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
-                <span class="hamb-top"></span>
-                <span class="hamb-middle"></span>
-                <span class="hamb-bottom"></span>
-            </button>
-            <nav class="navbar navbar-inverse navbar-fixed-top is-closed" id="sidebar-wrapper"  role="navigation">
-                <ul class="nav sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="index.html">Craft-IT</a>
-                    </li>
-                    <li>
-                        <a href="./pages/bespoken-solution.html">Bespoken Solution</a>
-                    </li>
-                    <li>
-                        <a href="pages/ma.html">Moody's Analytics</a>
-                    </li>
-                    <li>
-                        <a href="pages/craft-it-vision.html">Craft IT vision</a>
-                    </li>
-                    <!--                    <li>-->
-                    <!--                        <a href="pages/bespoken-solution.html">About</a>-->
-                    <!--                    </li>-->
-                </ul>
-            </nav>
-        </div>
-    </div>
-
-</header>
-<section class="craft-it" data-section="home" data-index="1" style="height: auto; visibility: visible;">
-    <div class="container">
-        <div class="content">
-            <div class="content-image">
-                <img class="logo-effect" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/>
-                <div class="p a"></div>
-                <div class="p cr"></div>
-                <div class="p ft"></div>
-                <div class="p it_makes_sense"></div>
-                <div class="p red_circle"></div>
+<section class="craft-it section-animated animated" data-section="1" style="height: auto; visibility: visible;">
+        <div class="container">
+            <div class="content">
+                <div class="content-image">
+                    <img class="logo-effect" src="images/CRAFT-IT_Logo.svg" alt="Craft-IT logo"/>
+                    <div class="p a"></div>
+                    <div class="p cr"></div>
+                    <div class="p ft"></div>
+                    <div class="p it_makes_sense"></div>
+                    <div class="p red_circle"></div>
+                </div>
+            </div>
+            <div class="typewriter">
+                <div class="typewriter-content">
+                    <p class="message">/Craft-IT >&nbsp;&nbsp;An innovative IT consulting company based on a crafter approach.</p>
+                    <div class="cursor"></div>
+                </div>
             </div>
         </div>
-        <div class="typewriter">
-            <div class="typewriter-content">
-                <h3 class="message">/Craft-IT >&nbsp;&nbsp;An innovative IT consulting company based on a crafter approach.</h3>
-                <div class="cursor"></div>
-             </div>
-        </div>
-    </div>
 </section>
-<section class="craft-it section-container" data-section="home-part-2" style="height: auto; visibility: visible;">
+<section class="craft-it section-container" data-section="2" style="height: auto; visibility: visible;">
     <div class="container-home-part-2 sub-section-container">
         <div class="title title-1 sub-section" data-title="1">
             <img alt="Craft-IT stamp" class="stamp" src="images/favicon.png"/>
-            <p class="title-1 part-1">&nbsp;Lab</p>
+            <h2 class="title-1 part-1">&nbsp;Lab</h2>
         </div>
         <div class="title title-2 sub-section" data-title="2">
             <h2 class="title-2 part-1">Bespoken Solution</h2>
@@ -103,16 +55,15 @@
         </div>
     </div>
 </section>
-<section class="craft-it" data-section="home-part-3" data-index="3" style="height: auto; visibility: visible;">
+<section class="craft-it" data-section="3"style="height: auto; visibility: visible;">
     <div class="back-left  from-left"></div>
-    <div class="back-right from-right"></div>
+<!--    <div class="back-right from-right"></div>-->
     <div class="container">
         <div class="content">
             <h2>
                 <span style="display: block;">It's up to the IT to adapt to your needs.</span>
                 <span class="back-color-effect">
-                        <span class="text">Not you</span>
-                        <span class="back-color"></span>
+                        <strong class="highlight backBlack">Not you</strong>
                     </span>
             </h2>
             <div class="main-content from-bottom-opacity">
@@ -130,7 +81,7 @@
         </div>
     </div>
 </section>
-<section class="craft-it" data-section="home-part-4" data-index="3" style="height: auto; visibility: visible;">
+<section class="craft-it" data-section="4" style="height: auto; visibility: visible;">
     <div class="back-top  from-top"></div>
     <div class="back-bottom from-bottom"></div>
     <div class="container">
@@ -138,29 +89,27 @@
             <h2>
                 <span>In Partnership with</span>
                 <span class="back-color-effect">
-                        <span class="text">Moody's Analytics</span>
-                        <span class="back-color"></span>
-                    </span>
+                        <strong class="highlight backBlue">Moody's Analytics</strong>
+                </span>
             </h2>
-                <div class="main-content from-bottom-opacity">
-                    <p>
-                        Moody’s Analytics and <span class="craft-it-font">CRAFT IT</span> announced their partnership to offer best-of-breed
-                        technology, implementation, and consulting solutions that help clients to respond to
-                        their financial and credit risk operational needs by providing first-class full
-                        services globally.
-                    </p>
-                </div>
+            <div class="main-content from-bottom-opacity">
+                <p>
+                    Moody’s Analytics and <span class="craft-it-font">CRAFT IT</span> announced their partnership to offer best-of-breed
+                    technology, implementation, and consulting solutions that help clients to respond to
+                    their financial and credit risk operational needs by providing first-class full
+                    services globally.
+                </p>
+            </div>
         </div>
     </div>
 </section>
-<section class="craft-it" data-section="home-part-5" data-index="3" style="height: auto; visibility: visible;">
+<section class="craft-it" data-section="5" style="height: auto; visibility: visible;">
     <div class="container">
         <div class="content">
             <h2>
                 <span>How is the </span>
                 <span class="back-color-effect">
-                        <span class="text">crafter</span>
-                        <span class="back-color"></span>
+                        <strong class="highlight backBlack">crafter</strong>
                 </span>
                 <span>&nbsp;approach different ?</span>
             </h2>
@@ -174,24 +123,18 @@
             <div class="footer-slogan-left">
                 <span class="dream">DREAM</span>
                 <div class="dream-stamp">
-                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
+                    <span class="dream">IT</span>
                 </div>
                 <span class="draft">DRAFT</span>
                 <div class="draft-stamp">
-                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
+                    <span class="dream">IT</span>
                 </div>
                 <span class="craft">CRAFT</span>
                 <div class="craft-stamp">
-                    <img alt="Craft-IT stamp" src="images/favicon.png"/>
+                    <span class="dream">IT</span>
                 </div>
-            </div>
-            <div class="footer-slogan-right">
-                <h2>Craft-IT SRL</h2>
-                <div class="info-content">
-                    <span>Avenue Louise 231</span>
-                    <span>1050 Brussels</span>
-                    <span>Belgium</span>
-                    <span>NN : xxx-xxxx-xx-x-x-x</span>
+                <div class="footer-logo">
+                    <img src="images/CRAFT-IT_Logo+Tag_White+Red_negatif.png" alt="Craft-IT logo" class="logo"/>
                 </div>
             </div>
             <div class="footer-separator"></div>
@@ -200,9 +143,9 @@
             </div>
             <div class="footer-end-right">
                 <div class="buttons">
-                    <a href="https://www.linkedin.com/company/craft-it-solution/" target=“_blank”>
-                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
-                    </a>
+<!--                    <a href="https://www.linkedin.com/company/craft-it-solution/" target=“_blank”>-->
+<!--                        <i class="fa fa-linkedin-square" aria-hidden="true"></i>-->
+<!--                    </a>-->
                 </div>
             </div>
         </div>

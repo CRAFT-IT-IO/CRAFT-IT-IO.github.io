@@ -1,0 +1,59 @@
+.intro {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    display: flex;
+    z-index: 9999999999;
+}
+
+div.container {
+    background-color: white;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". content ."
+}
+
+div.content {
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-self: center;
+    place-content: center;
+    background-color: blue;
+}
+
+.content-image {
+    position: relative;
+    display: grid;
+    align-items: center;
+    align-content: center;
+    background: white;
+    width: 60vw;
+    height: 50vw;
+}
+
+    .content-image * {
+        font-family: madeFutureXHeader;
+        font-size: 8vw;
+    }
+
+    .content-image div:not(.ignore) {
+        position: absolute;
+    }
+
+.it {
+    right: 0;
+    z-index: 5;
+}
+
+.dream, .draft, .craft {
+    left: 1vw;
+    width: 100%;
+    background-color: white;
+}

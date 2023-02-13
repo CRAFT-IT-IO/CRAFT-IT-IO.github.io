@@ -18,14 +18,63 @@
     to { background-color: #C00E0E }
 }
 
-.bespoken-solution .sub-section-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: min-content repeat(2, 0.2fr);
+div.container{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr 0.2fr;
+    grid-template-areas:
+        ". content ."
+        "footer footer footer";
+}
+
+div.container div.content{
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 90px 0.4fr 0.4fr 0.2fr;
+    grid-template-areas:
+        ". . ."
+        ". title ."
+        ". message ."
+        ". approach .";
+}
+
+.craft-a{
+    position: absolute;
+    rotate: 90deg;
+    font-family: madeFutureXHeader;
+    font-size: 4vw;
+}
+
+div.title{
+    grid-area: title;
+}
+
+div.message{
+    grid-area: message;
+}
+
+div.approach{
+    grid-area: approach;
 }
 
 div.footer{
+    position: relative;
+}
 
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+section.craft-it .container .content h2 {
+    text-align: center;
+    font-size: 4vw;
+    padding: 0 20px;
+}
+
+div.content {
+    position: relative;
+    grid-area: content;
+    display: grid;
+    /*place-items: center;*/
 }

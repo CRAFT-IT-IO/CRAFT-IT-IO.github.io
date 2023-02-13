@@ -1,0 +1,249 @@
+@import "index-logo-effect.css";
+@import "typing-effect.css";
+
+.section {
+    display: flex;
+    place-self: stretch;
+}
+
+div.content {
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-content: center;
+}
+
+div.header-logo img.logo {
+    display: none;
+    left: 50%;
+}
+
+div.container {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr 0.3fr;
+    grid-template-areas: ". content ." "console console console"
+}
+
+.typewriter {
+    height: 100%;
+}
+
+/* part 2 */
+
+[data-section="2"] {
+    background-color: black;
+    overflow: hidden;
+}
+
+div.container-home-part-2 {
+    grid-gap: 0;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    /*place-items: stretch;*/
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 80px 0.3fr 0.3fr 0.3fr; /*0.5fr 0.5fr 0.5fr;*/
+    grid-template-areas:
+        ". . ."
+        ". title-1 ."
+        ". title-2 ."
+        ". title-3 .";
+}
+
+:is(.title-1, .title-2, .title-3) h2,
+:is(.title-1, .title-2, .title-3) p {
+    font-size: 8vw;
+    color: white;
+}
+
+div.title-1 {
+    grid-area: title-1;
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: "stamp titleone";
+}
+
+    div.title-1 .title-1.part-1 {
+        font-family: madeFutureXHeader;
+        font-size: 9vw;
+        align-self: end;
+    }
+
+    div.title-1 img.stamp {
+        position: relative;
+        top: 10%;
+        width: 100%;
+        height: 50%;
+        grid-area: stamp;
+        align-self: center;
+        justify-self: end;
+    }
+
+div.title-2 {
+    justify-self: end;
+    grid-area: title-2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "title-2-part-1";
+}
+
+    div.title-2 .title-2.part-1 {
+        grid-area: title-2-part-1;
+        place-self: center;
+    }
+
+div.title-3 {
+    grid-area: title-3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "title-3-part-1";
+}
+
+.title.title-3.sub-section {
+    align-self: start;
+}
+
+div.title-3 .title-3.part-1 {
+    grid-area: title-3-part-1;
+    align-self: start;
+    justify-self: start;
+}
+
+/* 3D */
+/*.sub-section-animated h2 {
+    text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191, 1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191, 1px 7px 1px #919191, 1px 8px 1px #919191, 1px 9px 1px #919191, 1px 10px 1px #919191, 1px 18px 6px rgba(16,16,16,0.4), 1px 22px 10px rgba(16,16,16,0.2), 1px 25px 35px rgba(16,16,16,0.2), 1px 30px 60px rgba(16,16,16,0.4);
+    transition: all ease 0.2s;
+}*/
+
+.sub-section-animated h2 {
+    background-image: linear-gradient( -225deg, #ef2a2a 0%, #C00E0E 29%, #8e0b0b 67%, #f8a0a0 100% );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear forwards;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+/* Part 3 */
+/* titles */
+section.craft-it[data-section="3"] .container .content h2,
+section.craft-it[data-section="4"] .container .content h2,
+section.craft-it[data-section="5"] .container .content h2 {
+    text-align: center;
+    font-size: 4vw;
+    padding: 0 20px
+}
+
+
+section.section-animated[data-section="3"] {
+    color: white;
+}
+
+    section.section-animated[data-section="3"] .back-left {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient( -225deg, #ef2a2a 0%, #C00E0E 29%, #f14141 200% );
+        /*background-color: #C00E0E;*/
+        z-index: -10;
+    }
+
+    section.section-animated[data-section="3"] .back-right {
+        z-index: -10;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: #C00E0E;
+    }
+
+:is([data-section="4"], [data-section="3"]) div.container {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". content ."
+}
+
+:is([data-section="4"], [data-section="3"]) div.content {
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-content: center;
+    grid-gap: 5%;
+}
+
+
+section.section-animated[data-section="4"] {
+    color: white;
+}
+
+    section.section-animated[data-section="4"] .back-color {
+        background-color: #0028A1;
+    }
+
+    section.section-animated[data-section="4"] .back-left,
+    section.section-animated[data-section="4"] .back-right,
+    section.section-animated[data-section="4"] .back-top,
+    section.section-animated[data-section="4"] .back-bottom {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: -10;
+    }
+
+[data-section="5"] div.container {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    align-self: stretch;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 1fr 0.2fr;
+    grid-template-areas: ". content ." "footer footer footer"
+}
+
+[data-section="5"] div.content {
+    position: relative;
+    grid-area: content;
+    display: grid;
+    place-items: center;
+    grid-gap: 10%;
+}
+
+[data-section="5"].section-animated div.content .find-out {
+    opacity: 0;
+    -webkit-animation: show-button 2s ease 1s forwards;
+    -o-animation: show-button 2s ease 1s forwards;
+    animation: show-button 2s ease 1s forwards;
+}
+
+[data-section="5"] div.container div.footer {
+    grid-area: footer;
+    position: relative;
+}
+
+@keyframes show-button {
+    to {
+        opacity: 1;
+    }
+}

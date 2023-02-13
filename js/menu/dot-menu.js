@@ -2,10 +2,9 @@ $(document).ready(function () {
     if($.scrollify == undefined)
         return;
 
-    let dotsMenu = $('div.dots');
-    dotsMenu.find('[data-menu]').on('click', function(){
+    $(document).on('click', 'div.dots [data-menu]', function(){
+        $('div.dots .dot').removeClass('active');
         var sectionName = $(this).data('menu');
-        dotsMenu.find('.dot').removeClass('active');
         $(this).addClass('active');
 
         $.scrollify.move('#'+sectionName);
