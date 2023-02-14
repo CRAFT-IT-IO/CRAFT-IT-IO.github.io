@@ -1,4 +1,7 @@
 $(function () {
+    if ($.scrollify)
+        $.scrollify.destroy();
+
     addHeader();
     addLiteFooter();
 
@@ -36,17 +39,26 @@ function initScrollify(callbacks, mainPage, section, scrollAnimation) {
         scrollbars: false,
         scrollSpeed: 1500,
         updateHash: false,
-        easing: "easeOutExpo",
-        interstitialSection: '.craft-it.ignore',
-        standardScrollElements: '.section-container, .dots',
+        //easing: "easeOutExpo",
+        //interstitialSection: '.craft-it.ignore',
+        //standardScrollElements: '.section-container, .dots',
         before: scrollifyBefore,
-        after: callbacks.after,
-        afterResize: callbacks.afterResize,
-        afterRender: callbacks.afterRender
+        offset: 0,
+        setHeights: true,
+        overflowScroll: true,
+        touchScroll: true,
+        //after: callbacks.after,
+        //afterResize: callbacks.afterResize,
+        //afterRender: callbacks.afterRender
     });
     scrollifyCallBacks = callbacks;
-    $.scrollify.move('#home');
+    //$.scrollify.move('#home');
 }
+
+$(window).bind('beforeunload', function () {
+    if ($.scrollify)    
+        $.scrollify.destroy();
+});
 
 function checkNextSection(delta) {
     let currentIndex = $.scrollify.currentIndex();

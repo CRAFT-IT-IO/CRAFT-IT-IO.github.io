@@ -6,6 +6,7 @@
 @import "typing-effect.css";
 @import "tools/text-block.css";
 @import "tools/animation.css";
+@import "color.css";
 
 @font-face {
     font-family: myFirstFont;

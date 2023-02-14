@@ -1,4 +1,6 @@
 /*Dot menu*/
+@import "color.css";
+
 .dot {
     height: 10px;
     margin-bottom: 25px;
@@ -15,9 +17,11 @@
 }
 
 .dot {display: block; width: 100%; position: relative;
-    height: 10px; border:solid 2px #C00E0E ;
+    height: 10px; border:solid 2px var(--red) ;
     margin-bottom: 40px; cursor: pointer; transition: all .3s; border-radius: 50%;}
-.dot.active { background-color: #C00E0E ;}
+    .dot.active {
+        background-color: var(--red);
+    }
 .dot:hover { width: 150%; height: 15px;}
 .dot:hover::before {opacity: 1 !important; right: 15px !important;}
 .dot:last-child {margin-bottom: 0;}
