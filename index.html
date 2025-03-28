@@ -1,353 +1,276 @@
 <!DOCTYPE html>
-<html ⚡ lang="en">
+<html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-5KR7MC3');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
-    <title>Craft IT</title>
-    <!--<meta name="description" content="Craft IT I.T. Workshop for bespoken solution in risk management. We craft the I.T. solution that perfectly fits your business, prerequisites and expectations." />-->
-    <meta name="description" content="CRAFT IT believes it's up to the I.T. to adapt to your needs. Not you. " />
-    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
-    <meta name="googlebot" content="notranslate">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="8x05kCVCTZcoLGwM08EE4lTfe3KeIEP3s8flHMOIGsQ" />
-    <link rel="canonical" href="https://www.craft-it.io/">
+	<title>craft it — Crafting reliable solutions for resilient growth</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Professional consulting services to navigate complex challenges in IT and risk management.">
+	<meta name="googlebot" content="notranslate">
 
-    <link rel="alternate" hreflang="en" href="https://www.craft-it.io/" />
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <script src="js/animations/logo.js"></script>
-    <script src="js/animations/logo_dot.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/index/index.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/dots.css">
-    <script>
-        $(document).ready(function () {
-            $('.dot').on('click', function (e) {
-                let target = $(e.target);
-                let currentIndex = $(target).data('index');
-                if (currentIndex == null || currentIndex <= 0)
-                    currentIndex = 0;
+	<!-- Favicons -->
+	<link rel="icon" href="./resources/assets/favicon.svg" type="image/svg+xml">
 
-                if (target.is('.active'))
-                    return;
-                footerAnimation(null, currentIndex);
-            });
-        });
-    </script>
-    <style>
+	<!-- Canonical and hreflang -->
+	<link rel="canonical" href="https://www.craft-it.io/">
+	<link rel="alternate" hreflang="en" href="https://www.craft-it.io/">
 
-        :root {
-            --color-menu-item: var(--black);
-            --color-menu-item-hover: var(--black);
-            --text-color: var(--white);
-        }
+	<!-- CSS Stylesheets -->
+	<link rel="stylesheet" href="resources/styles/reset.css">
+	<link rel="stylesheet" href="resources/styles/index.css">
+	<link rel="stylesheet" href="resources/styles/header.css">
 
-        /*Arrow scrolling*/
-        .btn-next-page {
-            transform: matrix(1, 0, 0, 1, 0, 0);
-            z-index: 999999;
-            position: absolute;
-            bottom: 1%;
-            left: calc(50% - 25px);
-        }
+	<!-- Social Media Meta Tags -->
+	<meta property="og:title" content="craft it — Crafting resilience with precision">
+	<meta property="og:description" content="Professional consulting services to navigate complex digital challenges and risk management">
+	<meta property="og:image" content="./resources/assets/og-banner.jpg">
+	<meta property="og:url" content="https://www.craft-it.io/">
+	<meta property="og:type" content="website">
 
-            .btn-next-page .arrow-down {
-                display: block;
-                margin: 0 auto;
-                opacity: 0;
-                animation: jump .6s linear alternate infinite;
-                animation-fill-mode: forwards;
-            }
+	<meta name="twitter:card" content="">
+	<meta name="twitter:title" content="craft it — Crafting resilience with precision">
+	<meta name="twitter:description" content="Professional consulting services to navigate complex digital challenges and risk management">
+	<meta name="twitter:image" content="./resources/assets/favicon.svg">
 
-            .btn-next-page i.arrow-down {
-                font-size: 50px;
-                color: white;
-                cursor: pointer;
-            }
-
-        @keyframes jump {
-            from {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(10px);
-            }
-        }
-        /*Arrow scrolling*/
-
-        div.container {
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            display: grid;
-            align-self: stretch;
-            grid-template-columns: 0.2fr 1fr 0.2fr;
-            grid-template-rows: 1fr;
-            grid-template-areas: ". content .";
-        }
-
-        div.content {
-            position: relative;
-            grid-area: content;
-            display: grid;
-            place-content: center;
-            grid-template-rows: 1fr;
-            grid-template-columns: 1fr;
-            place-items: center;
-            justify-items: start;
-            align-items: center;
-        }
-
-        .content-menu {
-            width: 100%;
-        }
-
-        .footer-item {
-            position: absolute;
-            width: 90%;
-            margin-left: 5%;
-        }
-
-        :is(.dream, .draft, .craft) img {
-            width: 80%;
-            min-width: 130px;
-        }
-
-        .text {
-            padding-top: 2vw;
-        }
-
-        .dream, .draft, .craft {
-            top: 315%;
-        }
-
-        .dream {
-            width: 25%;
-        }
-
-        .draft {
-            left: 42%;
-            width: 21%;
-            margin-left: 0;
-        }
-
-        .craft {
-            left: 71%;
-            width: 20%;
-        }
-
-        .menu-item-arrow {
-            display: none;
-        }
-
-        .not-you {
-            opacity: 0;
-            animation: notYou 1s ease 1s forwards;
-        }
-
-        @keyframes notYou {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /*   NEW */
-        logo-loading {
-            position: fixed;
-            display: grid;
-            place-self: stretch;
-            width: 100%;
-            height: 70%;
-            place-content: center;
-        }
-
-        @media only screen and (max-width: 1000px) {
-            logo-loading {
-                height: 50%;
-            }
-
-            .craft-footer {
-                height: 60%;
-                bottom: -60%;
-            }
-        }
-
-        @media only screen and (max-width: 980px), (max-height: 600px) {
-
-            .dots {
-                display: none;
-            }
-
-            .footer-item {
-                position: relative;
-            }
-
-                .footer-item[animation-index="0"] {
-                    font-size: 20px !important;
-                }
-
-                .footer-item.button h1 {
-                    font-size: 30px !important;
-                }
-
-
-            :is(.dream, .draft, .craft) img {
-                width: 80%;
-                min-width: 130px;
-            }
-
-            .dream, .draft, .craft {
-                left: 10%;
-                width: 80%;
-                margin-left: 0;
-            }
-
-            .draft, .craft {
-                padding-top: 30px;
-            }
-
-            .footer-container {
-                overflow-y: auto;
-                overflow-x: hidden;
-            }
-
-            section.craft-it {
-                overflow: hidden;
-            }
-
-            .btn-next-page {
-                display: none;
-            }
-
-            .footer-item.button {
-                height: 80%;
-            }
-        }
-    </style>
 </head>
-
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KR7MC3"
-                height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <section class="craft-it">
-        <logo-loading>
-            <div class="p logo-effect-container animated" style="">
-                <div class="content-image">
-                    <img class="logo-effect" src="images/logo/CRAFT-IT_Logo_Craft-IT_BASELINE.svg" alt="Craft-It Logo">
-                    <div class="p letter_a"></div>
-                    <div class="p cr"></div>
-                    <div class="p ft"></div>
-                    <div class="p it_makes_sense"></div>
-                    <div class="p red_circle"></div>
-                </div>
+	<header>
+		<div class="header-container">
+
+			<div class="hero-logo">
+				<a href="index.html">
+
+					<svg width="152" height="33" viewBox="0 0 152 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M35.9277 11.5091V6.18972C35.9277 2.88082 33.2471 0.200195 29.9382 0.200195H6.1476C2.8387 0.200195 0.199951 2.88082 0.199951 6.14784V26.2107C0.199951 29.5196 2.88058 32.2002 6.18948 32.2002H29.9382C33.2471 32.2002 35.9696 29.5196 35.9696 26.1688V20.8494H30.0219V26.1688H6.1476V6.14784H30.0219V11.4672L35.9277 11.5091Z" fill="#EF3340"/>
+						<path d="M44.891 32.2002H50.8386V10.2944H44.891V32.2002Z" fill="#EF3340"/>
+						<path d="M44.8491 0.200195H38.9015V10.2944H44.8491V0.200195Z" fill="#EF3340"/>
+						<path d="M75.7183 25.3732C75.0062 26.2109 74.0429 26.6297 72.8282 26.6297H69.6869C68.4303 26.6297 67.4251 26.2109 66.6712 25.415C65.9172 24.6192 65.4984 23.5302 65.4984 22.1899V16.7449C65.4984 15.2789 65.8754 14.148 66.6293 13.2266C67.3832 12.347 68.3884 11.8862 69.645 11.8862H72.7863C73.9591 11.8862 74.8806 12.2213 75.5926 12.8496C76.3047 13.4779 76.6398 14.3574 76.6398 15.3627H79.3204C79.3204 13.6035 78.734 12.1376 77.5193 11.0485C76.3466 9.95954 74.7549 9.41504 72.7863 9.41504H69.645C67.5926 9.41504 65.9172 10.0852 64.6607 11.4255C63.4042 12.7658 62.7759 14.525 62.7759 16.703V22.148C62.7759 24.2423 63.4042 25.9177 64.6607 27.1742C65.9172 28.4307 67.5926 29.059 69.6869 29.059H72.8282C74.7968 29.059 76.3884 28.4307 77.645 27.1323C78.8596 25.8339 79.4879 24.1166 79.4879 22.0224H76.7654C76.8073 23.4046 76.3884 24.5355 75.7183 25.3732Z" fill="#201D1B"/>
+						<path d="M100.221 9.8335C96.3257 9.8335 92.6817 11.5508 92.556 15.9487H95.2367C95.3623 13.0167 97.8754 12.2209 100.221 12.2209C102.943 12.2209 104.535 13.0586 104.535 15.4042V16.8701L98.5456 18.0848C94.3152 18.9225 91.844 20.556 91.844 23.823C91.844 27.2157 94.3152 29.2262 98.4199 29.2262C100.724 29.2262 102.985 28.4304 104.577 26.2105V28.8073H107.048V15.1948C107.09 11.9277 104.912 9.8335 100.221 9.8335ZM104.493 21.3099C104.493 25.1633 101.519 26.8387 98.5456 26.8387C95.8231 26.8387 94.6503 25.5403 94.6503 23.7393C94.6503 21.5612 96.2838 20.933 98.9225 20.3466L104.493 19.1738V21.3099Z" fill="#201D1B"/>
+						<path d="M124.933 4.59791H122.252V10.2942H113.833V7.69739C113.833 6.23142 114.378 5.51938 115.844 5.51938H118.902V3.17383H115.383C112.158 3.17383 111.153 4.6398 111.153 7.4042V10.2942H107.718V12.6398H111.153V28.7655H113.833V12.6398H122.252V24.5351C122.252 27.2995 123.258 28.7655 126.483 28.7655H130.001V26.4199H126.943C125.436 26.4199 124.933 25.7079 124.933 24.2419V12.6398H130.001V10.2942H124.933V4.59791Z" fill="#201D1B"/>
+						<path d="M139.635 10.2944H136.912V28.7656H139.635V10.2944Z" fill="#201D1B"/>
+						<path d="M139.635 4.59814H136.912V7.94893H139.635V4.59814Z" fill="#201D1B"/>
+						<path d="M151.697 12.64V10.2945H146.629V4.59814H143.949V10.2945H140.514V12.64H143.949V24.5353C143.949 27.2997 144.954 28.7657 148.179 28.7657H151.697V26.4201H148.64C147.132 26.4201 146.629 25.7081 146.629 24.2421V12.64H151.697Z" fill="#201D1B"/>
+						<path d="M80.912 14.5247V28.7655H83.5926V14.776C83.5926 13.31 84.1371 12.598 85.6031 12.598H91.1738V10.2524H85.1424C81.8753 10.2943 80.912 11.7184 80.912 14.5247Z" fill="#201D1B"/>
+					</svg>
+
+				</a>
+			</div>
+
+			
+			<div class="baseline">
+				Crafting resilience</br>with precision
+			</div>
+			<div class="menu">
+				<div class="menu-container">
+					<div class="menu-label">MENU</div>
+					<div class="menu-item-selected">
+						<p class="toggle-menu">Home</p>
+						<img class="arrow-back" src="./resources/assets/arrow_back.svg" alt="">
+					</div>
+					<div class="menu-items m-item-1" id="menuItems">
+						<a href="banking-services.html">Banking delivery services</a>
+					</div>
+					<div class="menu-items m-item-2" id="menuItems">
+						<a href="about.html">About us</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+<div class="introduction-container" >
+	<div id="hero" class="hero-wrapper">
+        <div class="contain-wrap site-grid">
+ 
+            <canvas id="threejs-canvas"></canvas> 
+
+			<div class="hero-content-wrapper disap">
+				<div class="hero-message site-grid">
+					<h1 class="scroll-fade">Crafting reliable digital solutions for resilient growth</h1>
+					<p>Professional consulting services to navigate complex digital challenges and risk management.</p>
+				</div>
+			</div>
+
+        </div>
+    </div>
+
+    <div class="smooth_wrapper contain-wrap">
+        <div class="smooth_wrapper_content">
+          <section class="intro-msg">
+            <div class="container">
+
+              <div class="msg-wrapper">
+                <p class="content_text">At Craft it, we believe that ownership and commitment are the foundation of excellence. </br>We help our partners tackle digital challenges with adaptable solutions that meet their evolving needs. </br>Aiming to exceed limits of their business.</p>
+              </div>
+              
             </div>
-        </logo-loading>
-        <div class="craft-footer content-menu-display" data-display="footer">
-            <div class="dots">
-                <div class="dot active" data-index="0"></div>
-                <div class="dot" data-index="1"></div>
-                <div class="dot" data-index="2"></div>
-                <div class="dot" data-index="3"></div>
-                <div class="dot" data-index="4"></div>
-            </div>
-            <div class="btn-next-page"><i class="arrow-down fa fa-chevron-down" aria-hidden="true" alt="next-section"></i></div>
-            <div class="footer-container">
-                <div class="footer-item" animation-index="0" data-animation="0" style="font-size: 25px; top: 15%;">
-                    <div class="" style=" display: flex; flex-direction: column; row-gap: 25px; align-items: center;">
-                        <p style="font-family: gothamLight !important; color: var(--black); align-self: start;">
-                            I.T. Workshop for bespoken solution in risk management.
-                        </p>
-                        <p style="font-family: gothamBold !important; align-self: end;">
-                            We believe it's up to the I.T. to adapt to your needs.
-                            <span style="font-family: gothamBold !important;" class="not-you">Not you.</span>
-                        </p>
-                        <p style="font-family: gothamLight !important; color: var(--black); align-self: start;">
-                            As a privileged client, you expect a service and solutions tailored to your needs.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item" animation-index="1" data-animation="1" style="font-size: 25px; top: 115%;">
-                    <div class="" style=" display: flex; flex-direction: column; row-gap: 25px; align-items: center;">
-                        <p style="font-family: gothamLight !important; color: var(--black); align-self: start;">
-                            As a creative, ingenious and unconventional I.T. Workshop, CRAFT IT responds to the problems of the traditional computing industry.
-                        </p>
-                        <p style="font-family: gothamBold !important; align-self: end;">
-                            As Crafters, we are constantly devising clever, audacious solutions to meet clients’ demands.
-                        </p>
-                        <p style="font-family: gothamLight !important; color: var(--black); align-self: start;">
-                            We pledge to set a higher standard by practicing our art and sharing our science with others.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item" animation-index="2" data-animation="2" style="font-size: 25px; top: 215%;">
-                    <div class="" style=" display: flex; flex-direction: column; row-gap: 25px; align-items: center;">
-                        <p style="font-family: gothamLight !important; color: var(--black); align-self: start;">
-                            In return for your trust, we craft the I.T. solution that perfectly fits your business, prerequisites and expectations. 
-                        </p>
-                        <p style="font-family: gothamBold !important; align-self: end;">
-                            We tweak, adjust, cut and alter our IT solutions to fit your specific situation like a glove.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item dream" animation-index="3" data-animation="3">
-                    <div class="">
-                        <img src="images/Dream_IT_Neg.svg" alt="Dream Logo" />
-                        <p class="text">
-                            We observe your vision, assess your requirements and devise a blueprint for your project.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item draft" animation-index="2" data-animation="3">
-                    <div class="">
-                        <img src="images/Draft_IT_Neg.svg" alt="Draft Logo" />
-                        <p class="text">
-                            We appropriate your vision and convert it into an elaborate masterplan for the solution we will shape.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item craft" animation-index="2" data-animation="3">
-                    <div class="">
-                        <img src="images/Craft_IT_Neg.svg" alt="Craft Logo" />
-                        <p class="text">
-                            We use our expertise and experience to develop the masterplan into a premium, seamless software tailored to your needs and transcending expectations.
-                        </p>
-                    </div>
-                </div>
-                <div class="footer-item button" animation-index="4" data-animation="4" style="top: 410%; width: 100%;">
-                    <div class="" style="display: flex; flex-direction: column; align-items: center;">
-                        <h1 class="text" style="padding-bottom: 2vw;">
-                            Discover what we do
-                        </h1>
-                        <button class="find-out" onclick="redirect('expertise', 'var(--red)')">
-                            <span class="arrow">More</span>
-                        </button>
-                    </div>
-                </div>
+          </section>
+        </div>
+    </div>
+</div>
+
+    <main class="container">
+
+		<div id="process" class="container-wrap container-outer-box contain-wrap">
+			<div class="chapter">
+				<p class="section-start">//</p>
+				<p class="section-name">Approach</p>
+				<h3 class="section-title">
+					We design and implement digital solutions tailored to your specific needs
+                </h3>
+				<p class="section-number">001</p>
+			</div>
+
+			<div class="section-content">
+				<div class="left-content outer-box">
+					<div class="inner-svg">
+						<div class="svg-c-dot-layer">
+
+							<div class="svg-wrapper1">
+								<svg class="svg" width="100%" height="230" viewBox="0 0 522 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd" clip-rule="evenodd" d="M2.25087 115.935L3.10779 115.56L2.64064 114.95L3.10887 114.34L2.25171 113.964L0 114.949L2.25087 115.935ZM5.932 112.355L7.06234 113.831L11.0169 112.101L9.88654 110.626L5.932 112.355ZM13.8411 108.896L14.9714 110.372L18.926 108.643L17.7956 107.167L13.8411 108.896ZM21.7502 105.437L22.8805 106.913L26.8351 105.184L25.7047 103.708L21.7502 105.437ZM29.6593 101.978L30.7896 103.454L34.7441 101.725L33.6138 100.249L29.6593 101.978ZM37.5683 98.5196L38.6987 99.9955L42.6532 98.266L41.5229 96.7902L37.5683 98.5196ZM45.4774 95.0608L46.6078 96.5366L50.5623 94.8072L49.432 93.3313L45.4774 95.0608ZM53.3865 91.6019L54.5168 93.0778L58.4714 91.3483L57.341 89.8725L53.3865 91.6019ZM61.2956 88.1431L62.4259 89.6189L66.3805 87.8895L65.2501 86.4136L61.2956 88.1431ZM69.2047 84.6842L70.335 86.1601L74.2896 84.4306L73.1592 82.9548L69.2047 84.6842ZM77.1138 81.2254L78.2441 82.7012L82.1986 80.9718L81.0683 79.4959L77.1138 81.2254ZM85.0228 77.7665L86.1532 79.2424L90.1077 77.5129L88.9774 76.0371L85.0228 77.7665ZM92.9319 74.3077L94.0623 75.7835L98.0168 74.0541L96.8865 72.5782L92.9319 74.3077ZM100.841 70.8488L101.971 72.3247L105.926 70.5952L104.796 69.1194L100.841 70.8488ZM108.75 67.39L109.88 68.8658L113.835 67.1364L112.705 65.6605L108.75 67.39ZM116.659 63.9311L117.79 65.407L121.744 63.6775L120.614 62.2017L116.659 63.9311ZM124.568 60.4723L125.699 61.9481L129.653 60.2187L128.523 58.7428L124.568 60.4723ZM132.477 57.0134L133.608 58.4893L137.562 56.7598L136.432 55.284L132.477 57.0134ZM140.386 53.5546L141.517 55.0304L145.471 53.301L144.341 51.8251L140.386 53.5546ZM148.296 50.0957L149.426 51.5716L153.38 49.8421L152.25 48.3663L148.296 50.0957ZM156.205 46.6369L157.335 48.1127L161.289 46.3833L160.159 44.9074L156.205 46.6369ZM164.114 43.178L165.244 44.6539L169.199 42.9244L168.068 41.4486L164.114 43.178ZM172.023 39.7192L173.153 41.195L177.108 39.4656L175.977 37.9897L172.023 39.7192ZM179.932 36.2603L181.062 37.7362L185.017 36.0068L183.886 34.5309L179.932 36.2603ZM187.841 32.8015L188.971 34.2773L192.926 32.5479L191.795 31.072L187.841 32.8015ZM195.75 29.3426L196.88 30.8185L200.835 29.0891L199.705 27.6132L195.75 29.3426ZM203.659 25.8838L204.789 27.3596L208.744 25.6302L207.614 24.1543L203.659 25.8838ZM211.568 22.4249L212.699 23.9008L216.653 22.1713L215.523 20.6955L211.568 22.4249ZM219.477 18.9661L220.608 20.4419L224.562 18.7125L223.432 17.2366L219.477 18.9661ZM227.386 15.5072L228.517 16.9831L232.471 15.2536L231.341 13.7778L227.386 15.5072ZM235.295 12.0484L236.426 13.5242L240.38 11.7948L239.25 10.3189L235.295 12.0484ZM243.205 8.5895L244.335 10.0654L248.289 8.33594L247.159 6.86008L243.205 8.5895ZM251.114 5.13065L252.244 6.60651L256.199 4.87708L255.068 3.40123L251.114 5.13065ZM259.023 1.67179L260.153 3.14765L261 2.77726L261.847 3.14773L262.977 1.67188L261 0.807086L259.023 1.67179ZM266.932 3.40131L265.802 4.87716L269.756 6.60658L270.887 5.13074L266.932 3.40131ZM274.841 6.86016L273.711 8.336L277.665 10.0654L278.796 8.58958L274.841 6.86016ZM282.75 10.319L281.62 11.7949L285.574 13.5243L286.705 12.0484L282.75 10.319ZM290.659 13.7779L289.529 15.2537L293.483 16.9831L294.614 15.5073L290.659 13.7779ZM298.568 17.2367L297.438 18.7126L301.393 20.442L302.523 18.9661L298.568 17.2367ZM306.477 20.6955L305.347 22.1714L309.302 23.9008L310.432 22.425L306.477 20.6955ZM314.386 24.1544L313.256 25.6303L317.211 27.3597L318.341 25.8838L314.386 24.1544ZM322.296 27.6133L321.165 29.0891L325.12 30.8185L326.25 29.3427L322.296 27.6133ZM330.205 31.0721L329.074 32.548L333.029 34.2774L334.159 32.8015L330.205 31.0721ZM338.114 34.5309L336.983 36.0068L340.938 37.7362L342.068 36.2604L338.114 34.5309ZM346.023 37.9898L344.892 39.4657L348.847 41.1951L349.977 39.7192L346.023 37.9898ZM353.932 41.4487L352.802 42.9245L356.756 44.6539L357.886 43.1781L353.932 41.4487ZM361.841 44.9075L360.711 46.3833L364.665 48.1128L365.796 46.6369L361.841 44.9075ZM369.75 48.3663L368.62 49.8422L372.574 51.5716L373.705 50.0958L369.75 48.3663ZM377.659 51.8252L376.529 53.3011L380.483 55.0305L381.614 53.5546L377.659 51.8252ZM385.568 55.284L384.438 56.7599L388.392 58.4893L389.523 57.0135L385.568 55.284ZM393.477 58.7429L392.347 60.2188L396.302 61.9482L397.432 60.4723L393.477 58.7429ZM401.386 62.2017L400.256 63.6776L404.211 65.407L405.341 63.9312L401.386 62.2017ZM409.296 65.6606L408.165 67.1364L412.12 68.8659L413.25 67.39L409.296 65.6606ZM417.205 69.1194L416.074 70.5953L420.029 72.3247L421.159 70.8489L417.205 69.1194ZM425.114 72.5783L423.983 74.0542L427.938 75.7836L429.068 74.3077L425.114 72.5783ZM433.023 76.0371L431.892 77.513L435.847 79.2424L436.977 77.7666L433.023 76.0371ZM440.932 79.496L439.802 80.9718L443.756 82.7013L444.886 81.2254L440.932 79.496ZM448.841 82.9548L447.711 84.4307L451.665 86.1601L452.795 84.6843L448.841 82.9548ZM456.75 86.4137L455.62 87.8895L459.574 89.619L460.705 88.1431L456.75 86.4137ZM464.659 89.8725L463.529 91.3484L467.483 93.0778L468.614 91.602L464.659 89.8725ZM472.568 93.3314L471.438 94.8072L475.392 96.5367L476.523 95.0608L472.568 93.3314ZM480.477 96.7902L479.347 98.2661L483.301 99.9955L484.432 98.5197L480.477 96.7902ZM488.386 100.249L487.256 101.725L491.211 103.454L492.341 101.979L488.386 100.249ZM496.295 103.708L495.165 105.184L499.12 106.913L500.25 105.437L496.295 103.708ZM504.205 107.167L503.074 108.643L507.029 110.372L508.159 108.896L504.205 107.167ZM512.114 110.626L510.983 112.102L514.938 113.831L516.068 112.355L512.114 110.626ZM519.748 113.964L518.891 114.34L519.359 114.951L518.892 115.56L519.749 115.935L522 114.949L519.748 113.964ZM516.068 117.547L514.937 116.072L510.982 117.804L512.114 119.279L516.068 117.547ZM508.159 121.011L507.027 119.536L503.073 121.268L504.204 122.743L508.159 121.011ZM500.25 124.475L499.118 123L495.164 124.732L496.295 126.207L500.25 124.475ZM492.341 127.939L491.209 126.464L487.255 128.196L488.386 129.671L492.341 127.939ZM484.432 131.403L483.3 129.928L479.346 131.66L480.477 133.135L484.432 131.403ZM476.523 134.867L475.391 133.392L471.436 135.124L472.568 136.599L476.523 134.867ZM468.614 138.331L467.482 136.856L463.527 138.588L464.659 140.063L468.614 138.331ZM460.704 141.795L459.573 140.32L455.618 142.052L456.75 143.527L460.704 141.795ZM452.795 145.259L451.664 143.784L447.709 145.516L448.841 146.991L452.795 145.259ZM444.886 148.723L443.755 147.248L439.8 148.98L440.932 150.455L444.886 148.723ZM436.977 152.187L435.846 150.712L431.891 152.444L433.023 153.919L436.977 152.187ZM429.068 155.651L427.937 154.176L423.982 155.908L425.114 157.383L429.068 155.651ZM421.159 159.115L420.027 157.64L416.073 159.372L417.204 160.847L421.159 159.115ZM413.25 162.579L412.118 161.104L408.164 162.836L409.295 164.311L413.25 162.579ZM405.341 166.043L404.209 164.568L400.255 166.3L401.386 167.775L405.341 166.043ZM397.432 169.507L396.3 168.032L392.346 169.764L393.477 171.239L397.432 169.507ZM389.523 172.971L388.391 171.496L384.437 173.228L385.568 174.703L389.523 172.971ZM381.614 176.435L380.482 174.96L376.527 176.692L377.659 178.167L381.614 176.435ZM373.705 179.899L372.573 178.424L368.618 180.156L369.75 181.631L373.705 179.899ZM365.795 183.363L364.664 181.888L360.709 183.62L361.841 185.095L365.795 183.363ZM357.886 186.827L356.755 185.352L352.8 187.084L353.932 188.559L357.886 186.827ZM349.977 190.291L348.846 188.816L344.891 190.548L346.023 192.023L349.977 190.291ZM342.068 193.755L340.937 192.28L336.982 194.012L338.114 195.487L342.068 193.755ZM334.159 197.219L333.027 195.744L329.073 197.476L330.205 198.951L334.159 197.219ZM326.25 200.683L325.118 199.208L321.164 200.94L322.295 202.415L326.25 200.683ZM318.341 204.147L317.209 202.672L313.255 204.404L314.386 205.879L318.341 204.147ZM310.432 207.611L309.3 206.136L305.346 207.868L306.477 209.343L310.432 207.611ZM302.523 211.075L301.391 209.6L297.437 211.332L298.568 212.807L302.523 211.075ZM294.614 214.539L293.482 213.064L289.528 214.796L290.659 216.271L294.614 214.539ZM286.705 218.003L285.573 216.528L281.618 218.26L282.75 219.735L286.705 218.003ZM278.795 221.467L277.664 219.992L273.709 221.724L274.841 223.199L278.795 221.467ZM270.886 224.931L269.755 223.456L265.8 225.188L266.932 226.663L270.886 224.931ZM262.977 228.395L261.846 226.92L261 227.29L260.154 226.92L259.023 228.395L261 229.261L262.977 228.395ZM255.068 226.663L256.2 225.188L252.245 223.456L251.114 224.931L255.068 226.663ZM247.159 223.199L248.291 221.724L244.336 219.992L243.204 221.467L247.159 223.199ZM239.25 219.735L240.381 218.26L236.427 216.528L235.295 218.003L239.25 219.735ZM231.341 216.271L232.472 214.796L228.518 213.064L227.386 214.539L231.341 216.271ZM223.432 212.807L224.563 211.332L220.609 209.6L219.477 211.075L223.432 212.807ZM215.523 209.343L216.654 207.868L212.7 206.136L211.568 207.611L215.523 209.343ZM207.614 205.879L208.745 204.404L204.791 202.672L203.659 204.147L207.614 205.879ZM199.704 202.415L200.836 200.94L196.882 199.208L195.75 200.683L199.704 202.415ZM191.795 198.951L192.927 197.476L188.972 195.744L187.841 197.219L191.795 198.951ZM183.886 195.487L185.018 194.012L181.063 192.28L179.932 193.755L183.886 195.487ZM175.977 192.023L177.109 190.548L173.154 188.816L172.023 190.291L175.977 192.023ZM168.068 188.559L169.2 187.084L165.245 185.352L164.114 186.827L168.068 188.559ZM160.159 185.095L161.291 183.62L157.336 181.888L156.204 183.363L160.159 185.095ZM152.25 181.631L153.382 180.156L149.427 178.424L148.295 179.899L152.25 181.631ZM144.341 178.167L145.472 176.692L141.518 174.96L140.386 176.435L144.341 178.167ZM136.432 174.703L137.563 173.228L133.609 171.496L132.477 172.971L136.432 174.703ZM128.523 171.239L129.654 169.764L125.7 168.032L124.568 169.507L128.523 171.239ZM120.614 167.775L121.745 166.3L117.791 164.568L116.659 166.043L120.614 167.775ZM112.705 164.311L113.836 162.836L109.882 161.104L108.75 162.579L112.705 164.311ZM104.795 160.847L105.927 159.372L101.972 157.64L100.841 159.115L104.795 160.847ZM96.8863 157.383L98.018 155.908L94.0634 154.176L92.9318 155.651L96.8863 157.383ZM88.9773 153.919L90.1089 152.444L86.1543 150.712L85.0227 152.187L88.9773 153.919ZM81.0682 150.455L82.1998 148.98L78.2452 147.248L77.1136 148.723L81.0682 150.455ZM73.1591 146.991L74.2907 145.516L70.3362 143.784L69.2045 145.259L73.1591 146.991ZM65.25 143.527L66.3816 142.052L62.4271 140.32L61.2955 141.795L65.25 143.527ZM57.3409 140.063L58.4725 138.588L54.518 136.856L53.3864 138.331L57.3409 140.063ZM49.4318 136.599L50.5634 135.124L46.6089 133.392L45.4773 134.867L49.4318 136.599ZM41.5227 133.135L42.6543 131.66L38.6998 129.928L37.5682 131.403L41.5227 133.135ZM33.6136 129.671L34.7452 128.196L30.7907 126.464L29.6591 127.939L33.6136 129.671ZM25.7045 126.207L26.8361 124.732L22.8816 123L21.75 124.475L25.7045 126.207ZM17.7955 122.743L18.9271 121.268L14.9725 119.536L13.8409 121.011L17.7955 122.743ZM9.88636 119.279L11.018 117.804L7.06342 116.072L5.93182 117.547L9.88636 119.279Z" fill="#56514c" />
+								</svg>
+							</div>
+
+						</div>
+
+						<div class="svg-text-wrapper2">
+
+							<div class="svg-wrapper2">
+								<svg class="svg" width="100%" height="229" viewBox="0 0 522 229" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M261 227.789L2.25129 114.463L261 1.30585L519.749 114.463L261 227.789Z" stroke="#EF3340" stroke-width="2" />
+								</svg>
+							</div>
+
+						</div>
+
+						<div class="svg-text-wrapper3">
+
+							<div class="svg-wrapper3">
+								<svg class="svg" width="100%" height="229" viewBox="0 0 522 229" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0 114.688L261 0.545367L522 114.688L261 228.999L0 114.688Z" fill="#EF3340" />
+								</svg>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<div class="right-content approach-section">
+					<div class="approach">
+						<h4 class="approach-title">Strategic insights</h4>
+						<p class="approach-description">
+							We work with you to develop a tailored strategy that aligns with your company’s unique goals. Through research and analysis, we lay a strong foundation to guide every decision and maximize impact.
+						</p>
+					</div>
+					<div class="approach">
+						<h4 class="approach-title">Innovative design</h4>
+						<p class="approach-description">
+							Our creative team brings your vision to life with design-driven solutions. From concept to visuals, we ensure that every element resonates with your audience and sets you apart.
+						</p>
+					</div>
+					<div class="approach">
+						<h4 class="approach-title">Seamless implementation</h4>
+						<p class="approach-description">
+							With precision and reliability, we turn strategic plans and creative concepts into actionable solutions. Our hands-on approach ensures that each project is executed flawlessly, delivering measurable results.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- SERVICES -->
+
+		<div id="services" class="container-wrap contain-wrap">
+			<div class="chapter">
+				<p class="section-start">//</p>
+				<p class="section-name">Banking delivery services</p>
+				<h3 class="section-title">
+					We offer implementation, and consulting solutions to help you manage Moody’s lending suite with ease
+                </h3>
+				<p class="section-number">002</p>
+			</div>
+
+			<div class="section-content">
+				<div class="right-content">
+					<p>Combining advanced analytics, AI-driven risk insights, and regulatory compliance expertise, we help businesses navigate financial and credit risk challenges with precision.</p>
+
+					<div class="hero-links">
+						<p class="btn-action">[ <a class="coding" href="banking-services.html">Explore</a> ]</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+    <!-- Get in touch -->
+
+        <div id="outro-sm">
+            <div class="contain-wrap site-grid">
+                <h2>Great projects start with a conversation</h2>
+                <p class="get-in-touch btn-action">[ <a class="coding" href="mailto:intouch@craft-it.io">Get in Touch</a> ]</p>
             </div>
         </div>
-    </section>
+
+	<!-- FOOTER -->
+
+	<footer>
+		<div class="contain-wrap site-grid">
+			<svg width="117" height="75" viewBox="0 0 117 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M82.5592 26.1849V13.9059C82.5689 6.22667 76.3631 0 68.6978 0H13.755C6.15738 0 0 6.16857 0 13.78V60.204C0 67.8445 6.17671 74.0325 13.8034 74.0325H68.6785C76.3535 74.0325 82.5688 67.7961 82.5688 60.1169V47.8572H68.8235V60.1653H13.755L13.7357 13.8672H68.8235V26.1946H82.5688L82.5592 26.1849Z" fill="#1F1C1A"/>
+				<path d="M103.234 74.0308H116.999V21.6707L103.234 21.7094V74.0308Z" fill="#1F1C1A"/>
+				<path d="M103.237 0H89.4722V21.7013H103.237V0Z" fill="#1F1C1A"/>
+			</svg>
+			<div class="headquarter">
+				<h4>Headquarter</h4>
+				<p>
+					231 Louise Avenue, 1000 Brussels
+				</p>
+				<p>
+					Belgium
+				</p>
+			</div>
+			<div class="office">
+				<h4>Office</h4>
+				<p>
+					24 Autumn Street, 1050 Ixelles
+				</p>
+				<p>
+					Belgium
+				</p>
+			</div>
+			<div class="reach-us">
+				<h4>Reach us</h4>
+				<p class="btn-action">[ <a class="coding" href="mailto:intouch@craft-it.io">Email Us</a> ]</p>
+				<p class="btn-action">[ <a class="coding" target="_blank" href="https://www.linkedin.com/company/craft-it-solution/">Linkedin</a> ]</p>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-bottom-wrapper">
+					<p class="p-sm">©2025 Craft it, All Rights Reserved</p>
+					
+                    <!-- <a class="sub-link" href="#">Cookies policy</a>
+					<a class="sub-link" href="#">Terms of use</a> -->
+				</div>
+
+				<p class="btn-action back-to-top">[ <a class="coding" href="#hero">back to top</a> ]</p>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+	<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+    <script type="module" src="resources/scripts/monogram-dots.js"></script> 
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="resources/scripts/sticky.js" defer></script>
+	<script src="resources/scripts/menu.js" defer></script>
+	<script src="resources/scripts/square-layer.js" defer></script>
+
+	<script src="resources/scripts/main.js"></script>
 </body>
 </html>
