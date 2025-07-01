@@ -1,30 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@font-face {
-	font-family: 'Aspekta';
-	font-style: normal;
-	font-weight: 400;
-	font-display: swap;
-	src: url('/resources/fonts/Aspekta-400.woff2') format('woff2'),
-		 url('/resources/fonts/Aspekta-400.woff') format('woff'),
-		 url('/resources/fonts/Aspekta-400.ttf') format('truetype');
-  }
-
-
-:root {
-	--Grey-200: #F0ECE9;
-	--Grey-400: #E2DFDC;
-	--Grey-500: #C0C0C0;
-	--Grey-700: #56514c;
-	--Grey-800: #171815;
-	--craft-Red: #EF3340;
-	--gfs: 14.4;
-	--sticky-container-wrap-top: 0px;
-	--sticky-process-grid-top: 0px;
-}
 
 ::selection {
-	background-color: var(--craft-Red); /* Change this to your desired highlight color */
-	color: #171815; /* Change the text color when selected */
+	background-color: var(--primary); /* Change this to your desired highlight color */
+	color: var(--surface); /* Change the text color when selected */
 }
 
 body, html {
@@ -32,7 +9,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	font-family: "Aspekta", Helvetica, sans-serif;
-	background-color: var(--Grey-400);
+	background-color: var(--surface-highest);
 	overflow-x: unset; /* Don't use 'hidden', otherwise the sticky does not work */
 }
 
@@ -60,122 +37,16 @@ main.no-scroll {
 }
 
 
-/* -------------- TYPOGRAPHY */
-
-h1 {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(3.2rem, 5vw, 5.75rem);
-	line-height: 1;
-	margin: 0;
-}
-
-h2 {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(3rem, 5vw, 5.75rem);
-	line-height: 1.2;
-	margin: 0;
-}
-
-h3 {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(1.8rem, 2.4vw, 3.5rem);
-	line-height: 1.2;
-	margin: 0;
-}
-
-h4 {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(1.25rem, 1.125vw, 1.5rem);
-	line-height: 1.4;
-	margin: 0;
-}
-
-p {
-	color: var(--Grey-700);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(1rem, 1.125vw, 1.125rem);
-	line-height: 1.6;
-	margin: 0;
-}
-
-.p-sm {
-	font-size: clamp(0.875rem, 0.875vw, 1rem);
-}
-
-.cta-copy {
-	color: var(--Grey-200);
-	text-decoration: none;
-	font-size: clamp(1rem, 1.125vw, 1.5rem);
-	line-height: 1.4;
-	text-align: right;
-}
-
-.anotation {
-	color: var(--Grey-700);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(0.875rem, 0.875vw, 1rem);
-	letter-spacing: 0.125rem;
-	line-height: 1;
-	margin: 0;
-	text-transform: uppercase;
-}
-
-.upperlinks {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Arial, Helvetica, sans-serif;
-	;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(0.875rem, 0.875vw, 1rem);
-	line-height: 1;
-	letter-spacing: 0.125rem;
-	text-transform: uppercase;
-}
 
 .msg-wrapper{
 	grid-column: 5 / span 4;
 }
 
-.msg-wrapper p {
-	font-size: clamp(1.8rem, 2.4vw, 3.5rem);
-	line-height: 1.2;
-	color: var(--Grey-800);
-}
-
-.services_item_content_wrapper h4 {
-	color: var(--Grey-800);
-}
-
-.model-anotation {
-	color: var(--Grey-800);
-	font-family: "Aspekta", Helvetica, sans-serif;
-	font-style: normal;
-	font-weight: 400;
-	font-size: clamp(9rem, 10vw, 14rem);
-	line-height: 1;
-	margin: 0;
-}
 
 .SquareIcon {
 	width: 8px;
 	height: 8px;
-	background-color: var(--Grey-800);
+	background-color: var(--on-surface);
 }
 
 /* -------------- STRUCTURE */
@@ -189,7 +60,7 @@ p {
 main {
 	position: relative;
 	padding: 32px 24px;
-	background-color: var(--Grey-200);
+	background-color: var(--surface);
 
 	margin: 0 auto;
 	z-index: 1;
@@ -231,7 +102,7 @@ main {
 	position: absolute;
 	width: 100vw;
 	height: 50vh;
-	background-color: var(--craft-Red); /* Red background */
+	background-color: var(--primary); /* Red background */
 	transition: all 1s ease-in-out; /* Smooth transition for the animation */
 }
 
@@ -300,7 +171,7 @@ main {
 p{
 	grid-column: 1 / span 5;
 	font-size: clamp(1.125rem, 1.25vw, 1.25rem);
-	color: var(--Grey-800);
+	color: var(--on-surface);
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -355,7 +226,7 @@ p{
 	position: sticky;
 	z-index: 5;
 	top: var(--sticky-container-wrap-top);
-	background-color: var(--Grey-200);
+	background-color: var(--surface);
 }
 
 .container-wrap:nth-child(1) {
@@ -373,49 +244,32 @@ p{
 
 .chapter {
 	display: grid;
-	color: var(--Grey-700);
+	color: var(--on-surface-variant);
 
 	grid-template-columns: repeat(12, minmax(0, 1fr));
   	grid-column-gap: 1rem;
 }
 
-	.chapter p:not(.section-title) {
-		color: var(--craft-Red);
-		font-family: "IBM Plex Mono", monospace;
-		font-size: 16px;
-		font-style: normal;
-		font-weight: 400;
-	}
 
 /* -------------- SECTIONS */
 
 .section-start {
-	color: var(--craft-Red);
 	display: grid;
 	grid-column: 1;
 }
 
 .section-name {
-	color: var(--craft-Red);
 	display: grid;
 	grid-column: 2 / span 2;
-	text-transform: uppercase;
-
-	font-family: "IBM Plex Mono", monospace;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 2; /* 200% */
 }
 
 .section-title {
 	display: grid;
 	grid-column: 5 / span 6;
-	color: var(--default-palette-default-gray-900, #1F1C1A);
+	color: var(--on-surface);
 }
 
 .section-number {
-	color: var(--craft-Red);
 	display: grid;
 	grid-column: 12;
 }
@@ -479,8 +333,8 @@ p{
 
 		  /* Bloc logo */
 			.partner {
-				background-color: var(--Grey-400); 
-				padding: 2rem;
+				background-color: var(--surface-highest); 
+				padding: 1.2rem;
 				border-radius: 2px;
 				width: 100%;
 				height: 150px;
@@ -663,7 +517,7 @@ p{
 }
 
 .block:last-child {
-	color: var(--craft-Red);
+	color: var(--primary);
 }
 
 .letter:nth-child(1) {
@@ -702,7 +556,7 @@ p{
 
 /*
 .msg-window {
-	background: var(--Grey-200);
+	background: var(--surface);
 	display: flex;
 	flex-direction: column;
 	padding: 1rem;
@@ -785,7 +639,7 @@ p{
 	gap: 3rem;
 	flex-direction: column;
 	padding-top: 0;
-	background-color: var(--Grey-200);
+	background-color: var(--surface);
 	margin-top: 5rem;
 	z-index: 4;
 }
@@ -803,7 +657,7 @@ p{
 	grid-template-columns: 1fr 1fr;
 	padding: 2rem 0rem 4rem 0rem;
 	width: 100%;
-	border-bottom: 1px solid var(--Grey-500);
+	border-bottom: 1px solid var(--outline);
 	list-style: none;
 }
 
@@ -825,7 +679,7 @@ p{
 	background: none;
 	z-index: 4;
 
-	border-top: 1px solid var(--Grey-500);
+	border-top: 1px solid var(--outline);
 
 }
 
@@ -862,76 +716,6 @@ p{
 	}
 }
 
-/* ----------- FOOTER */
-
-footer {
-	position: relative;
-	z-index: 50;
-	padding: 2.5rem 1.5rem 2rem 1.5rem;
-
-	h4{
-		margin-bottom: .5rem;
-	}
-
-	a{
-		text-decoration: none;
-	}
-
-	.btn-action{
-		margin-bottom: .5rem;
-	}
-
-	.contain-wrap{
-		row-gap: 2.5rem;
-	}
-}
-
-.headquarter {
-	display: grid;
-	grid-column: 4 / span 3;
-}
-
-.office {
-	display: grid;
-	grid-column: 7 / span 3;
-}
-
-.reach-us {
-	display: grid;
-	justify-items: start;
-	grid-column: 10 / span 3;
-}
-
-.footer-bottom {
-	display: flex;
-    grid-row: 3;
-    grid-column: 1 / span 12;
-    justify-content: space-between;
-    align-items: center;
-
-	padding-top: 2rem;
-	border-top: 1px solid var(--Grey-500);
-
-	a{
-		text-decoration: underline;
-		color: var(--Grey-700);
-	}
-
-	.btn-action{
-		margin: 0;
-	}
-}
-
-.sub-link:hover{
-	color: var(--Grey-800);
-}
-
-.footer-bottom-wrapper{
-	display: flex;
-	align-items: center;
-	grid-column: 1 / span 4;
-	gap: 1rem;
-}
 
 @media screen and (max-width: 1080px) {
 
@@ -971,32 +755,6 @@ footer {
 		}
 	}
 	
-	.footer-bottom{
-		grid-column: 1 / span 8;
-		padding: 2.5rem 1rem 2rem 1rem;
-	}
-
-	.footer-logo {
-		grid-column: span 2;
-	}
-
-	.back-to-top {
-		justify-items: start;
-		grid-row: 5;
-		grid-column: span 2;
-	}
-
-	.headquarter {
-		grid-column: 1 / span 2;
-	}
-	
-	.office {
-		grid-column: 4 / span 2;
-	}
-	
-	.reach-us {
-		grid-column: 7 / span 2;
-	}
 }
 
 
@@ -1012,10 +770,6 @@ footer {
 		padding-bottom: 2rem;
 	}
 
-	footer{
-		grid-column: 1 / span 8;
-		padding: 2.5rem 1rem 2rem 1rem;
-	}
 
 	.hero-bottom {
 		bottom: 1rem;
@@ -1153,23 +907,6 @@ footer {
 		}
 	}
 
-	/* ----------- FOOTER */
-
-	.footer-bottom{
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 3rem;
-
-		grid-column: 1 / span 6;
-	}
-	.headquarter{
-		grid-row: 2;
-		grid-column: 1 / span 3;
-	}
-	.reach-us{
-		grid-row: 2;
-		grid-column: 4 / span 3;
-	}
 
 }
 
@@ -1261,29 +998,6 @@ footer {
 
 	/* ----------- FOOTER */
 
-		.footer-bottom-wrapper{
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-			/* ----------- FOOTER */
-
-		.footer-bottom{
-			grid-row: 5;
-			grid-column: 1 / span 4;
-		}
-		.headquarter{
-			grid-row: 2;
-			grid-column: 1 / span 4;
-		}
-		.office{
-			grid-row: 3;
-			grid-column: 1 / span 4;
-		}
-		.reach-us{
-			grid-row: 4;
-			grid-column: 1 / span 4;
-		}
 }
 
 
@@ -1315,17 +1029,10 @@ footer {
 	flex-direction: column;
 	padding: 1rem 0 1rem 0;
 	gap: 1.5rem;
-	border-bottom: 1px solid var(--Grey-500);
+	border-bottom: 1px solid var(--outline);
 }
 .grasp:last-child{
 	border: none;
-}
-.grasp-text{
-
-}
-.grasp-right{
-	font-size: clamp(1.8rem, 2.4vw, 3.5rem);
-	line-height: 1.2;
 }
 
 @media screen and (max-width: 1080px) {
@@ -1386,21 +1093,6 @@ footer {
 
 /* --------- Button Action*/
 
-.btn-action {
-	color: var(--craft-Red);
-	font-family: "IBM Plex Mono", monospace;
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 16px; /* 100% */
-	letter-spacing: 0.32px;
-	text-transform: uppercase;
-
-	a{
-		color: var(--craft-Red);
-		text-decoration: none;
-	}
-}
 
 /* Get intouch */
 #get-in-touch {
