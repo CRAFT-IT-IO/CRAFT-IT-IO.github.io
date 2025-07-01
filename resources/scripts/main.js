@@ -168,6 +168,24 @@ textElements.forEach((element) => {
   });
 });
 
+// Fonction pour initialiser l'effet sur de nouveaux éléments (Web Components)
+function initializeHoverEffect(container = document) {
+  const newTextElements = container.querySelectorAll(".coding:not([data-hover-initialized])");
+  
+  newTextElements.forEach((element) => {
+    const finalText = element.innerText;
+    element.setAttribute('data-hover-initialized', 'true');
+
+    element.addEventListener("mouseenter", () => temporaryDecode(element, finalText));
+    element.addEventListener("mouseleave", () => {
+      element.innerText = finalText; 
+    });
+  });
+}
+
+// Exposer la fonction globalement pour les Web Components
+window.initializeHoverEffect = initializeHoverEffect;
+
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");
   const sections = document.querySelectorAll(".section");

@@ -2,9 +2,12 @@ class SiteFooter extends HTMLElement {
     
     constructor() {
         super();
+        this.render();
+    }
 
-        // Pas de Shadow DOM pour utiliser les styles CSS globaux
-        this.innerHTML = `
+    render() {
+        this.innerHTML = 
+        `
             <footer>
                 <div class="contain-wrap site-grid">
                     <svg width="117" height="75" viewBox="0 0 117 75" fill="none" xmlns="http://www.w3.org/2000/svg">
