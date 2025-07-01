@@ -1,3 +1,9 @@
+:root {	
+
+	--gfs: 14.4;
+	--sticky-container-wrap-top: 0px;
+	--sticky-process-grid-top: 0px;
+}
 
 ::selection {
 	background-color: var(--primary); /* Change this to your desired highlight color */
@@ -9,7 +15,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	font-family: "Aspekta", Helvetica, sans-serif;
-	background-color: var(--surface-highest);
+	background-color: var(--surface-high);
 	overflow-x: unset; /* Don't use 'hidden', otherwise the sticky does not work */
 }
 
@@ -333,7 +339,7 @@ p{
 
 		  /* Bloc logo */
 			.partner {
-				background-color: var(--surface-highest); 
+				background-color: var(--surface-high); 
 				padding: 1.2rem;
 				border-radius: 2px;
 				width: 100%;
@@ -995,8 +1001,6 @@ p{
 				grid-row: 2;
 			}
 		}
-
-	/* ----------- FOOTER */
 
 }
 

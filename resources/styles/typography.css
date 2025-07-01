@@ -210,8 +210,8 @@ p {
 	text-decoration: none;
 }
 
-/* Back to top button */
-.back-to-top {
+/* Back to top button - specific to footer context */
+.footer-bottom .back-to-top.btn-action {
 	color: var(--primary);
 	font-family: var(--font-mono);
 	font-size: 16px;
@@ -220,9 +220,10 @@ p {
 	line-height: 16px;
 	letter-spacing: var(--tracking-wider);
 	text-transform: uppercase;
+	margin: 0;
 }
 
-.back-to-top a {
+.footer-bottom .back-to-top.btn-action a {
 	color: var(--primary);
 	text-decoration: none;
 }

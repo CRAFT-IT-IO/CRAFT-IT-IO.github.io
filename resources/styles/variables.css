@@ -9,19 +9,20 @@
 	--primary: #D9343F; /* craft-Red */
 	
 	/* Surface colors */
-	--surface: #F1EDEB; /* Grey-200 */
+	--surface: #F1EDEB; 
 	--surface-high: #EBE7E5;
-	--surface-highest: #D4D2D0; /* Grey-400 */
+	--surface-highest: #D4D2D0; 
 	
 	/* Text colors */
-	--on-surface: #21201F; /* Grey-800 */
-	--on-surface-variant: #474745; /* Grey-700 */
+	--on-surface: #21201F; 
+	--on-surface-variant: #474745; 
 	
 	/* Border colors */
-	--outline: #C9C6C4; /* Grey-500 */
+	--outline: #C9C6C4; 
 	
 	/* -------------- SPACING -------------- */
 	
+	--spacing-2xs: 4px;
 	--spacing-xs: 8px;
 	--spacing-sm: 16px;
 	--spacing-md: 24px;

@@ -25,7 +25,7 @@ header {
 	justify-content: space-between;
 	align-items: stretch;
 	width: 100%;
-	background-color: var(--surface-highest);
+	background-color: var(--surface-high);
 	transition: height 0.3s ease, background-color 0.3s ease;
 }
 
@@ -105,7 +105,7 @@ header.is-scrolling .menu-label {
 	position: absolute;
     left: -25px;
     width: calc(100% + (var(--spacing-lg) * 2));
-    background-color: var(--surface-highest);
+    background-color: var(--surface-high);
     border-top: 1px solid var(--outline);
     border-right: 1px solid var(--outline);
     display: none; /* Initialement masqué */
