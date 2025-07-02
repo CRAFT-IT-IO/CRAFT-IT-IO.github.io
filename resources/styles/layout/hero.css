@@ -1,0 +1,252 @@
+/* ==========================================================================
+   HERO SECTIONS - Main and secondary sections
+   ========================================================================== */
+
+/* -------------- HERO BASE STYLES -------------- */
+
+.hero-wrapper {
+	height: calc(100vh - 10rem);
+	display: flex;
+	flex-grow: 1;
+	justify-content: space-between;
+	z-index: 1;
+	padding: var(--spacing-md) var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+}
+
+.hero-content-wrapper {
+	position: relative;
+	grid-column: 1 / span 12;
+	align-content: end;
+}
+
+.hero-message {
+	justify-content: space-between;
+	z-index: 1;
+	width: 100%;
+	row-gap: 2.5rem;
+	padding-top: 1.5rem;
+}
+
+.hero-message h1 {
+	grid-column: 1 / span 6;
+}
+
+.hero-message p {
+	grid-column: 9 / span 3;
+	font-size: clamp(1.125rem, 1.25vw, 1.25rem);
+	color: var(--on-surface);
+	display: flex;
+	flex-direction: column;
+}
+
+.hero-word {
+	display: inline-block;
+}
+
+.hero-links {
+	display: flex;
+	justify-content: space-between;
+	text-transform: uppercase;
+	gap: 3em;
+}
+
+/* -------------- SECONDARY HERO STYLES -------------- */
+
+#sec-hero {
+	align-items: end;
+	background: none;
+	position: relative;
+	overflow: hidden;
+	height: calc(100vh - 20rem);
+}
+
+#sec-hero .contain-wrap {
+	align-items: end;
+}
+
+.sec-hero-content-wrapper {
+	grid-column: 2 / span 6;
+}
+
+/* -------------- CULTURE HERO VARIANT -------------- */
+
+.cult-hero-content-wrapper {
+	grid-column: span 12;
+}
+
+.cult-hero-content-wrapper h2 {
+	text-align: center;
+}
+
+.hero-culture {
+	align-items: center !important;
+}
+
+/* -------------- HERO UTILITIES -------------- */
+
+.ma-partner-alliance {
+	grid-column: 10 / span 2;
+}
+
+.hero-bottom {
+	bottom: 1rem;
+	left: 1rem;
+	right: 1rem;
+}
+
+.hero-button {
+	padding: 1rem;
+}
+
+.hero-text-left {
+	width: 100%;
+}
+
+.hero-text-right {
+	width: 100%;
+}
+
+/* -------------- CANVAS ELEMENTS -------------- */
+
+#threejs-canvas {
+	position: fixed;
+	left: 0;
+	top: 64px;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+}
+
+#moodys-threejs-canvas {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+}
+
+#deformable-circle {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+}
+
+/* -------------- RESPONSIVE: TABLET -------------- */
+
+@media screen and (max-width: 1080px) {
+	.sec-hero-content-wrapper {
+		grid-column: 1 / span 6;
+	}
+
+	.ma-partner-alliance {
+		grid-column: 1 / span 2;
+	}
+
+	.section-content .bottom-content .hero-links {
+		display: grid;
+		grid-column: 1;
+	}
+}
+
+/* -------------- RESPONSIVE: MOBILE -------------- */
+
+@media screen and (max-width: 768px) {
+	.hero-wrapper {
+		padding: 1rem;
+	}
+
+	.hero-message {
+		flex-direction: column;
+		z-index: 1;
+		row-gap: 2.75rem;
+		grid-column: span 6;
+	}
+
+	.hero-message p {
+		grid-column: span 6;
+	}
+
+	.hero-message h1 {
+		grid-column: span 6;
+	}
+
+	.hero-bottom {
+		bottom: 1rem;
+		left: 1rem;
+		right: 1rem;
+	}
+
+	.hero-button {
+		padding: 1rem;
+	}
+
+	.cta-mid {
+		display: flex;
+		height: auto;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.cta-mid-content {
+		margin: 0;
+		flex-direction: column;
+	}
+
+	.cta-mid-contacts {
+		width: 100%;
+	}
+
+	.cta-address-right {
+		gap: 0;
+	}
+
+	.cta-contact-mail {
+		width: 100%;
+	}
+
+	.cta-email-right {
+		gap: 0;
+	}
+
+	.cta-email-left {
+		gap: 0;
+	}
+}
+
+/* -------------- RESPONSIVE: SMALL MOBILE -------------- */
+
+@media screen and (max-width: 460px) {
+	.sec-hero-content-wrapper {
+		grid-column: 1 / span 4;
+	}
+
+	.hero-message p {
+		grid-column: span 4;
+	}
+
+	.hero-message h1 {
+		grid-column: span 4;
+	}
+
+	.contact-wrapper {
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.cta-contact-info {
+		height: auto;
+		padding: 1rem 0 1rem 0;
+	}
+
+	.cta-copy {
+		text-align: left;
+	}
+
+	.call-to-action {
+		padding: 1rem;
+	}
+}

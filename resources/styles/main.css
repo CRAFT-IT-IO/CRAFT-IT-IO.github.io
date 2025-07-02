@@ -1,0 +1,29 @@
+/* ==========================================================================
+   MAIN CSS - CENTRALIZED IMPORTS
+   Organized folder structure for better maintainability
+   ========================================================================== */
+
+/* ==========================================================================
+   1. BASE - Foundation styles (reset, variables, typography)
+   ========================================================================== */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+
+/* ==========================================================================
+   2. LAYOUT - Global layout components (header, footer, hero)
+   ========================================================================== */
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
+
+/* ==========================================================================
+   3. PAGES - Page-specific styles
+   ========================================================================== */
+@import url('./pages/index.css');
+@import url('./pages/moodys.css');
+
+/* ==========================================================================
+   4. COMPONENTS - Reusable UI components
+   ========================================================================== */
+@import url('./components/content-section.css');
+@import url('./components/footer.css');

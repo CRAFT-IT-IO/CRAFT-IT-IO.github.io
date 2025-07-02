@@ -63,7 +63,7 @@ h2 {
 	font-family: var(--font-primary);
 	font-style: normal;
 	font-weight: 400;
-	font-size: var(--text-3xl);
+	font-size: var(--text-2xl);
 	line-height: var(--leading-tight);
 	margin: 0;
 }
@@ -73,7 +73,7 @@ h3 {
 	font-family: var(--font-primary);
 	font-style: normal;
 	font-weight: 400;
-	font-size: var(--text-2xl);
+	font-size: var(--text-xl);
 	line-height: var(--leading-tight);
 	margin: 0;
 }
@@ -83,7 +83,7 @@ h4 {
 	font-family: var(--font-primary);
 	font-style: normal;
 	font-weight: 400;
-	font-size: var(--text-xl);
+	font-size: var(--text-lg);
 	line-height: var(--leading-normal);
 	margin: 0;
 }
@@ -232,7 +232,10 @@ p {
 .menu-label,
 .section-start,
 .section-name,
-.section-number {
+.section-number,
+.section-prefix,
+.section-category,
+.section-index {
 	color: var(--primary);
 	font-family: var(--font-mono);
 	font-size: 16px;
@@ -244,7 +247,9 @@ p {
 }
 
 /* Chapter elements */
-.chapter p:not(.section-title) {
+.chapter p:not(.section-title):not(.section-headline),
+.section-header p:not(.section-headline),
+.section-header span {
 	color: var(--primary);
 	font-family: var(--font-mono);
 	font-size: 16px;
@@ -302,8 +307,9 @@ p {
 
 /* -------------- RESPONSIVE ADJUSTMENTS -------------- */
 
-@media screen and (max-width: 760px) {
-	.section-title {
+@media screen and (max-width: 768px) {
+	.section-title,
+	.section-headline {
 		font-size: 32px;
 	}
 	

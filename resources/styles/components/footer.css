@@ -111,7 +111,7 @@ footer .contain-wrap {
 
 /* -------------- RESPONSIVE: MOBILE -------------- */
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 768px) {
 	footer {
 		grid-column: 1 / span 8;
 		padding: 2.5rem 1rem 2rem 1rem;

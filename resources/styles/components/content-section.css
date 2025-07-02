@@ -1,0 +1,201 @@
+/* ==========================================================================
+   CONTENT SECTION COMPONENT - REPLICATED FROM EXISTING STYLES
+   ========================================================================== */
+
+/* -------------- LAYOUT SYSTEM (from .container-wrap) -------------- */
+
+.content-section {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	flex-direction: column;
+	gap: 4rem;
+	padding: 80px 0;
+}
+
+.content-section:nth-child(1) {
+	padding-top: 5rem;
+}
+
+/* -------------- SECTION HEADER LAYOUT (from .chapter) -------------- */
+
+.section-header {
+	color: var(--on-surface-variant);
+}
+
+/* -------------- SECTION HEADER ELEMENTS (replicated exactly) -------------- */
+
+.section-prefix {
+	grid-column: 1;
+}
+
+.section-category {
+	grid-column: 2 / span 2;
+}
+
+.section-headline {
+	grid-column: 5 / span 6;
+	color: var(--on-surface);
+}
+
+.section-index {
+	grid-column: 12;
+}
+
+/* -------------- SECTION BODY LAYOUT (from .section-content) -------------- */
+
+.section-body {
+	flex: 1 1 auto;
+}
+
+.section-content {
+	grid-column: 5 / span 6;
+	
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 1;
+	gap: 1.5rem;
+}
+
+/* -------------- CONTENT STYLING (exact replication) -------------- */
+
+/* Typography styles are already defined in typography.css for:
+   - .section-prefix, .section-category, .section-index (from .section-start, .section-name, .section-number)
+   - .section-headline (from .section-title mapped to h2)
+   
+   These will be inherited automatically, no need to redefine */
+
+/* -------------- RESPONSIVE LAYOUT -------------- */
+
+@media screen and (max-width: 1080px) {
+	.content-section {
+		gap: 40px;
+	}
+
+	/* Header responsive layout */
+	.section-header {
+		grid-template-columns: repeat(8, 1fr);
+		grid-template-rows: auto auto 1fr;
+	}
+
+	.section-category {
+		justify-self: end;
+		grid-row: 1;
+		grid-column: 7 / span 2;
+		text-align: right;
+	}
+
+	.section-index {
+		justify-self: end;
+		grid-row: 2;
+		grid-column: 8;
+	}
+
+	.section-headline {
+		grid-row: 3;
+		grid-column: 1 / span 6;
+	}
+
+	/* Body responsive layout */
+	.section-body {
+		grid-template-columns: repeat(8, minmax(0, 1fr)) !important;
+	}
+
+	.section-content {
+		grid-column: 1 / span 6;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.section-headline {
+		font-size: 32px;
+	}
+
+	.section-body {
+		grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+	}
+
+	.section-header {
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+	}
+
+	.section-content {
+		grid-column: 1 / span 6;
+	}
+
+	.section-category {
+		grid-column: 5 / span 2;
+		text-align: right;
+	}
+
+	.section-index {
+		grid-column: 6;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	.section-body {
+		grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+	}
+
+	.section-header {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.section-content {
+		grid-column: 1 / span 4;
+	}
+
+	.section-category {
+		grid-column: 3 / span 2;
+		text-align: right;
+	}
+
+	.section-index {
+		grid-column: 4;
+	}
+}
+
+/* -------------- CONTENT VARIANTS -------------- */
+
+/* For sections with left content */
+.section-content--left {
+	grid-column: 2 / span 2;
+}
+
+/* For sections with bottom content */
+.section-content--bottom {
+	grid-column: 1 / span 6;
+	grid-auto-flow: row;
+	grid-gap: 24px;
+	align-self: end;
+}
+
+/* For sections with full width content */
+.section-content--full {
+	grid-column: 1 / span 12;
+}
+
+@media screen and (max-width: 1080px) {
+	.section-content--left,
+	.section-content--bottom {
+		grid-column: 1 / span 6;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.section-content--left,
+	.section-content--bottom,
+	.section-content--full {
+		grid-column: 1 / span 6;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	.section-content--left,
+	.section-content--bottom,
+	.section-content--full {
+		grid-column: 1 / span 4;
+	}
+}
