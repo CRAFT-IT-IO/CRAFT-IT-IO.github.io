@@ -1,3 +1,4 @@
+
 var button = document.querySelector(".hero-button");
 var buttonText = document.querySelector(".button-text");
 var svgArrow = document.querySelector(".svg-arrow");
@@ -19,6 +20,9 @@ document.addEventListener('scroll', function () {
 // HERO ANIMATION TEXT
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Initialize grid list responsive
+    initGridListResponsive();
+    
     // Sélectionner tous les éléments avec la classe 'scroll-fade'
     var textWrappers = document.querySelectorAll('.scroll-fade');
 

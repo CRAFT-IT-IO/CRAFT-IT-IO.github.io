@@ -13,8 +13,9 @@
 /* ==========================================================================
    2. LAYOUT - Global layout components (header, footer, hero)
    ========================================================================== */
-@import url('./layout/header.css');
+@import url('./layout/structure.css');
 @import url('./layout/hero.css');
+@import url('./layout/three-columns.css');
 
 /* ==========================================================================
    3. PAGES - Page-specific styles
@@ -27,3 +28,6 @@
    ========================================================================== */
 @import url('./components/content-section.css');
 @import url('./components/footer.css');
+@import url('./components/header.css');
+@import url('./components/inline-list.css');
+@import url('./components/grid-list.css');

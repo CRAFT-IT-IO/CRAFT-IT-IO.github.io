@@ -15,7 +15,7 @@ styles/
 │   └── typography.css         # Font definitions and text styles
 │
 ├── 📁 layout/                  # Global layout components
-│   ├── header.css             # Site navigation and header
+│   ├── structure.css          # Site structure and grid
 │   └── hero.css               # Hero section styles
 │
 ├── 📁 pages/                   # Page-specific styles
@@ -23,6 +23,7 @@ styles/
 │   └── moodys.css             # Moody's/banking services page
 │
 ├── 📁 components/              # Reusable UI components
+│   ├── header.css             # Site navigation and header
 │   ├── content-section.css    # Content section component
 │   └── footer.css             # Site footer
 │

@@ -39,6 +39,11 @@ class SiteFooter extends HTMLElement {
                 </div>
             </footer>
         `;
+        
+        // Initialiser l'effet hover pour les liens du footer
+        if (window.initializeHoverEffect) {
+            window.initializeHoverEffect(this);
+        }
     }
 }
 

@@ -21,16 +21,17 @@
 	--font-primary: "Aspekta", Helvetica, sans-serif;
 	--font-mono: "IBM Plex Mono", monospace;
 	
-	/* Font sizes */
-	--text-xs: clamp(0.75rem, 0.75vw, 0.85rem);
-	--text-sm: clamp(0.875rem, 0.875vw, 1rem);
-	--text-base: clamp(1rem, 1.125vw, 1.125rem);
-	--text-lg: clamp(1.125rem, 1.25vw, 1.25rem);
-	--text-xl: clamp(1.25rem, 1.125vw, 1.5rem);
-	--text-2xl: clamp(1.8rem, 2.4vw, 3.5rem);
-	--text-3xl: clamp(3rem, 5vw, 5.75rem);
-	--text-4xl: clamp(3.2rem, 5vw, 5.75rem);
-	--text-display: clamp(9rem, 10vw, 14rem);
+	/* Font sizes - Constant ratio from 1720px to 1920px max */
+	/* Reference: 1720px, Max: 1920px (ratio limit) */
+	--text-xs: clamp(0.75rem, 0.814vw, 0.908rem);     /* 14px at 1720px → 16px at 1920px */
+	--text-sm: clamp(0.875rem, 0.930vw, 1.037rem);    /* 16px at 1720px → 18px at 1920px */
+	--text-base: clamp(1rem, 1.047vw, 1.167rem);      /* 18px at 1720px → 20px at 1920px */
+	--text-lg: clamp(1.125rem, 1.279vw, 1.426rem);    /* 22px at 1720px → 25px at 1920px */
+	--text-xl: clamp(1.25rem, 1.628vw, 1.815rem);     /* 28px at 1720px → 31px at 1920px */
+	--text-2xl: clamp(1.75rem, 2.093vw, 2.333rem);    /* 36px at 1720px → 40px at 1920px */
+	--text-3xl: clamp(2.25rem, 2.791vw, 3.111rem);    /* 48px at 1720px → 54px at 1920px */
+	--text-4xl: clamp(3rem, 3.721vw, 4.148rem);       /* 64px at 1720px → 71px at 1920px */
+	--text-display: clamp(4rem, 7.442vw, 8.296rem);   /* 128px at 1720px → 143px at 1920px */
 	
 	/* Line heights */
 	--leading-none: 1;
@@ -63,7 +64,7 @@ h2 {
 	font-family: var(--font-primary);
 	font-style: normal;
 	font-weight: 400;
-	font-size: var(--text-2xl);
+	font-size: var(--text-3xl);
 	line-height: var(--leading-tight);
 	margin: 0;
 }
@@ -73,7 +74,7 @@ h3 {
 	font-family: var(--font-primary);
 	font-style: normal;
 	font-weight: 400;
-	font-size: var(--text-xl);
+	font-size: var(--text-2xl);
 	line-height: var(--leading-tight);
 	margin: 0;
 }
