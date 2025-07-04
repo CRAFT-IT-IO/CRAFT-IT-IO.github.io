@@ -17,6 +17,8 @@
 	position: relative;
 	grid-column: 1 / span 12;
 	align-content: end;
+	display: flex;
+	align-items: center;
 }
 
 .hero-message {
@@ -28,13 +30,13 @@
 }
 
 .hero-message h1 {
-	grid-column: 1 / span 6;
+	grid-column: 1 / span 4;
 }
 
 .hero-message p {
 	grid-column: 9 / span 3;
 	font-size: clamp(1.125rem, 1.25vw, 1.25rem);
-	color: var(--on-surface);
+	color: var(--on-surface-variant);
 	display: flex;
 	flex-direction: column;
 }
@@ -133,6 +135,12 @@
 	height: 100%;
 	width: 100%;
 	z-index: 0;
+}
+
+@media screen and (max-width: 2100px){
+	.hero-message h1 {
+		grid-column: 1 / span 6;
+	}
 }
 
 /* -------------- RESPONSIVE: TABLET -------------- */

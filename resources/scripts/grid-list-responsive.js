@@ -12,11 +12,28 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!gridListContent || !prevBtn || !nextBtn) return;
     
     const items = gridListContent.querySelectorAll('li');
-    const itemWidth = 420; // Match CSS flex-basis
-    const gap = window.innerWidth * 0.04; // 4vw gap
-    const scrollAmount = itemWidth + gap;
-    
     let currentIndex = 0;
+
+    // Calculate responsive dimensions
+    function getResponsiveDimensions() {
+        const w = window.innerWidth;
+        
+        if (w <= 460) {
+            // Mobile: use CSS clamp values
+            const minWidth = 320;
+            const maxWidth = 420;
+            const itemWidth = Math.min(maxWidth, Math.max(minWidth, w * 0.8));
+            const gap = w * 0.04; // 4vw gap
+            
+            // Get CSS variable value for padding-left
+            const rootStyles = getComputedStyle(document.documentElement);
+            const spacingLg = parseFloat(rootStyles.getPropertyValue('--spacing-lg')) || 24;
+            
+            return { itemWidth, gap, paddingLeft: spacingLg };
+        }
+        
+        return { itemWidth: 0, gap: 0, paddingLeft: 0 }; // Not used on larger screens
+    }
 
     // Update navigation state
     function updateNavigation() {
@@ -28,6 +45,9 @@ document.addEventListener('DOMContentLoaded', function() {
             gridListContent.style.transform = 'translateX(0px)';
             return;
         }
+        
+        const { itemWidth, gap, paddingLeft } = getResponsiveDimensions();
+        const scrollAmount = itemWidth + gap;
         
         // Update button states
         if (currentIndex <= 0) {
@@ -43,7 +63,9 @@ document.addEventListener('DOMContentLoaded', function() {
             nextBtn.classList.remove('grid-btn-disabled');
         }
         
-        const translateX = -(currentIndex * scrollAmount);
+        // Calculate translate position to align card left edge with screen left edge
+        // Account for initial padding-left and position each card at the left edge
+        const translateX = -(currentIndex * scrollAmount) - paddingLeft;
         gridListContent.style.transform = `translateX(${translateX}px)`;
     }
     

@@ -40,7 +40,7 @@ class SiteFooter extends HTMLElement {
             </footer>
         `;
         
-        // Initialiser l'effet hover pour les liens du footer
+        // Footer Links hover effect
         if (window.initializeHoverEffect) {
             window.initializeHoverEffect(this);
         }

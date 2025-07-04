@@ -147,6 +147,14 @@ p {
 	color: var(--on-surface);
 }
 
+/* Lead paragraph (intro text) */
+.lead {
+	font-size: var(--text-lg);
+	line-height: var(--leading-normal);
+	color: var(--on-surface-variant);
+	font-weight: 400;
+}
+
 /* CTA Copy */
 .cta-copy {
 	color: var(--surface);
