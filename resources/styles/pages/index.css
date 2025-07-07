@@ -236,10 +236,10 @@ main.no-scroll {
 		  
 		  .partners-grid {
 			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-			gap: 2rem;
+			grid-template-columns: repeat(12, minmax(0, 1fr));
+			grid-column-gap: 1rem;
+			grid-row-gap: 1rem;
 			align-items: center;
-			justify-items: center;
 		  }
 		  
 		  .partner img {
@@ -251,20 +251,31 @@ main.no-scroll {
 
 		  /* Bloc logo */
 			.partner {
-				background-color: var(--surface-high); 
 				padding: 1.2rem;
 				border-radius: 2px;
-				width: 100%;
-				height: 150px;
+				grid-column: span 4;
+				height: 120px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				transition: background-color 0.3s ease;
 			}
 
+			.moodys-partner img{
+				max-height: 32px;
+			}
+
 
 
 @media screen and (max-width: 1080px) {
+
+	.partners-grid {
+		grid-template-columns: repeat(8, minmax(0, 1fr));
+	}
+
+	.partner {
+		grid-column: span 4;
+	}
 
 	.container-wrap {
 		row-gap: 40px;
@@ -327,6 +338,14 @@ main.no-scroll {
 }
 
 @media screen and (max-width: 768px) {
+	.partners-grid {
+		grid-template-columns: repeat(6, minmax(0, 1fr));
+	}
+
+	.partner {
+		grid-column: span 2;
+	}
+
 	.section-title,
 	.section-headline {
 		font-size: 32px;
@@ -351,6 +370,14 @@ main.no-scroll {
 }
 
 @media screen and (max-width: 460px) {
+	.partners-grid {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.partner {
+		grid-column: span 2;
+	}
+
 	/* Responsive grids managed by .site-grid */
 	.section-content .right-content{
 		grid-column: 1 / span 4;
@@ -807,6 +834,15 @@ main.no-scroll {
 	transition: opacity .3s ease;
 }
 
+
+/* --------- Hero Parallax */
+
+.hero-parallax-title,
+.hero-parallax-text {
+	will-change: transform, opacity;
+	backface-visibility: hidden;
+	transform-style: preserve-3d;
+}
 
 /* --------- Button Action*/
 

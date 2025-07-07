@@ -40,14 +40,12 @@
 
 .collaboration_models {
 	justify-content: end;
-	li
 
-{
-	display: flex;
-	flex-direction: column;
-	gap: 5rem;
 }
 
+#collaboration-model .three-columns-column:first-child{
+	padding-left: 0;
+	border-right: 1px solid var(--outline);
 }
 
 /* ----------- COLLABORATION MODEL */

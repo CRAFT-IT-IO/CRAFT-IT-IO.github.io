@@ -28,8 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Parcourir chaque élément
     textWrappers.forEach(function (textWrapper) {
-        // Récupérer le contenu avant et après le <br>
-        var parts = textWrapper.innerHTML.split('<br>');
+
 
         // Fonction pour envelopper chaque mot dans une <div> et chaque lettre dans un <span>
         function wrapWordsInDiv(text) {

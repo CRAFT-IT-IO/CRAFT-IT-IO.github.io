@@ -164,30 +164,6 @@ p {
 	text-align: right;
 }
 
-/* Annotations */
-.anotation {
-	color: var(--on-surface-variant);
-	font-family: var(--font-primary);
-	font-style: normal;
-	font-weight: 400;
-	font-size: var(--text-sm);
-	letter-spacing: var(--tracking-wide);
-	line-height: var(--leading-none);
-	margin: 0;
-	text-transform: uppercase;
-}
-
-/* Upper links */
-.upperlinks {
-	color: var(--on-surface);
-	font-family: var(--font-primary);
-	font-style: normal;
-	font-weight: 400;
-	font-size: var(--text-sm);
-	line-height: var(--leading-none);
-	letter-spacing: var(--tracking-wide);
-	text-transform: uppercase;
-}
 
 /* Model annotation (display text) */
 .model-anotation {
@@ -219,32 +195,15 @@ p {
 	text-decoration: none;
 }
 
-/* Back to top button - specific to footer context */
-.footer-bottom .back-to-top.btn-action {
-	color: var(--primary);
-	font-family: var(--font-mono);
-	font-size: 16px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 16px;
-	letter-spacing: var(--tracking-wider);
-	text-transform: uppercase;
-	margin: 0;
-}
 
-.footer-bottom .back-to-top.btn-action a {
-	color: var(--primary);
-	text-decoration: none;
-}
-
-/* Menu labels and section markers */
-.menu-label,
+/* Section markers */
 .section-start,
 .section-name,
 .section-number,
 .section-prefix,
 .section-category,
-.section-index {
+.section-index,
+.menu-label {
 	color: var(--primary);
 	font-family: var(--font-mono);
 	font-size: 16px;
@@ -370,33 +329,3 @@ p {
 	display: inline-block;
 }
 
-/* Rolling hover effect */
-.rolling-hover {
-	display: inline-block;
-	overflow: hidden;
-	height: 1.1em;
-}
-
-.rolling-hover:hover .letter,
-.rolling-hover.play .letter {
-	transform: translateY(-100%);
-}
-
-.letter {
-	display: inline-block;
-	transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
-}
-
-.block:last-child {
-	color: var(--primary);
-}
-
-/* Letter animation delays */
-.letter:nth-child(1) { transition-delay: 0s; }
-.letter:nth-child(2) { transition-delay: 0.05s; }
-.letter:nth-child(3) { transition-delay: 0.1s; }
-.letter:nth-child(4) { transition-delay: 0.15s; }
-.letter:nth-child(5) { transition-delay: 0.20s; }
-.letter:nth-child(6) { transition-delay: 0.25s; }
-.letter:nth-child(7) { transition-delay: 0.30s; }
-.letter:nth-child(8) { transition-delay: 0.35s; }

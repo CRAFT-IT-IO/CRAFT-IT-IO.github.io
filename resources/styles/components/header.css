@@ -81,7 +81,7 @@ header {
 	flex-flow: column;
 	place-self: stretch;
 	position: relative;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 .toggle-menu {
@@ -191,8 +191,9 @@ header.is-scrolling .baseline {
 .menu .menu-container .menu-item-selected {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	cursor: pointer;
+	gap: var(--spacing-sm);
+	align-items: center;
 }
 
 .menu-item-selected img {
