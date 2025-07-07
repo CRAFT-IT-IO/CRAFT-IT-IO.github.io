@@ -1,0 +1,154 @@
+
+.grid-list-content li {
+    grid-column: span 4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+
+    aspect-ratio: 536 / 347;
+    padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
+
+    background-color: var(--surface-high);
+    border: 1px solid var(--outline);
+}
+
+.svg-container {
+    width: clamp(64px, 5vw, 100px);
+    height: clamp(64px, 5vw, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.svg-container svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.grid-nav-controls {
+    display: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    z-index: 3;
+}
+
+.grid-nav-btn {
+    width: 52px;
+    height: 52px;
+    border: 1px solid var(--outline);
+    background: transparent;
+    border-radius: var(--spacing-2xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--on-surface);
+
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+}
+
+.grid-nav-btn:hover {
+    background: var(--surface-highest);
+
+    transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+}
+
+
+/* -------------- RESPONSIVE: MOBILE -------------- */
+
+@media screen and (max-width: 768px) {
+    .grid-list-content li {
+        grid-column: span 3;
+        aspect-ratio: 536 / 640;
+    }
+    
+    .svg-container {
+        width: clamp(64px, 6vw, 100px);
+        height: clamp(64px, 6vw, 100px);
+    }
+}
+
+@media screen and (max-width: 460px) {
+
+    .grid-list-content li {
+        grid-column: span 4 ;
+        aspect-ratio: 536 / 536;
+    }
+
+    .grid-list-content{
+        display: flex;
+        gap: 4vw;
+        width: max-content;
+        aspect-ratio: unset;
+        padding-bottom: var(--spacing-sm);
+        padding-right: 100vw;
+        transition: transform 0.3s ease;
+    }
+
+    .grid-list-content li {
+        flex: 0 0 clamp(320px, 80vw, 420px);
+        height: clamp(320px, 80vw, 420px);
+        scroll-snap-align: start;
+        padding: clamp(var(--spacing-xs), 3vw, var(--spacing-lg));
+    }
+
+    .svg-container {
+        width: clamp(90px, 12vw, 120px);
+        height: clamp(90px, 12vw, 120px);
+    }
+
+    .grid-list{
+        position: relative;
+        overflow-y: visible;
+        overflow-x: hidden;
+    }
+
+    .grid-list .grid-nav-controls {
+        display: flex;
+        gap: var(--spacing-xs);
+
+    }
+
+    .grid-list::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 6vh;
+        height: 100%;
+        background: linear-gradient(270deg, var(--surface-dim) 0%, transparent 100%);
+        pointer-events: none;
+        z-index: 2;
+    }
+
+    .grid-nav-btn {
+        width: 52px;
+        height: 52px;
+        border: 1px solid var(--outline);
+        background: transparent;
+        border-radius: var(--spacing-2xs);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: var(--on-surface);
+
+        transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+    }
+
+    .grid-nav-btn:hover {
+        background: var(--surface);
+
+        transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+    }
+
+    .grid-btn-disabled{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

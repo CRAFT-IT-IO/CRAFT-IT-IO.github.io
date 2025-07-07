@@ -1,3 +1,4 @@
+
 var button = document.querySelector(".hero-button");
 var buttonText = document.querySelector(".button-text");
 var svgArrow = document.querySelector(".svg-arrow");
@@ -19,13 +20,15 @@ document.addEventListener('scroll', function () {
 // HERO ANIMATION TEXT
 
 document.addEventListener("DOMContentLoaded", function () {
+    // Initialize grid list responsive
+    initGridListResponsive();
+    
     // Sélectionner tous les éléments avec la classe 'scroll-fade'
     var textWrappers = document.querySelectorAll('.scroll-fade');
 
     // Parcourir chaque élément
     textWrappers.forEach(function (textWrapper) {
-        // Récupérer le contenu avant et après le <br>
-        var parts = textWrapper.innerHTML.split('<br>');
+
 
         // Fonction pour envelopper chaque mot dans une <div> et chaque lettre dans un <span>
         function wrapWordsInDiv(text) {
@@ -167,6 +170,24 @@ textElements.forEach((element) => {
     element.innerText = finalText; 
   });
 });
+
+// Fonction pour initialiser l'effet sur de nouveaux éléments (Web Components)
+function initializeHoverEffect(container = document) {
+  const newTextElements = container.querySelectorAll(".coding:not([data-hover-initialized])");
+  
+  newTextElements.forEach((element) => {
+    const finalText = element.innerText;
+    element.setAttribute('data-hover-initialized', 'true');
+
+    element.addEventListener("mouseenter", () => temporaryDecode(element, finalText));
+    element.addEventListener("mouseleave", () => {
+      element.innerText = finalText; 
+    });
+  });
+}
+
+// Exposer la fonction globalement pour les Web Components
+window.initializeHoverEffect = initializeHoverEffect;
 
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector("header");

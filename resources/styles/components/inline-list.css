@@ -1,0 +1,31 @@
+.inline-list{
+    padding: var(--spacing-xl) 0 ;
+}
+
+.inline-list-content li{
+    display: flex;
+    flex-direction: row;
+    padding: var(--spacing-lg) 0 var(--spacing-xl) 0;
+    border-bottom: 1px solid var(--outline);
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: var(--spacing-lg);
+}
+
+.inline-list-title-wrapper{
+    display: flex;
+    gap: var(--spacing-xl);
+}
+
+.inline-list-content li p{
+    max-width: 560px;
+}
+
+/* -------------- RESPONSIVE: MOBILE -------------- */
+
+@media screen and (max-width: 768px) {
+    .inline-list-content li{
+        flex-direction: column;
+    }
+}

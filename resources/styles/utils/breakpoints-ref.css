@@ -1,0 +1,28 @@
+/* ==========================================================================
+   BREAKPOINTS REFERENCE - Standardized breakpoints documentation
+   ========================================================================== */
+
+/*
+  BREAKPOINTS USED THROUGHOUT THE PROJECT:
+  
+  📱 Mobile Small:  max-width: 460px   (--breakpoint-sm)
+  📱 Mobile:        max-width: 768px   (--breakpoint-md) 
+  📱 Tablet:        max-width: 1080px  (--breakpoint-lg)
+  🖥️  Desktop Large: min-width: 1440px  (--breakpoint-xl)
+  
+  USAGE IN @MEDIA QUERIES:
+  @media screen and (max-width: 460px)  {  }
+  @media screen and (max-width: 768px)  {  }
+  @media screen and (max-width: 1080px) {  }
+  @media screen and (min-width: 1440px) {  }
+  
+  RESPONSIVE GRIDS:
+  - Desktop:      12 columns
+  - Tablet:       8 columns  
+  - Mobile:       6 columns
+  - Mobile small: 4 columns
+  
+  Note: CSS variables cannot be used in @media queries,
+  that's why we use the values directly but they correspond
+  to the variables defined in variables.css
+*/

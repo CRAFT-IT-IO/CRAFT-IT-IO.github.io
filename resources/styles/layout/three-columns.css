@@ -1,0 +1,92 @@
+
+.layout-three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+}
+
+.three-columns-header{
+    padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-4xl) 0;
+    border-right: 1px solid var(--outline);
+}
+
+.three-columns-column{
+    padding: var(--spacing-4xl) var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+    .three-columns-column h3 {
+        font-size: var(--text-2xl);
+    }
+
+    .three-columns-column ul.service-features {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .three-columns-column ul.service-features li {
+        width: 100%;
+        padding: var(--spacing-xs) 0;
+        line-height: 1.4;
+        position: relative;
+        padding-left: var(--spacing-md);
+
+        display: flex;
+        align-items: center;
+
+        font-family: var(--font-mono);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .three-columns-column ul.service-features li::before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 6px;
+        height: 6px;
+        left: 0;
+        background-color: var(--on-surface-variant);
+        font-size: 0.8em;
+    }
+
+.three-columns-column:last-child{
+    padding-right: 0;
+    border-left: 1px solid var(--outline);
+}
+
+.three-columns-content{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+/* -------------- RESPONSIVE: MOBILE -------------- */
+
+@media screen and (max-width: 1080px) {
+
+    .layout-three-column {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    .three-columns-header{
+        padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
+        border-right: none;
+        border-bottom: 1px solid var(--outline);
+    }
+
+    .three-columns-column{
+        padding: var(--spacing-xl) 0 var(--spacing-xl) 0;
+        gap: var(--spacing-lg);
+        border-right: none;
+        border-bottom: 1px solid var(--outline);
+    }
+    
+    .three-columns-column:last-child{
+        border-left: none;
+    }
+}

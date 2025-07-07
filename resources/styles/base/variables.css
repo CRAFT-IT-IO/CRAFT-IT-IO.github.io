@@ -1,0 +1,53 @@
+/* ==========================================================================
+   CSS VARIABLES - Centralized design tokens
+   ========================================================================== */
+
+:root {
+	/* -------------- COLOR SYSTEM -------------- */
+	
+	/* Primary colors */
+	--primary: #D9343F; /* craft-Red */
+	
+	/* Surface colors */
+	--surface: #F1EDEB; 
+	--surface-high: #EBE7E5;
+	--surface-highest: #D4D2D0; 
+	
+	/* Text colors */
+	--on-surface: #21201F; 
+	--on-surface-variant: #474745; 
+	
+	/* Border colors */
+	--outline: #C9C6C4; 
+	
+	/* -------------- SPACING -------------- */
+	
+	--spacing-2xs: .25px; /* 4px */
+	--spacing-xs: .5rem; /* 8px */
+	--spacing-sm: 1rem; /* 16px */
+	--spacing-md: 1.5rem; /* 24px */
+ 	--spacing-lg: 2rem; /* 32px */
+	--spacing-xl: 3rem; /* 48px */
+	--spacing-2xl: 4rem; /* 64px */
+	--spacing-3xl: 5rem; /* 80px */
+	--spacing-4xl: 6rem; /* 96px */
+	
+	/* -------------- LAYOUT -------------- */
+	
+	--gfs: 14.4;
+	--sticky-container-wrap-top: 0px;
+	--sticky-process-grid-top: 0px;
+	
+	/* -------------- BREAKPOINTS -------------- */
+	
+	--breakpoint-sm: 460px;   /* Mobile small */
+	--breakpoint-md: 768px;   /* Mobile */
+	--breakpoint-lg: 1080px;  /* Tablet */
+	--breakpoint-xl: 1440px;  /* Desktop large */
+	
+	/* -------------- Z-INDEX -------------- */
+	
+	--z-header: 1000;
+	--z-modal: 9999;
+	--z-tooltip: 10000;
+}

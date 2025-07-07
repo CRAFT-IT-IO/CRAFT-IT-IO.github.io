@@ -1,0 +1,48 @@
+/* -------------- STRUCTURE */
+
+.site-grid {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	grid-column-gap: 1rem;
+	grid-row-gap: 1rem;
+}
+
+main {
+	position: relative;
+	padding: var(--spacing-lg);
+	background-color: var(--surface);
+
+	margin: 0 auto;
+	z-index: 1;
+}
+
+.contain-wrap {
+	width: 100%;
+	max-width: 2560px;
+	margin: 0 auto;
+}
+
+
+.three-columns-section{
+    height: 110vh;
+}
+
+.layout-three-column{
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+/* -------------- RESPONSIVE: DESKTOP -------------- */
+
+@media screen and (max-width: 1080px) {
+
+    .layout-three-column{
+        flex-direction: column;
+    }
+
+    .three-columns-section{
+        height: auto;
+    }
+
+}

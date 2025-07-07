@@ -1,0 +1,331 @@
+/* ==========================================================================
+   TYPOGRAPHY - UNIFIED TYPOGRAPHY SYSTEM
+   ========================================================================== */
+
+/* -------------- FONTS IMPORT -------------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@font-face {
+	font-family: 'Aspekta';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('/resources/fonts/Aspekta-400.woff2') format('woff2'),
+		 url('/resources/fonts/Aspekta-400.woff') format('woff'),
+		 url('/resources/fonts/Aspekta-400.ttf') format('truetype');
+}
+
+/* -------------- CSS VARIABLES - TYPOGRAPHY -------------- */
+:root {
+	/* Font families */
+	--font-primary: "Aspekta", Helvetica, sans-serif;
+	--font-mono: "IBM Plex Mono", monospace;
+	
+	/* Font sizes - Constant ratio from 1720px to 1920px max */
+	/* Reference: 1720px, Max: 1920px (ratio limit) */
+	--text-xs: clamp(0.75rem, 0.814vw, 0.908rem);     /* 14px at 1720px → 16px at 1920px */
+	--text-sm: clamp(0.875rem, 0.930vw, 1.037rem);    /* 16px at 1720px → 18px at 1920px */
+	--text-base: clamp(1rem, 1.047vw, 1.167rem);      /* 18px at 1720px → 20px at 1920px */
+	--text-lg: clamp(1.125rem, 1.279vw, 1.426rem);    /* 22px at 1720px → 25px at 1920px */
+	--text-xl: clamp(1.25rem, 1.628vw, 1.815rem);     /* 28px at 1720px → 31px at 1920px */
+	--text-2xl: clamp(1.75rem, 2.093vw, 2.333rem);    /* 36px at 1720px → 40px at 1920px */
+	--text-3xl: clamp(2.25rem, 2.791vw, 3.111rem);    /* 48px at 1720px → 54px at 1920px */
+	--text-4xl: clamp(3rem, 3.721vw, 4.148rem);       /* 64px at 1720px → 71px at 1920px */
+	--text-display: clamp(4rem, 7.442vw, 8.296rem);   /* 128px at 1720px → 143px at 1920px */
+	
+	/* Line heights */
+	--leading-none: 1;
+	--leading-tight: 1.2;
+	--leading-normal: 1.4;
+	--leading-relaxed: 1.6;
+	--leading-loose: 2;
+	
+	/* Letter spacing */
+	--tracking-normal: 0;
+	--tracking-wide: 0.125rem;
+	--tracking-wider: 0.32px;
+}
+
+/* -------------- BASE TYPOGRAPHY -------------- */
+
+/* Headers */
+h1 {
+	color: var(--on-surface);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-4xl);
+	line-height: var(--leading-none);
+	margin: 0;
+}
+
+h2 {
+	color: var(--on-surface);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-3xl);
+	line-height: var(--leading-tight);
+	margin: 0;
+}
+
+h3 {
+	color: var(--on-surface);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-2xl);
+	line-height: var(--leading-tight);
+	margin: 0;
+}
+
+h4 {
+	color: var(--on-surface);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-lg);
+	line-height: var(--leading-normal);
+	margin: 0;
+}
+
+/* Paragraphs */
+p {
+	color: var(--on-surface-variant);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-base);
+	line-height: var(--leading-relaxed);
+	margin: 0;
+}
+
+/* -------------- TEXT SIZES -------------- */
+
+.text-xs {
+	font-size: var(--text-xs);
+}
+
+.text-sm, .p-sm {
+	font-size: var(--text-sm);
+}
+
+.text-base {
+	font-size: var(--text-base);
+}
+
+.text-lg {
+	font-size: var(--text-lg);
+}
+
+.text-xl {
+	font-size: var(--text-xl);
+}
+
+.text-2xl {
+	font-size: var(--text-2xl);
+}
+
+.text-3xl {
+	font-size: var(--text-3xl);
+}
+
+.text-4xl {
+	font-size: var(--text-4xl);
+}
+
+.text-display {
+	font-size: var(--text-display);
+}
+
+/* -------------- TEXT STYLES -------------- */
+
+/* Content text (large paragraph) */
+.content_text {
+	font-size: var(--text-2xl);
+	line-height: var(--leading-tight);
+	color: var(--on-surface);
+}
+
+/* Lead paragraph (intro text) */
+.lead {
+	font-size: var(--text-lg);
+	line-height: var(--leading-normal);
+	color: var(--on-surface-variant);
+	font-weight: 400;
+}
+
+/* CTA Copy */
+.cta-copy {
+	color: var(--surface);
+	text-decoration: none;
+	font-size: var(--text-lg);
+	line-height: var(--leading-normal);
+	text-align: right;
+}
+
+
+/* Model annotation (display text) */
+.model-anotation {
+	color: var(--on-surface);
+	font-family: var(--font-primary);
+	font-style: normal;
+	font-weight: 400;
+	font-size: var(--text-display);
+	line-height: var(--leading-none);
+	margin: 0;
+}
+
+/* -------------- MONOSPACE TEXT -------------- */
+
+/* Button actions */
+.btn-action {
+	color: var(--primary);
+	font-family: var(--font-mono);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: var(--tracking-wider);
+	text-transform: uppercase;
+}
+
+.btn-action a {
+	color: var(--primary);
+	text-decoration: none;
+}
+
+
+/* Section markers */
+.section-start,
+.section-name,
+.section-number,
+.section-prefix,
+.section-category,
+.section-index,
+.menu-label {
+	color: var(--primary);
+	font-family: var(--font-mono);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: var(--leading-loose);
+	letter-spacing: var(--tracking-wider);
+	text-transform: uppercase;
+}
+
+/* Chapter elements */
+.chapter p:not(.section-title):not(.section-headline),
+.section-header p:not(.section-headline),
+.section-header span {
+	color: var(--primary);
+	font-family: var(--font-mono);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+}
+
+/* -------------- TEXT COLORS -------------- */
+
+.text-primary {
+	color: var(--on-surface);
+}
+
+.text-secondary {
+	color: var(--on-surface-variant);
+}
+
+.text-accent {
+	color: var(--primary);
+}
+
+.text-muted {
+	color: var(--outline);
+}
+
+.text-light {
+	color: var(--surface);
+}
+
+/* -------------- TEXT UTILITIES -------------- */
+
+.text-uppercase {
+	text-transform: uppercase;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.font-mono {
+	font-family: var(--font-mono);
+}
+
+.font-primary {
+	font-family: var(--font-primary);
+}
+
+/* -------------- RESPONSIVE ADJUSTMENTS -------------- */
+
+@media screen and (max-width: 768px) {
+	.section-title,
+	.section-headline {
+		font-size: 32px;
+	}
+	
+	.moodys #hero .hero-message h1 {
+		font-size: 80px;
+	}
+}
+
+@media screen and (max-width: 460px) {
+	.moodys #hero .hero-message h1 {
+		font-size: 64px;
+		margin-bottom: 0px;
+	}
+	
+	#outro .site-grid .model-anotation {
+		font-size: 64px;
+	}
+}
+
+/* -------------- SPECIAL EFFECTS -------------- */
+
+/* Text selection */
+::selection {
+	background-color: var(--primary);
+	color: var(--surface);
+}
+
+/* Scroll fade animation */
+.scroll-fade span {
+	display: inline-block;
+	opacity: 0;
+	transform: translateY(20px);
+}
+
+/* Disappear animation */
+.disap {
+	opacity: 0;
+	transform: translateY(5rem);
+	transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.disap.visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Hero word animation */
+.hero-word {
+	display: inline-block;
+}
+

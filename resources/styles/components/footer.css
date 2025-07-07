@@ -1,0 +1,165 @@
+/* ==========================================================================
+   FOOTER COMPONENT
+   ========================================================================== */
+
+/* -------------- FOOTER BASE -------------- */
+
+footer {
+	position: relative;
+	z-index: 50;
+	padding: 2.5rem 1.5rem 2rem 1.5rem;
+}
+
+footer h4 {
+	margin-bottom: .5rem;
+}
+
+footer a {
+	text-decoration: none;
+}
+
+footer .btn-action {
+	margin-bottom: .5rem;
+}
+
+footer .contain-wrap {
+	row-gap: 2.5rem;
+}
+
+/* -------------- FOOTER SECTIONS -------------- */
+
+.headquarter {
+	display: grid;
+	grid-column: 4 / span 3;
+}
+
+.office {
+	display: grid;
+	grid-column: 7 / span 3;
+}
+
+.reach-us {
+	display: grid;
+	justify-items: start;
+	grid-column: 10 / span 3;
+}
+
+/* -------------- FOOTER BOTTOM -------------- */
+
+.footer-bottom {
+	display: flex;
+    grid-row: 3;
+    grid-column: 1 / span 12;
+    justify-content: space-between;
+    align-items: center;
+	padding-top: 2rem;
+	border-top: 1px solid var(--outline);
+}
+
+.footer-bottom .footer-bottom-wrapper a {
+	text-decoration: underline;
+	color: var(--on-surface-variant);
+}
+
+.footer-bottom .btn-action {
+	margin: 0;
+}
+
+.footer-bottom-wrapper {
+	display: flex;
+	align-items: center;
+	grid-column: 1 / span 4;
+	gap: 1rem;
+}
+
+/* -------------- FOOTER HOVER STATES -------------- */
+
+.sub-link:hover {
+	color: var(--on-surface);
+}
+
+/* -------------- RESPONSIVE: TABLET -------------- */
+
+@media screen and (max-width: 1080px) {
+	.footer-bottom {
+		grid-column: 1 / span 8;
+		padding: 2.5rem 1rem 2rem 1rem;
+	}
+
+	.footer-logo {
+		grid-column: span 2;
+	}
+
+	.back-to-top {
+		justify-items: start;
+		grid-row: 5;
+		grid-column: span 2;
+	}
+
+	.headquarter {
+		grid-column: 1 / span 2;
+	}
+	
+	.office {
+		grid-column: 4 / span 2;
+	}
+	
+	.reach-us {
+		grid-column: 7 / span 2;
+	}
+}
+
+/* -------------- RESPONSIVE: MOBILE -------------- */
+
+@media screen and (max-width: 768px) {
+	footer {
+		grid-column: 1 / span 8;
+		padding: 2.5rem 1rem 2rem 1rem;
+	}
+
+	.footer-bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 3rem;
+		grid-column: 1 / span 6;
+	}
+	
+	.headquarter {
+		grid-row: 2;
+		grid-column: 1 / span 3;
+	}
+	
+	.reach-us {
+		grid-row: 2;
+		grid-column: 4 / span 3;
+	}
+}
+
+/* -------------- RESPONSIVE: SMALL MOBILE -------------- */
+
+@media screen and (max-width: 460px) {
+	.footer-bottom-wrapper {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.footer-bottom {
+		grid-row: 5;
+		grid-column: 1 / span 4;
+	}
+	
+	.headquarter {
+		grid-row: 2;
+		grid-column: 1 / span 4;
+	}
+	
+	.office {
+		grid-row: 3;
+		grid-column: 1 / span 4;
+	}
+	
+	.reach-us {
+		grid-row: 4;
+		grid-column: 1 / span 4;
+	}
+}

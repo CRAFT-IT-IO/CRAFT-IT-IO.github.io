@@ -16,10 +16,7 @@
 	<link rel="alternate" hreflang="en" href="https://www.craft-it.io/banking-services.html">
 
 	<!-- CSS Stylesheets -->
-	<link rel="stylesheet" href="resources/styles/reset.css">
-	<link rel="stylesheet" href="resources/styles/index.css">
-	<link rel="stylesheet" href="resources/styles/moodys.css">
-	<link rel="stylesheet" href="resources/styles/header.css">
+	<link rel="stylesheet" href="resources/styles/main.css">
 
 	<!-- Social Media Meta Tags -->
 	<meta property="og:title" content="craft it — One guide into Moody's universe">
@@ -36,54 +33,17 @@
 </head>
 <body>
 	<canvas id="moodys-threejs-canvas"></canvas>
-	
-	<header>
-		<div class="header-container">
-			<div class="hero-logo">
-				<a href="index.html">
-					<svg width="152" height="33" viewBox="0 0 152 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-						<path d="M35.9277 11.5091V6.18972C35.9277 2.88082 33.2471 0.200195 29.9382 0.200195H6.1476C2.8387 0.200195 0.199951 2.88082 0.199951 6.14784V26.2107C0.199951 29.5196 2.88058 32.2002 6.18948 32.2002H29.9382C33.2471 32.2002 35.9696 29.5196 35.9696 26.1688V20.8494H30.0219V26.1688H6.1476V6.14784H30.0219V11.4672L35.9277 11.5091Z" fill="#EF3340"/>
-						<path d="M44.891 32.2002H50.8386V10.2944H44.891V32.2002Z" fill="#EF3340"/>
-						<path d="M44.8491 0.200195H38.9015V10.2944H44.8491V0.200195Z" fill="#EF3340"/>
-						<path d="M75.7183 25.3732C75.0062 26.2109 74.0429 26.6297 72.8282 26.6297H69.6869C68.4303 26.6297 67.4251 26.2109 66.6712 25.415C65.9172 24.6192 65.4984 23.5302 65.4984 22.1899V16.7449C65.4984 15.2789 65.8754 14.148 66.6293 13.2266C67.3832 12.347 68.3884 11.8862 69.645 11.8862H72.7863C73.9591 11.8862 74.8806 12.2213 75.5926 12.8496C76.3047 13.4779 76.6398 14.3574 76.6398 15.3627H79.3204C79.3204 13.6035 78.734 12.1376 77.5193 11.0485C76.3466 9.95954 74.7549 9.41504 72.7863 9.41504H69.645C67.5926 9.41504 65.9172 10.0852 64.6607 11.4255C63.4042 12.7658 62.7759 14.525 62.7759 16.703V22.148C62.7759 24.2423 63.4042 25.9177 64.6607 27.1742C65.9172 28.4307 67.5926 29.059 69.6869 29.059H72.8282C74.7968 29.059 76.3884 28.4307 77.645 27.1323C78.8596 25.8339 79.4879 24.1166 79.4879 22.0224H76.7654C76.8073 23.4046 76.3884 24.5355 75.7183 25.3732Z" fill="#201D1B"/>
-						<path d="M100.221 9.8335C96.3257 9.8335 92.6817 11.5508 92.556 15.9487H95.2367C95.3623 13.0167 97.8754 12.2209 100.221 12.2209C102.943 12.2209 104.535 13.0586 104.535 15.4042V16.8701L98.5456 18.0848C94.3152 18.9225 91.844 20.556 91.844 23.823C91.844 27.2157 94.3152 29.2262 98.4199 29.2262C100.724 29.2262 102.985 28.4304 104.577 26.2105V28.8073H107.048V15.1948C107.09 11.9277 104.912 9.8335 100.221 9.8335ZM104.493 21.3099C104.493 25.1633 101.519 26.8387 98.5456 26.8387C95.8231 26.8387 94.6503 25.5403 94.6503 23.7393C94.6503 21.5612 96.2838 20.933 98.9225 20.3466L104.493 19.1738V21.3099Z" fill="#201D1B"/>
-						<path d="M124.933 4.59791H122.252V10.2942H113.833V7.69739C113.833 6.23142 114.378 5.51938 115.844 5.51938H118.902V3.17383H115.383C112.158 3.17383 111.153 4.6398 111.153 7.4042V10.2942H107.718V12.6398H111.153V28.7655H113.833V12.6398H122.252V24.5351C122.252 27.2995 123.258 28.7655 126.483 28.7655H130.001V26.4199H126.943C125.436 26.4199 124.933 25.7079 124.933 24.2419V12.6398H130.001V10.2942H124.933V4.59791Z" fill="#201D1B"/>
-						<path d="M139.635 10.2944H136.912V28.7656H139.635V10.2944Z" fill="#201D1B"/>
-						<path d="M139.635 4.59814H136.912V7.94893H139.635V4.59814Z" fill="#201D1B"/>
-						<path d="M151.697 12.64V10.2945H146.629V4.59814H143.949V10.2945H140.514V12.64H143.949V24.5353C143.949 27.2997 144.954 28.7657 148.179 28.7657H151.697V26.4201H148.64C147.132 26.4201 146.629 25.7081 146.629 24.2421V12.64H151.697Z" fill="#201D1B"/>
-						<path d="M80.912 14.5247V28.7655H83.5926V14.776C83.5926 13.31 84.1371 12.598 85.6031 12.598H91.1738V10.2524H85.1424C81.8753 10.2943 80.912 11.7184 80.912 14.5247Z" fill="#201D1B"/>
-					</svg>
-				</a>
-			</div>
-			<div class="baseline">
-				Crafting resilience</br>
-				with precision
-			</div>
-			<div class="menu">
-				<div class="menu-container">
-					<div class="menu-label">MENU</div>
-					<div class="menu-item-selected">
-						<p class="toggle-menu">Banking delivery services</p>
-						<img class="arrow-back" src="./resources/assets/arrow_back.svg" alt="">
-					</div>
-					<div class="menu-items m-item-1" id="menuItems">
-						<a href="index.html">Home</a>
-					</div>
-					<div class="menu-items m-item-2" id="menuItems">
-						<a href="about.html">About Us</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+       
+	<!-- NAVIGATION-->
 
+    <site-navigation></site-navigation>
 
 
 	<div id="sec-hero" class="hero-wrapper">
 
 		<div class="contain-wrap site-grid">
 			<div class="sec-hero-content-wrapper disap">
-					<h2 class="scroll-fade">One guide into <br>Moody's universe</h2>
+					<h1 class="scroll-fade">One guide into <br>Moody's universe</h1>
 			</div>
 
 			<svg class="ma-partner-alliance" width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -160,115 +120,124 @@
 
 		<div class="contain-wrap">
 
-			<!-- MOODYS -->
-			<div id="moodys" class="container-wrap">
-				<div class="chapter">
-					<p class="section-start">//</p>
-					<p class="section-name">Moody's</p>
-					<h3 class="section-title">
-						Moody’s : turning risk into opportunity
-					</h3>
-					<p class="section-number">001</p>
-				</div>
+		<!-- MOODYS -->
 
-				<div class="section-content">
-					<div class="right-content">
-						<p>Moody’s provides data, insights, and technology to help businesses manage risk and make better decisions. As part of Moody’s Corporation, they specialize in financial intelligence, offering solutions that simplify complex challenges. From market trends to regulatory changes, their award-winning tools and expert services help companies stay ahead with confidence.</p>
+			<section id="moodys" class="content-section">
+                <div class="section-header site-grid">
+                    <span class="section-prefix" aria-hidden="true">//</span>
+                    <p class="section-category">Moody's</p>
+                    <h2 class="section-headline">
+                        Moody’s : turning risk into opportunity
+                    </h2>
+                    <span class="section-index" aria-label="Section 1">001</span>
+                </div>
+    
+                <div class="section-body site-grid">
+                    <div class="section-content">
+                        <p>Moody’s provides data, insights, and technology to help businesses manage risk and make better decisions. As part of Moody’s Corporation, they specialize in financial intelligence, offering solutions that simplify complex challenges. From market trends to regulatory changes, their award-winning tools and expert services help companies stay ahead with confidence.</p>
+                    </div>
+                </div> 
+            </section>
+
+		<!-- PARTNER ALLIANCE PROGRAM -->
+
+			<section id="alliance-program" class="content-section">
+                <div class="section-header site-grid">
+                    <span class="section-prefix" aria-hidden="true">//</span>
+                    <p class="section-category">Partner Alliance Program</p>
+                    <h2 class="section-headline">
+                         For decades, we’ve designed and implemented digital solutions in the banking sector 
+                    </h2>
+                    <span class="section-index" aria-label="Section 1">002</span>
+                </div>
+    
+                <div class="section-body site-grid">
+                    <div class="section-content">
+                        <p>By joining forces, Moody’s and Craft it provide end-to-end risk management solutions designed for the banking, finance, and credit risk sectors. Combining advanced analytics, AI-driven risk insights, and regulatory compliance expertise, we help businesses navigate financial and credit risk challenges with precision.</p>
+                        <p>With a shared commitment to excellence and innovation, we deliver best-in-class banking technology, enterprise risk management solutions, and consulting services — empowering institutions to stay ahead in a rapidly evolving financial landscape.</p>
 					</div>
-				</div>
-			</div>
-			
-			<!-- PARTNERSHIP -->
-			<div id="moodys" class="container-wrap">
-				<div class="chapter">
-					<p class="section-start">//</p>
-					<p class="section-name">Partner Alliance Program</p>
-					<h3 class="section-title">
-						For decades, we’ve designed and implemented digital solutions in the banking sector
-					</h3>
-					<p class="section-number">002</p>
-				</div>
+                </div> 
+            </section>
 
-				<div class="section-content">
-					<div class="right-content">
-						<p>By joining forces, Moody’s and Craft it provide end-to-end risk management solutions designed for the banking, finance, and credit risk sectors. Combining advanced analytics, AI-driven risk insights, and regulatory compliance expertise, we help businesses navigate financial and credit risk challenges with precision.</p>
-						<p>With a shared commitment to excellence and innovation, we deliver best-in-class banking technology, enterprise risk management solutions, and consulting services — empowering institutions to stay ahead in a rapidly evolving financial landscape.</p>
-					</div>
-				</div>
-			</div>
 
-			<!-- PROCESS -->
-			<div id="process" class="container-wrap">
-				<div class="chapter">
-					<p class="section-start">//</p>
-					<p class="section-name">Lending Suite services</p>
-					<h3 class="section-title">
-						As an official Moody’s Elite Partner, we provide 360° services around Moody’s Lending Solutions
-					</h3>
-					<p class="section-number">003</p>
-				</div>
+		<!-- LENDING SUITE SERVICES -->
 
-				<div class="section-content">
+			<section id="lending-suite-services" class="content-section">
+                <div class="section-header site-grid">
+                    <span class="section-prefix" aria-hidden="true">//</span>
+                    <p class="section-category">Lending Suite Services</p>
+                    <h2 class="section-headline">
+                          As an official Moody’s Elite Partner, we provide 360° services around Moody’s Lending Solutions  
+                    </h2>
+                    <span class="section-index" aria-label="Section 1">003</span>
+                </div>
 
-					<div class="right-content approach-section">
-						<div class="approach">
-							<h4>FACT Integration</h4>
-							<div class="approach-description">
-								<p>Optimize Operations</p>
-								<p>
-									Leverage our expertise in Moody's FACT platform to ensure your operations run smoothly.
-								</p>
-							</div>
-						</div>
+				<!-- Services Details -->
+					 <div class="section-details inline-list">
+                        <ul class="inline-list-content">
+                            <li>
+                                <div class="inline-list-title-wrapper">
+                                    <span class="section-prefix" aria-hidden="true">003.1</span>
+                                    <h3>FACT Integration</h3>
+                                </div>
+								<div class="inline-list-content-wrapper">
+									<p class="lead">Optimize Operations</p>
+                                	<p>Leverage our expertise in Moody's FACT platform to ensure your operations run smoothly</p>
+								</div>
+							</li>
+                            <li>
+                                <div class="inline-list-title-wrapper">
+                                    <span class="section-prefix" aria-hidden="true">003.2</span>
+                                    <h3>CreditLens Transition</h3>
+                                </div>
+								<div class="inline-list-content-wrapper">
+                               		<p class="lead">Seamless Transition</p>
+                                	<p>Easily migrate your FACT data into CreditLens for deeper analysis and improved decision-making</p>
+                            	</div>
+							</li>
+                            <li>
+                                <div class="inline-list-title-wrapper">
+                                    <span class="section-prefix" aria-hidden="true">003.3</span>
+                                    <h3>CreditLens Integration</h3>
+                                </div>
+								<div class="inline-list-content-wrapper">
+									<p class="lead">Work Together</p>
+                                	<p> Integrate CreditLens seamlessly into your existing systems for automated, scalable credit decision processes</p>
+                            	</div>
+							</li>
+							<li>
+                                <div class="inline-list-title-wrapper">
+                                    <span class="section-prefix" aria-hidden="true">003.4</span>
+                                    <h3>Data Integration</h3>
+                                </div>
+								<div class="inline-list-content-wrapper">
+									<p class="lead">Boost Performance</p>
+                                	<p> Enhance your FACT capabilities with tailored technical and functional solutions that boost performance</p>
+								</div>
+                            </li>
+                        </ul>
+                    </div>
+    
 
-						<div class="approach">
-							<h4>Creditlens Transition</h4>
-							<div class="approach-description">
-								<p>Seamless Transition<p>
-								<p>
-									Easily migrate your FACT data into CreditLens for deeper analysis and improved decision-making.
-								</p>
-							</div>
-						</div>
-
-						<div class="approach">
-							<h4>CreditLens Integration</h4>
-							<div class="approach-description">
-								<p>Work Together<p>
-								<p>
-									Integrate CreditLens seamlessly into your existing systems for automated, scalable credit decision processes.
-								</p>
-							</div>
-						</div>
-
-						<div class="approach">
-							<h4>Data Integration</H4>
-							<div class="approach-description">
-								<p>Boost Performance<p>
-								<p>
-									Enhance your FACT capabilities with tailored technical and functional solutions that boost performance.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+            </section>
 
 			<!-- World wide services  -->
-			<div id="locations" class="container-wrap world-wide-services">
 
-				<canvas id="earth-map"></canvas>
+			<section id="locations" class="content-section">
 
-				<div class="chapter">
-					<p class="section-start">//</p>
-					<p class="section-name">World wide services</p>
-					<h3 class="section-title">
-						Wherever you are our expertise travels to you, delivering tailored solutions across continents
-					</h3>
-					<p class="section-number">004</p>
-				</div>
+                <div class="section-header site-grid">
+                    <span class="section-prefix" aria-hidden="true">//</span>
+                    <p class="section-category">World Wide Services</p>
+                    <h2 class="section-headline">
+                          Wherever you are our expertise travels to you, delivering tailored solutions across continents  
+                    </h2>
+                    <span class="section-index" aria-label="Section 1">004</span>
+                </div>
 
+				<!-- World Details -->
 				<div class="section-content">
+
+					<canvas id="earth-map"></canvas>
 
 					<div class="right-content approach-section">
 						<div class="approach">
@@ -311,78 +280,78 @@
 						</div>
 					</div>
 				</div>
-			</div>
+    
+
+            </section>
 
 			<!-- COLLABORATION MODELS -->
-			<div id="collaboration" class="container-wrap collaboration-models">
-				<div class="chapter">
-					<p class="section-start">//</p>
-					<p class="section-name">Collaboration models</p>
-					<h3 class="section-title">
-						With flexible collaboration models, we adapt our way of working to your specific needs
-					</h3>
-					<p class="section-number">005</p>
-				</div>
+					<div id="collaboration-model" class="section-details layout-three-column">
 
-				<div class="section-content">
-					<div class="right-content">
-						<ul class="collaboration_models site-grid">
+                            	<article class="three-columns-column">
 
-							<li class="collaboration_models_item">
-								<p class="model-anotation">S01</p>
-								<div class="collaboration-wrapper">
-									<div class="collaboration-title-wrapper">
-										<p class="section-name services-name">Standard</p>
-										<h4>We Handle Everything</h4>
-										<p>We take care of every step, ensuring quality at every milestone.</p>
+									<p class="section-name services-name">Standard</p>
+
+									<p class="model-anotation">S01</p>
+
+									<div class="three-columns-content">
+										<h3>We Handle Everything</h3>
+										<p>We take care of every step, ensuring quality at every milestone</p>
+
+										<ul class="service-features">
+											<li class="text-sm text-secondary">Full project management</li>
+											<li class="text-sm text-secondary">Client Approval at key stages</li>
+											<li class="text-sm text-secondary">Flexible Pricing: Fixed or T&M</li>
+										</ul>
+										
 									</div>
-									<ul class="collaboration-model-descriptive-list">
-										<li><div class="SquareIcon"></div><p>Full project management</p></li>
-										<li><div class="SquareIcon"></div><p>Client approval at key stages</p></li>
-										<li><div class="SquareIcon"></div><p>Flexible pricing: Fixed or T&M</p></li>
-									</ul>
-								</div>
-							</li>
 
-							<li class="collaboration_models_item">
-								<p class="model-anotation">S02</p>
+								</article>
 
-								<div class="collaboration-wrapper">
-									<div class="collaboration-title-wrapper">
-										<p class="section-name services-name">Co-Development</p>
-										<h4>Work Together</h4>
-										<p>We divide tasks and work in sync, ensuring a smooth production process.</p>
+								<article class="three-columns-column">
+
+									<p class="section-name services-name">Co-Development</p>
+
+									<p class="model-anotation">S02</p>
+
+									<div class="three-columns-content">
+										<h3>Work Together</h3>
+										<p>We divide tasks and work in sync, ensuring a smooth production process</p>
+										
+										<ul class="service-features">
+											<li class="text-sm text-secondary">Split Scope</li>
+											<li class="text-sm text-secondary">Synced Production</li>
+											<li class="text-sm text-secondary">Fixed or T&M Pricing</li>
+										</ul>
 									</div>
-									<ul class="collaboration-model-descriptive-list">
-										<li><div class="SquareIcon"></div><p>Split scope</p></li>
-										<li><div class="SquareIcon"></div><p>Synced production</p></li>
-										<li><div class="SquareIcon"></div><p>Fixed or T&M pricing</p></li>
-									</ul>
-								</div>
-							</li>
+									
+								</article>
+								
+								<article class="three-columns-column">
 
-							<li class="collaboration_models_item">
-								<p class="model-anotation">S03</p>
+									<p class="section-name services-name">One Team</p>
 
-								<div class="collaboration-wrapper">
-									<div class="collaboration-title-wrapper">
-										<p class="section-name services-name">One Team</p>
-										<h4>Combined forces</h4>
-										<p>Merge your team with ours to maximize efficiency and shared expertise.</p>
+									<p class="model-anotation">S03</p>
+
+									<div class="three-columns-content">
+										<h3>Combined forces</h3>
+										<p>Merge your team with ours to maximize efficiency and shared expertise</p>
+
+										<ul class="service-features">
+											<li class="text-sm text-secondary">Joint Team</li>
+											<li class="text-sm text-secondary">Shared Responsibilities</li>
+											<li class="text-sm text-secondary">Innovative Pricing Model</li>
+										</ul>
+										
 									</div>
-									<ul class="collaboration-model-descriptive-list">
-										<li><div class="SquareIcon"></div><p>Joint team</p></li>
-										<li><div class="SquareIcon"></div><p>Shared responsibilities</p></li>
-										<li><div class="SquareIcon"></div><p>Innovative pricing model</p></li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+
+								</article>
+
+                    </div>
+
+                </section>
 
 
-			</div>
+
 		</div>
 	</main>
 
@@ -390,54 +359,14 @@
 
 		<div id="outro-sm">
 			<div class="contain-wrap site-grid">
-				<h2>Great projects start with a conversation</h2>
+				<h2 class="text-4xl">Great projects start with a conversation</h2>
 				<p class="get-in-touch btn-action">[ <a class="coding" href="mailto:sales@craft-it.io">Get in Touch</a> ]</p>
 			</div>
 		</div>
 
-	<!-- FOOTER -->
+	 <!-- FOOTER -->
 
-	<footer>
-		<div class="contain-wrap site-grid">
-			<svg width="117" height="75" viewBox="0 0 117 75" fill="none" xmlns="http://www.w3.org/2000/svg">
-				<path d="M82.5592 26.1849V13.9059C82.5689 6.22667 76.3631 0 68.6978 0H13.755C6.15738 0 0 6.16857 0 13.78V60.204C0 67.8445 6.17671 74.0325 13.8034 74.0325H68.6785C76.3535 74.0325 82.5688 67.7961 82.5688 60.1169V47.8572H68.8235V60.1653H13.755L13.7357 13.8672H68.8235V26.1946H82.5688L82.5592 26.1849Z" fill="#1F1C1A"/>
-				<path d="M103.234 74.0308H116.999V21.6707L103.234 21.7094V74.0308Z" fill="#1F1C1A"/>
-				<path d="M103.237 0H89.4722V21.7013H103.237V0Z" fill="#1F1C1A"/>
-			</svg>
-				
-			<div class="headquarter">
-				<h4>Headquarter</h4>
-				<p>
-					231 Louise Avenue, 1000 Brussels
-				</p>
-				<p>
-					Belgium
-				</p>
-			</div>
-			<div class="office">
-				<h4>Office</h4>
-				<p>
-					24 Autumn Street, 1050 Ixelles
-				</p>
-				<p>
-					Belgium
-				</p>
-			</div>
-			<div class="reach-us">
-				<h4>Reach us</h4>
-				<p class="btn-action">[ <a class="coding" href="mailto:intouch@craft-it.io">Email Us</a> ]</p>
-				<p class="btn-action">[ <a class="coding" target="_blank" href="https://www.linkedin.com/company/craft-it-solution/">Linkedin</a> ]</p>
-			</div>
-
-			<div class="footer-bottom">
-				<div class="footer-bottom-wrapper">
-					<p class="p-sm">©2025 Craft it, All Rights Reserved</p>
-				</div>
-
-				<p class="btn-action back-to-top">[ <a class="coding" href="#sec-hero">back to top</a> ]</p>
-			</div>
-		</div>
-	</footer>
+	<site-footer></site-footer>
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -461,6 +390,9 @@
 
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<!-- Components -->
+	<script src="resources/scripts/components.js" type="module"></script>
 
 </body>
 </html>
