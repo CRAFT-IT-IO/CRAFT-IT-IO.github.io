@@ -1,3 +1,6 @@
+/* ==========================================================================
+   GRID LIST COMPONENT
+   ========================================================================== */
 
 .grid-list-content li {
     grid-column: span 4;
@@ -10,8 +13,8 @@
     aspect-ratio: 536 / 347;
     padding: clamp(var(--spacing-sm), 2vw, var(--spacing-md));
 
-    background-color: var(--surface-high);
-    border: 1px solid var(--outline);
+    border: 1px dashed var(--outline-variant);
+    border-radius: var(--spacing-2xs);
 }
 
 .svg-container {
@@ -94,7 +97,7 @@
         flex: 0 0 clamp(320px, 80vw, 420px);
         height: clamp(320px, 80vw, 420px);
         scroll-snap-align: start;
-        padding: clamp(var(--spacing-xs), 3vw, var(--spacing-lg));
+        padding: var(--spacing-md);
     }
 
     .svg-container {

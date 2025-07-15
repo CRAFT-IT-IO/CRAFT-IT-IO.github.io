@@ -33,6 +33,12 @@ main {
   height: 100%;
 }
 
+.wrapper-content{
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+}
+
 /* -------------- RESPONSIVE: DESKTOP -------------- */
 
 @media screen and (max-width: 1080px) {

@@ -99,45 +99,6 @@ main.no-scroll {
 }
 
 
-.partners-logo-display{
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	gap: var(--spacing-md);
-	width: 100%;
-}
-
-.partners-logo{
-	color: var(--on-surface);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-  	padding: var(--spacing-xl);
-	aspect-ratio: 3/2;
-}
-
-.partners-logo svg{
-	max-width: 240px;
-	max-height: 80px;
-	object-fit: contain;
-}
-
-@media screen and (min-width: 1080px) {
-	.partners-logo-display{
-		grid-template-columns: repeat(4, 1fr);
-	}
-}
-
-@media screen and (max-width: 720px) {
-	.partners-logo{
-		padding: var(--spacing-md);
-	}
-}
-
-@media screen and (max-width: 460px) {
-	.partners-logo{
-		padding: var(--spacing-sm);
-	}
-}
 
 /* -------------- TEXT APPARITION ANIMATION */
 

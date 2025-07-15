@@ -23,7 +23,8 @@ class SiteNavigation extends HTMLElement {
         const titles = {
             home: 'Home',
             banking: 'Banking delivery services',
-            about: 'About us'
+            about: 'About us',
+            careers: 'Careers'
         };
         
         return titles[this.currentPage] || 'About us';
@@ -36,7 +37,8 @@ class SiteNavigation extends HTMLElement {
         const pageMap = {
             'index': 'home',
             'about': 'about',
-            'banking-services': 'banking'
+            'banking-services': 'banking',
+            'careers': 'careers'
         };
         
         return pageMap[filename] || 'home';
@@ -45,16 +47,24 @@ class SiteNavigation extends HTMLElement {
     getMenuItems() {
         const menus = {
             home: [
+                { href: 'banking-services.html', text: 'Banking delivery services' },
                 { href: 'about.html', text: 'About us' },
-                { href: 'banking-services.html', text: 'Banking delivery services' }
+                { href: 'careers.html', text: 'Careers' }
             ],
             banking: [
                 { href: 'index.html', text: 'Home' },
-                { href: 'about.html', text: 'About us' }
+                { href: 'about.html', text: 'About us' },
+                { href: 'careers.html', text: 'Careers' }
             ],
             about: [
                 { href: 'index.html', text: 'Home' },
-                { href: 'banking-services.html', text: 'Banking delivery services' }
+                { href: 'banking-services.html', text: 'Banking delivery services' },
+                { href: 'careers.html', text: 'Careers' }
+            ],
+            careers: [
+                { href: 'index.html', text: 'Home' },
+                { href: 'banking-services.html', text: 'Banking delivery services' },
+                { href: 'about.html', text: 'About us' }
             ]
         };
         
@@ -63,7 +73,7 @@ class SiteNavigation extends HTMLElement {
     
     render() {
         const menuItems = this.getMenuItems();
-        const currentPageTitle = this.getCurrentPageTitle(); // Utiliser la nouvelle méthode
+        const currentPageTitle = this.getCurrentPageTitle(); 
         
         this.innerHTML = `
         <header>

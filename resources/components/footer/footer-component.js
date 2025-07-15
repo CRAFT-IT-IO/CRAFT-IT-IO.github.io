@@ -27,14 +27,14 @@ class SiteFooter extends HTMLElement {
                     </div>
                     <div class="reach-us">
                         <h4>Reach us</h4>
-                        <p class="btn-action">[ <a class="coding" href="mailto:intouch@craft-it.io">Email Us</a> ]</p>
-                        <p class="btn-action">[ <a class="coding" target="_blank" href="https://www.linkedin.com/company/craft-it-solution/">Linkedin</a> ]</p>
+                        <span class="btn-action">[ <a class="coding" href="mailto:intouch@craft-it.io">Email Us</a> ]</span>
+                        <span class="btn-action">[ <a class="coding" target="_blank" href="https://www.linkedin.com/company/craft-it-solution/">Linkedin</a> ]</span>
                     </div>
                     <div class="footer-bottom">
                         <div class="footer-bottom-wrapper">
-                            <p class="p-sm">©2025 Craft it, All Rights Reserved</p>
+                            <span class="p-sm">©2025 Craft it, All Rights Reserved</span>
                         </div>
-                        <p class="btn-action back-to-top">[ <a class="coding" href="#hero">back to top</a> ]</p>
+                        <span class="btn-action back-to-top">[ <a class="coding" href="#hero">back to top</a> ]</span>
                     </div>
                 </div>
             </footer>

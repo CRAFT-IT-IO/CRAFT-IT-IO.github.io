@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CONTENT SECTION COMPONENT - REPLICATED FROM EXISTING STYLES
+   CONTENT SECTION COMPONENT
    ========================================================================== */
 
 /* -------------- LAYOUT SYSTEM (from .container-wrap) -------------- */
@@ -198,4 +198,63 @@
 	.section-content--full {
 		grid-column: 1 / span 4;
 	}
+}
+
+/* -------------- DOUBLE LIST STYLING -------------- */
+
+.double-list{
+	margin-top: var(--spacing-md);
+}
+
+/* Container for double list groups */
+.double-list-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+/* Individual list groups */
+.double-list-group {
+    flex: 1;
+    min-width: 250px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* List items styling - inherit paragraph styling */
+.double-list-group li {
+    color: var(--on-surface-variant);
+    font-family: var(--font-primary);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Arrow icon before each list item */
+.double-list-group li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-family: var(--font-mono);
+    font-size: var(--text-base);
+    font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .double-list-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .double-list-group {
+        min-width: auto;
+    }
 }

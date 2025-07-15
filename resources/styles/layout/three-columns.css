@@ -7,7 +7,7 @@
 
 .three-columns-header{
     padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-4xl) 0;
-    border-right: 1px solid var(--outline);
+    border-right: 1px dashed var(--outline-variant);
 }
 
 .three-columns-column{
@@ -55,7 +55,7 @@
 
 .three-columns-column:last-child{
     padding-right: 0;
-    border-left: 1px solid var(--outline);
+    border-left: 1px dashed var(--outline-variant);
 }
 
 .three-columns-content{

@@ -28,7 +28,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Parcourir chaque élément
     textWrappers.forEach(function (textWrapper) {
-
+        // Diviser le texte par <br> pour traiter chaque partie séparément
+        var parts = textWrapper.innerHTML.split(/<br\s*\/?>/i);
 
         // Fonction pour envelopper chaque mot dans une <div> et chaque lettre dans un <span>
         function wrapWordsInDiv(text) {
@@ -40,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Ajouter des <div> autour de chaque mot et des <span> autour de chaque lettre pour les parties avant et après le <br>
         var wrappedBefore = wrapWordsInDiv(parts[0]);
-        var wrappedAfter = wrapWordsInDiv(parts[1]);
+        var wrappedAfter = parts[1] ? wrapWordsInDiv(parts[1]) : '';
 
         // Réassembler le HTML avec les <div> autour de chaque mot
-        textWrapper.innerHTML = `${wrappedBefore}<br>${wrappedAfter}`;
+        textWrapper.innerHTML = parts[1] ? `${wrappedBefore}<br>${wrappedAfter}` : wrappedBefore;
 
         // Anime chaque lettre à l'intérieur des mots
         anime.timeline({ loop: false })
@@ -62,26 +63,57 @@ document.addEventListener("DOMContentLoaded", function () {
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Apply animation to elements with the 'disap' class
-gsap.utils.toArray('.disap').forEach((element) => {
-    gsap.fromTo(element,
-        { opacity: 0, y: 20 }, // Start state: hidden and translated down
-        {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            ease: 'power2.out', // Ease for smooth transition
-            scrollTrigger: {
-                trigger: element,
-                start: 'top 100%', // When the top of the element reaches 50% of the viewport, the animation starts
-                toggleActions: 'play none none reverse', // Play when scrolling down, reverse when scrolling up
-                onLeaveBack: () => {
-                    gsap.to(element, { opacity: 1, y: 20, duration: 1, ease: 'power2.out' }); // Fade out on exit
+// Reusable animation function for scroll-triggered fade-in
+function applyScrollFadeAnimation(selector, options = {}) {
+    const defaultOptions = {
+        opacity: { from: 0, to: 1 },
+        y: { from: 20, to: 0 },
+        duration: 1,
+        ease: 'power2.out',
+        start: 'top 90%',
+        toggleActions: 'play none none reverse',
+        addVisibleClass: true
+    };
+    
+    const config = { ...defaultOptions, ...options };
+    
+    gsap.utils.toArray(selector).forEach((element) => {
+        gsap.fromTo(element,
+            { opacity: config.opacity.from, y: config.y.from },
+            {
+                opacity: config.opacity.to,
+                y: config.y.to,
+                duration: config.duration,
+                ease: config.ease,
+                scrollTrigger: {
+                    trigger: element,
+                    start: config.start,
+                    toggleActions: config.toggleActions,
+                    onEnter: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    },
+                    onLeave: () => {
+                        if (config.addVisibleClass) element.classList.remove('visible');
+                    },
+                    onEnterBack: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    },
+                    onLeaveBack: () => {
+                        if (config.addVisibleClass) element.classList.remove('visible');
+                        if (config.fadeOutOnExit) {
+                            gsap.to(element, { opacity: 1, y: 20, duration: 1, ease: 'power2.out' });
+                        }
+                    }
                 }
             }
-        }
-    );
-});
+        );
+    });
+}
+
+// Apply animations using the reusable function
+applyScrollFadeAnimation('.disap', { start: 'top 100%', fadeOutOnExit: true });
+applyScrollFadeAnimation('.inline-list-content li');
+
 
 
 // Initialisation de Lenis pour un défilement fluide
@@ -97,7 +129,7 @@ const lenis = new Lenis({
   requestAnimationFrame(raf);
   
   // Décomposition des mots dans chaque paragraphe
-  document.querySelectorAll(".content_text").forEach((el) => {
+  document.querySelectorAll(".text-appear").forEach((el) => {
     const html = el.innerHTML;
   
     // Séparer les parties par <br> (on garde les balises <br> en les réinsérant après traitement)
@@ -118,7 +150,7 @@ const lenis = new Lenis({
   // Animation GSAP pour les mots
   gsap.registerPlugin(ScrollTrigger);
   
-  document.querySelectorAll(".content_text").forEach((el) => {
+  document.querySelectorAll(".text-appear").forEach((el) => {
     const words = el.querySelectorAll(".word");
     gsap.from(words, {
       opacity: .1,

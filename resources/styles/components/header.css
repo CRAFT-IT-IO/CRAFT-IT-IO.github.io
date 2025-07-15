@@ -89,12 +89,6 @@ header {
 	color: var(--on-surface);
 }
 
-.menu-label {
-	display: flex;
-	transition: opacity 0.3s ease, height 0.3s ease;
-	opacity: 1;
-}
-
 header.is-scrolling .menu-label {
 	opacity: 0;
 	height: 0;
