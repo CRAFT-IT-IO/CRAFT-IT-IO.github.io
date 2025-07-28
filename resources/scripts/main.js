@@ -110,9 +110,208 @@ function applyScrollFadeAnimation(selector, options = {}) {
     });
 }
 
-// Apply animations using the reusable function
-applyScrollFadeAnimation('.disap', { start: 'top 100%', fadeOutOnExit: true });
-applyScrollFadeAnimation('.inline-list-content li');
+// Enhanced scroll reveal animation
+function applyScrollRevealAnimation(selector, options = {}) {
+    const defaultOptions = {
+        opacity: { from: 0, to: 1 },
+        y: { from: 24, to: 0 },
+        blur: { from: 4, to: 0 },
+        lineHeight: { from: 1.8, to: 1.4 },
+        duration: 0.8,
+        ease: 'power2.out',
+        start: 'top 105%',
+        toggleActions: 'play none none none', // Only play once, no reverse
+        addVisibleClass: true
+    };
+    
+    const config = { ...defaultOptions, ...options };
+    
+    gsap.utils.toArray(selector).forEach((element) => {
+        gsap.fromTo(element,
+            { 
+                opacity: config.opacity.from, 
+                y: config.y.from,
+                filter: `blur(${config.blur.from}px)`,
+                lineHeight: config.lineHeight.from
+            },
+            {
+                opacity: config.opacity.to,
+                y: config.y.to,
+                filter: `blur(${config.blur.to}px)`,
+                lineHeight: config.lineHeight.to,
+                duration: config.duration,
+                ease: config.ease,
+                scrollTrigger: {
+                    trigger: element,
+                    start: config.start,
+                    toggleActions: config.toggleActions,
+                    onEnter: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    }
+                }
+            }
+        );
+    });
+}
+
+// Hero reveal animation with scale and enhanced effects
+function applyHeroRevealAnimation(selector, options = {}) {
+    const defaultOptions = {
+        opacity: { from: 0, to: 1 },
+        y: { from: 32, to: 0 },
+        scale: { from: 0.98, to: 1 },
+        blur: { from: 6, to: 0 },
+        lineHeight: { from: 1.5, to: 1 },
+        letterSpacing: { from: '0.02em', to: '0em' },
+        duration: 1.2,
+        ease: 'power2.out',
+        start: 'top 105%',
+        toggleActions: 'play none none none',
+        addVisibleClass: true
+    };
+    
+    const config = { ...defaultOptions, ...options };
+    
+    gsap.utils.toArray(selector).forEach((element) => {
+        gsap.fromTo(element,
+            { 
+                opacity: config.opacity.from, 
+                y: config.y.from,
+                scale: config.scale.from,
+                filter: `blur(${config.blur.from}px)`,
+                lineHeight: config.lineHeight.from,
+                letterSpacing: config.letterSpacing.from
+            },
+            {
+                opacity: config.opacity.to,
+                y: config.y.to,
+                scale: config.scale.to,
+                filter: `blur(${config.blur.to}px)`,
+                lineHeight: config.lineHeight.to,
+                letterSpacing: config.letterSpacing.to,
+                duration: config.duration,
+                ease: config.ease,
+                scrollTrigger: {
+                    trigger: element,
+                    start: config.start,
+                    toggleActions: config.toggleActions,
+                    onEnter: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    }
+                }
+            }
+        );
+    });
+}
+
+// Hero stagger animation with 3D rotation
+function applyHeroStaggerAnimation(selector, options = {}) {
+    const defaultOptions = {
+        opacity: { from: 0, to: 1 },
+        y: { from: 16, to: 0 },
+        rotateX: { from: 8, to: 0 },
+        blur: { from: 3, to: 0 },
+        lineHeight: { from: 1.4, to: 1.2 },
+        duration: 0.8,
+        ease: 'power2.out',
+        start: 'top 105%',
+        stagger: 0.08,
+        toggleActions: 'play none none none',
+        addVisibleClass: true
+    };
+    
+    const config = { ...defaultOptions, ...options };
+    
+    gsap.utils.toArray(selector).forEach((element) => {
+        // Split text into words for stagger effect
+        const words = element.textContent.split(' ');
+        element.innerHTML = words.map(word => `<span class="hero-word">${word}</span>`).join(' ');
+        
+        const wordSpans = element.querySelectorAll('.hero-word');
+        
+        gsap.fromTo(wordSpans,
+            { 
+                opacity: config.opacity.from, 
+                y: config.y.from,
+                rotateX: config.rotateX.from,
+                filter: `blur(${config.blur.from}px)`,
+                lineHeight: config.lineHeight.from
+            },
+            {
+                opacity: config.opacity.to,
+                y: config.y.to,
+                rotateX: config.rotateX.to,
+                filter: `blur(${config.blur.to}px)`,
+                lineHeight: config.lineHeight.to,
+                duration: config.duration,
+                ease: config.ease,
+                stagger: config.stagger,
+                scrollTrigger: {
+                    trigger: element,
+                    start: config.start,
+                    toggleActions: config.toggleActions,
+                    onEnter: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    }
+                }
+            }
+        );
+    });
+}
+
+// Section metadata animation - subtle horizontal slide
+function applySectionMetaAnimation(selector, options = {}) {
+    const defaultOptions = {
+        opacity: { from: 0, to: 1 },
+        x: { from: -8, to: 0 },
+        blur: { from: 1, to: 0 },
+        letterSpacing: { from: '0.01em', to: '0.32px' },
+        duration: 0.6,
+        ease: 'power2.out',
+        start: 'top 105%',
+        stagger: 0.05,
+        toggleActions: 'play none none none',
+        addVisibleClass: true
+    };
+    
+    const config = { ...defaultOptions, ...options };
+    
+    gsap.utils.toArray(selector).forEach((element, index) => {
+        gsap.fromTo(element,
+            { 
+                opacity: config.opacity.from, 
+                x: config.x.from,
+                filter: `blur(${config.blur.from}px)`,
+                letterSpacing: config.letterSpacing.from
+            },
+            {
+                opacity: config.opacity.to,
+                x: config.x.to,
+                filter: `blur(${config.blur.to}px)`,
+                letterSpacing: config.letterSpacing.to,
+                duration: config.duration,
+                ease: config.ease,
+                delay: index * config.stagger,
+                scrollTrigger: {
+                    trigger: element.closest('.section-header') || element,
+                    start: config.start,
+                    toggleActions: config.toggleActions,
+                    onEnter: () => {
+                        if (config.addVisibleClass) element.classList.add('visible');
+                    }
+                }
+            }
+        );
+    });
+}
+
+// Apply animations using the reusable functions
+applyScrollRevealAnimation('.scroll-reveal');
+applyHeroRevealAnimation('.hero-reveal');
+applyHeroStaggerAnimation('.hero-reveal-stagger');
+applySectionMetaAnimation('.section-meta-reveal');
+applyScrollFadeAnimation('.disap', { start: 'top 100%', toggleActions: 'play none none none' }); // Legacy support, no reverse
+applyScrollFadeAnimation('.inline-list-content li:not(.scroll-reveal-container)');
 
 
 

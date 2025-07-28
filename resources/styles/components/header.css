@@ -87,6 +87,7 @@ header {
 .toggle-menu {
 	display: flex;
 	color: var(--on-surface);
+	font-size: 1.125rem;
 }
 
 header.is-scrolling .menu-label {
