@@ -3,7 +3,7 @@ class MemorySafeNetwork {
         this.canvas = document.getElementById('careerIllustration');
         
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        this.camera = new THREE.PerspectiveCamera(65, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.renderer = new THREE.WebGLRenderer({ 
             canvas: this.canvas, 
             antialias: false,
@@ -12,17 +12,17 @@ class MemorySafeNetwork {
         });
         
         // Paramètres réduits pour stabilité
-        this.numParticles = 25;
-        this.maxConnections = 20; // Réduit drastiquement
-        this.connectionDistance = 80;
-        this.networkRadius = Math.min(window.innerWidth, window.innerHeight) * 0.15;
+        this.numParticles = 40;
+        this.maxConnections = 30; // Réduit drastiquement
+        this.connectionDistance = 60;
+        this.networkRadius = Math.min(window.innerWidth, window.innerHeight) * 0.09;
         
         this.time = 0;
         
         // Interaction souris
         this.mouseInfluence = new THREE.Vector3(0, 0, 0);
         this.mouseInfluenceRadius = 100;
-        this.mouseInfluenceStrength = 0.02;
+        this.mouseInfluenceStrength = 0.01;
         this.hasMouseMoved = false;
         
         // Arrays pour les positions et vélocités

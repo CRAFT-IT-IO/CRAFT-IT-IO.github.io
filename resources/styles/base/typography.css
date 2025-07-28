@@ -312,7 +312,26 @@ p {
 	transform: translateY(20px);
 }
 
-/* Disappear animation */
+/* Scroll reveal animation - subtle and refined */
+.scroll-reveal {
+	opacity: 0;
+	transform: translateY(1.5rem);
+	filter: blur(4px);
+	line-height: 1.8;
+	transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+	            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+	            filter 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+	            line-height 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.scroll-reveal.visible {
+	opacity: 1;
+	transform: translateY(0);
+	filter: blur(0px);
+	line-height: var(--leading-normal);
+}
+
+/* Legacy support for existing disap class */
 .disap {
 	opacity: 0;
 	transform: translateY(5rem);
@@ -327,5 +346,65 @@ p {
 /* Hero word animation */
 .hero-word {
 	display: inline-block;
+}
+
+/* Hero reveal animation - enhanced effect for hero titles */
+.hero-reveal {
+	opacity: 0;
+	transform: translateY(4rem) scale(0.95);
+	filter: blur(12px);
+	line-height: 3;
+	letter-spacing: 0.05em;
+	transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1), 
+	            transform 1.5s cubic-bezier(0.25, 1, 0.5, 1),
+	            filter 1.5s cubic-bezier(0.25, 1, 0.5, 1),
+	            line-height 1.5s cubic-bezier(0.25, 1, 0.5, 1),
+	            letter-spacing 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-reveal.visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	filter: blur(0px);
+	line-height: var(--leading-none);
+	letter-spacing: var(--tracking-normal);
+}
+
+/* Hero reveal with stagger effect */
+.hero-reveal-stagger {
+	opacity: 0;
+	transform: translateY(2rem) rotateX(15deg);
+	filter: blur(6px);
+	line-height: 2.2;
+	transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), 
+	            transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+	            filter 1s cubic-bezier(0.25, 1, 0.5, 1),
+	            line-height 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.hero-reveal-stagger.visible {
+	opacity: 1;
+	transform: translateY(0) rotateX(0deg);
+	filter: blur(0px);
+	line-height: var(--leading-tight);
+}
+
+/* Section metadata reveal - subtle effect for section indicators */
+.section-meta-reveal {
+	opacity: 0;
+	transform: translateX(-1rem);
+	filter: blur(2px);
+	letter-spacing: 0.02em;
+	transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+	            transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+	            filter 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+	            letter-spacing 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.section-meta-reveal.visible {
+	opacity: 1;
+	transform: translateX(0);
+	filter: blur(0px);
+	letter-spacing: var(--tracking-wider);
 }
 
