@@ -34,6 +34,7 @@ class SiteFooter extends HTMLElement {
                         <div class="footer-bottom-wrapper">
                             <span class="p-sm">©2025 Craft it, All Rights Reserved</span>
                         </div>
+                        <span class="p-sm">This website does not collect or store personal data</span>
                         <span class="btn-action back-to-top">[ <a class="coding" href="#hero">back to top</a> ]</span>
                     </div>
                 </div>
