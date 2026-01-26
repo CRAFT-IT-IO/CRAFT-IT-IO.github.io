@@ -1,0 +1,167 @@
+/* Contact Page Styles - Aligned with Global Typography */
+
+/* Hero Section */
+.contact-hero {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-3xl);
+    padding-top: var(--spacing-xl);
+
+    /* Grid layout matching process-grid */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+}
+
+.contact-hero h1 {
+    grid-column: 1 / span 2;
+    /* Uses global h1 style from typography.css */
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-hero p {
+    grid-column: 1 / span 2;
+    /* Uses global h1 style from typography.css */
+    margin-bottom: var(--spacing-md);
+}
+
+
+.submission-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-3xl);
+    /* Increased spacing for better separation */
+}
+
+.contact-card {
+    background-color: var(--surface-high);
+    padding: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+}
+
+.contact-card:hover {
+    background-color: var(--surface-highest);
+    border-color: var(--outline);
+}
+
+.contact-card h3 {
+    font-size: var(--text-xl);
+    /* Matches standard h3 size */
+    margin-bottom: var(--spacing-sm);
+    color: var(--on-surface);
+}
+
+.contact-card p {
+    color: var(--on-surface-variant);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+}
+
+.card-action {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Aligned with .btn-action styles */
+    font-family: var(--font-mono);
+    font-size: 16px;
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--on-surface);
+}
+
+.card-arrow {
+    font-family: var(--font-primary);
+    /* Arrows often look better in sans-serif or specific icon font */
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .card-arrow {
+    transform: translateX(4px);
+}
+
+/* Optional: Label inside card (like "OPTION 01") */
+.card-label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+}
+
+/* Process Steps ("What Happens Next") */
+.process-grid {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-lg) 0;
+    /* Separator line consistent with site style */
+}
+
+.process-step {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.step-number {
+    /* Aligned with .section-number */
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--primary);
+    margin-bottom: var(--spacing-xs);
+    letter-spacing: var(--tracking-wider);
+}
+
+.step-title {
+    font-family: var(--font-primary);
+    font-size: var(--text-lg);
+    font-weight: 400;
+    /* Regular weight as per site style */
+    color: var(--on-surface);
+    margin-bottom: var(--spacing-xs);
+    line-height: var(--leading-tight);
+}
+
+.step-description {
+    font-size: var(--text-sm);
+    color: var(--on-surface-variant);
+    line-height: var(--leading-relaxed);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1080px) {
+    .submission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+
+    .contact-hero .lead {
+        grid-column: 1 / -1;
+    }
+
+    .contact-card {
+        min-height: auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+}
