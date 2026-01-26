@@ -3,7 +3,8 @@ $(document).ready(function () {
     const menuItem1 = $('.m-item-1');
     const menuItem2 = $('.m-item-2');
     const menuItem3 = $('.m-item-3');
-    const menuToggle = $('.toggle-menu, .menu-label'); // Utiliser des éléments spécifiques pour le toggle
+    const menuItem4 = $('.m-item-4');
+    const menuToggle = $('.toggle-menu, .menu-label');
 
     let menuItemHeight = 0;
     let isAnimating = false;
@@ -14,6 +15,7 @@ $(document).ready(function () {
     menuItem1.css({ display: 'none', zIndex: '-1', maxHeight: '0' });
     menuItem2.css({ display: 'none', zIndex: '-1', maxHeight: '0' });
     menuItem3.css({ display: 'none', zIndex: '-1', maxHeight: '0' });
+    menuItem4.css({ display: 'none', zIndex: '-1', maxHeight: '0' });
 
     // Function to calculate height and position
     function updateHeights() {
@@ -35,6 +37,7 @@ $(document).ready(function () {
         const extraOffset = window.innerWidth >= 1080 ? 24 : 0;
         menuItem2.css('top', `calc(100% + ${extraOffset}px + ${menuItemHeight}px - 1px)`);
         menuItem3.css('top', `calc(100% + ${extraOffset}px + ${menuItemHeight * 2}px - 2px)`);
+        menuItem4.css('top', `calc(100% + ${extraOffset}px + ${menuItemHeight * 3}px - 3px)`);
     }
 
     updateHeights();
@@ -70,7 +73,7 @@ $(document).ready(function () {
                     setTimeout(() => {
                         menuItem2.css('z-index', '2')
                             .animate({ maxHeight: menuItemHeight }, 150, () => {
-                                
+
                                 // Animate third item if it exists
                                 if (menuItem3.length > 0) {
                                     menuItem3.css({
@@ -84,8 +87,28 @@ $(document).ready(function () {
                                     setTimeout(() => {
                                         menuItem3.css('z-index', '2')
                                             .animate({ maxHeight: menuItemHeight }, 150, () => {
-                                                isAnimating = false;
-                                                isOpen = true;
+
+                                                // Animate fourth item if it exists
+                                                if (menuItem4.length > 0) {
+                                                    menuItem4.css({
+                                                        top: `calc(100% + ${extraOffset}px + ${menuItemHeight * 3}px - 3px)`,
+                                                        zIndex: '-1',
+                                                        display: 'block',
+                                                        maxHeight: '0',
+                                                        overflow: 'hidden'
+                                                    });
+
+                                                    setTimeout(() => {
+                                                        menuItem4.css('z-index', '2')
+                                                            .animate({ maxHeight: menuItemHeight }, 150, () => {
+                                                                isAnimating = false;
+                                                                isOpen = true;
+                                                            });
+                                                    }, 50);
+                                                } else {
+                                                    isAnimating = false;
+                                                    isOpen = true;
+                                                }
                                             });
                                     }, 50);
                                 } else {
@@ -103,11 +126,29 @@ $(document).ready(function () {
         if (isAnimating || !isOpen) return;
         isAnimating = true;
 
-        // Close third item first if it exists
-        if (menuItem3.length > 0) {
+        // Close fourth item first if it exists
+        if (menuItem4.length > 0) {
+            menuItem4.animate({ maxHeight: '0' }, 150, () => {
+                menuItem4.css({ display: 'none', zIndex: '-1' });
+
+                menuItem3.animate({ maxHeight: '0' }, 150, () => {
+                    menuItem3.css({ display: 'none', zIndex: '-1' });
+
+                    menuItem2.animate({ maxHeight: '0' }, 150, () => {
+                        menuItem2.css({ display: 'none', zIndex: '-1' });
+
+                        menuItem1.animate({ maxHeight: '0' }, 150, () => {
+                            menuItem1.css({ display: 'none', zIndex: '-1' });
+                            isAnimating = false;
+                            isOpen = false;
+                        });
+                    });
+                });
+            });
+        } else if (menuItem3.length > 0) {
             menuItem3.animate({ maxHeight: '0' }, 150, () => {
                 menuItem3.css({ display: 'none', zIndex: '-1' });
-                
+
                 menuItem2.animate({ maxHeight: '0' }, 150, () => {
                     menuItem2.css({ display: 'none', zIndex: '-1' });
 
@@ -153,7 +194,7 @@ $(document).ready(function () {
         });
 
         // Ne pas intercepter les clics sur les liens
-        $('.menu-items a').on('click touchstart', function(e) {
+        $('.menu-items a').on('click touchstart', function (e) {
             // Permettre la navigation normale pour les liens
             e.stopPropagation();
             return true;

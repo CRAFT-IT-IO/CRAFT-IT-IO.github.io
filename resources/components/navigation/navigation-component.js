@@ -3,78 +3,89 @@ class SiteNavigation extends HTMLElement {
         super();
         this.render();
     }
-    
+
     static get observedAttributes() {
         return ['current-page'];
     }
-    
+
     attributeChangedCallback(name, oldValue, newValue) {
         if (oldValue !== newValue) {
             this.render();
         }
     }
-    
+
     get currentPage() {
         return this.getAttribute('current-page') || this.detectCurrentPage();
     }
-    
-    // Nouvelle méthode : récupérer le titre de la page courante
+
     getCurrentPageTitle() {
         const titles = {
             home: 'Home',
             banking: 'Banking delivery services',
             about: 'About us',
-            careers: 'Careers'
+            careers: 'Careers',
+            contact: 'Contact us'
         };
-        
+
         return titles[this.currentPage] || 'About us';
     }
-    
+
     detectCurrentPage() {
         const path = window.location.pathname;
         const filename = path.split('/').pop().split('.')[0];
-        
+
         const pageMap = {
             'index': 'home',
             'about': 'about',
             'banking-services': 'banking',
-            'careers': 'careers'
+            'careers': 'careers',
+            'contact': 'contact'
         };
-        
+
         return pageMap[filename] || 'home';
     }
-    
+
     getMenuItems() {
         const menus = {
             home: [
                 { href: 'banking-services.html', text: 'Banking delivery services' },
                 { href: 'about.html', text: 'About us' },
-                { href: 'careers.html', text: 'Careers' }
+                { href: 'careers.html', text: 'Careers' },
+                { href: 'contact.html', text: 'Contact us' },
             ],
             banking: [
                 { href: 'index.html', text: 'Home' },
                 { href: 'about.html', text: 'About us' },
-                { href: 'careers.html', text: 'Careers' }
+                { href: 'careers.html', text: 'Careers' },
+                { href: 'contact.html', text: 'Contact us' },
             ],
             about: [
                 { href: 'index.html', text: 'Home' },
                 { href: 'banking-services.html', text: 'Banking delivery services' },
-                { href: 'careers.html', text: 'Careers' }
+                { href: 'careers.html', text: 'Careers' },
+                { href: 'contact.html', text: 'Contact us' },
             ],
             careers: [
                 { href: 'index.html', text: 'Home' },
                 { href: 'banking-services.html', text: 'Banking delivery services' },
+                { href: 'about.html', text: 'About us' },
+                { href: 'contact.html', text: 'Contact us' },
+            ],
+            contact: [
+                { href: 'index.html', text: 'Home' },
+                { href: 'banking-services.html', text: 'Banking delivery services' },
+                { href: 'careers.html', text: 'Careers' },
                 { href: 'about.html', text: 'About us' }
             ]
         };
-        
+
         return menus[this.currentPage] || menus.home;
     }
-    
+
     render() {
         const menuItems = this.getMenuItems();
-        const currentPageTitle = this.getCurrentPageTitle(); 
-        
+        const currentPageTitle = this.getCurrentPageTitle();
+
         this.innerHTML = `
         <header>
             <div class="header-container">
