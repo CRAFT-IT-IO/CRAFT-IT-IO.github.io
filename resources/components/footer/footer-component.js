@@ -31,10 +31,13 @@ class SiteFooter extends HTMLElement {
                         <span class="btn-action">[ <a class="coding" target="_blank" href="https://www.linkedin.com/company/craft-it-solution/">Linkedin</a> ]</span>
                     </div>
                     <div class="footer-bottom">
-                        <div class="footer-bottom-wrapper">
-                            <span class="p-sm">©2025 Craft it, All Rights Reserved</span>
+                        <div class="footer-bottom-wrapper" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.25rem;">
+                            <span class="p-sm" style="display: block;">©2025 Craft it, All Rights Reserved</span>
+                            <span class="p-sm text-secondary" style="display: block; font-size: 0.75rem;">This website does not collect or store personal data</span>
                         </div>
-                        <span class="p-sm">This website does not collect or store personal data</span>
+                        <div class="bcorp-logo">
+                            <img src="resources/assets/logos/bcorp.svg" alt="Certified B Corporation" style="height: 80px; width: auto;" />
+                        </div>
                         <span class="btn-action back-to-top">[ <a class="coding" href="#hero">back to top</a> ]</span>
                     </div>
                 </div>
