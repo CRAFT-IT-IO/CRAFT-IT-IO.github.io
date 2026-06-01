@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fr">
 
@@ -361,6 +360,46 @@
             gap: 11px;
         }
         .codedrop .codedrop-body .editor { margin-top: 0; }
+
+        /* Mini bargraph inside the summary : with vs without DS lines */
+        .cdrop-meter {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-family: var(--mono);
+            font-size: 9.5px;
+            line-height: 1;
+            opacity: 0;
+            transition: opacity .25s;
+            pointer-events: none;
+        }
+        .cdrop-meter.on { opacity: 1; }
+        .cdrop-meter .cm-row {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 0;
+        }
+        .cdrop-meter .cm-lbl {
+            color: var(--txt3);
+            flex: 0 0 auto;
+        }
+        .cdrop-meter .cm-bar {
+            height: 5px;
+            border-radius: 2px;
+            min-width: 3px;
+            transition: width .35s cubic-bezier(.22, .61, .36, 1);
+        }
+        .cdrop-meter .cm-bar.with    { background: var(--accent); }
+        .cdrop-meter .cm-bar.without { background: var(--warn); opacity: .55; }
+        .cdrop-meter .cm-val {
+            color: var(--txt2);
+            min-width: 14px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+        .cdrop-meter .cm-val.without { color: var(--warn); }
 
         .editor .gutterbar {
             display: flex;
@@ -2475,6 +2514,10 @@
                         <span class="cdrop-arrow">▶</span>
                         <span class="cdrop-label-closed">show source code</span>
                         <span class="cdrop-label-open">hide source code</span>
+                        <span class="cdrop-meter" id="s3meter">
+                            <span class="cm-row"><span class="cm-lbl">with</span><span class="cm-bar with" data-side="with"></span><span class="cm-val" data-val="with">–</span></span>
+                            <span class="cm-row"><span class="cm-lbl">without</span><span class="cm-bar without" data-side="without"></span><span class="cm-val without" data-val="without">–</span></span>
+                        </span>
                     </summary>
                     <div class="codedrop-body">
                         <div class="editor">
@@ -2541,6 +2584,10 @@
                         <span class="cdrop-arrow">▶</span>
                         <span class="cdrop-label-closed">show source code</span>
                         <span class="cdrop-label-open">hide source code</span>
+                        <span class="cdrop-meter" id="sVmeter">
+                            <span class="cm-row"><span class="cm-lbl">with</span><span class="cm-bar with" data-side="with"></span><span class="cm-val" data-val="with">–</span></span>
+                            <span class="cm-row"><span class="cm-lbl">without</span><span class="cm-bar without" data-side="without"></span><span class="cm-val without" data-val="without">–</span></span>
+                        </span>
                     </summary>
                     <div class="codedrop-body">
                         <div class="editor">
@@ -2644,6 +2691,10 @@
                         <span class="cdrop-arrow">▶</span>
                         <span class="cdrop-label-closed">show source code</span>
                         <span class="cdrop-label-open">hide source code</span>
+                        <span class="cdrop-meter" id="wmeter">
+                            <span class="cm-row"><span class="cm-lbl">with</span><span class="cm-bar with" data-side="with"></span><span class="cm-val" data-val="with">–</span></span>
+                            <span class="cm-row"><span class="cm-lbl">without</span><span class="cm-bar without" data-side="without"></span><span class="cm-val without" data-val="without">–</span></span>
+                        </span>
                     </summary>
                     <div class="codedrop-body">
                         <div class="editor">
@@ -2735,6 +2786,10 @@
                     <span class="cdrop-arrow">▶</span>
                     <span class="cdrop-label-closed">show source code</span>
                     <span class="cdrop-label-open">hide source code</span>
+                    <span class="cdrop-meter" id="pmeter">
+                        <span class="cm-row"><span class="cm-lbl">with</span><span class="cm-bar with" data-side="with"></span><span class="cm-val" data-val="with">–</span></span>
+                        <span class="cm-row"><span class="cm-lbl">without</span><span class="cm-bar without" data-side="without"></span><span class="cm-val without" data-val="without">–</span></span>
+                    </span>
                 </summary>
                 <div class="codedrop-body">
                     <div class="editor">
@@ -2775,6 +2830,23 @@
             }
             function selectSwatch(el, c) { $$('.sw', el).forEach(function (x) { x.classList.toggle('sel', x.dataset.c.toLowerCase() === String(c).toLowerCase()) }); }
             function L(n) { return '<span class="ln">' + (n < 10 ? ' ' : '') + n + '  </span>'; }
+
+            // Mini bargraph helper : visualises "with DS" vs "without DS" line count.
+            // Bars are scaled against the largest of the two values; max bar width = 64px.
+            // When the comparison is meaningless (both 0, or nothing composed yet), the meter is hidden.
+            function setMeter(id, withN, withoutN) {
+                var m = document.getElementById(id); if (!m) return;
+                if (withoutN <= 0) { m.classList.remove('on'); return; }
+                var maxBar = 64; // px
+                var maxVal = Math.max(withN, withoutN, 1);
+                var withW    = Math.max(3, Math.round(maxBar * (withN    / maxVal)));
+                var withoutW = Math.max(3, Math.round(maxBar * (withoutN / maxVal)));
+                var bw = m.querySelector('.cm-bar.with');    if (bw) bw.style.width = withW + 'px';
+                var bo = m.querySelector('.cm-bar.without'); if (bo) bo.style.width = withoutW + 'px';
+                var vw = m.querySelector('.cm-val[data-val="with"]');    if (vw) vw.textContent = withN;
+                var vo = m.querySelector('.cm-val[data-val="without"]'); if (vo) vo.textContent = withoutN;
+                m.classList.add('on');
+            }
 
             // ===== SCENE 1 =====
             // ===== SCENE 1 : customize button A (color, typography, shape), B stays fixed =====
@@ -2988,6 +3060,8 @@
                 sec.forEach(function (line) { html += L(n++) + (secondaryDim ? dim(line) : line) + '\n'; });
                 html += L(n++) + (secondaryDim ? dim('<span class="punc">}</span>') : '<span class="punc">}</span>');
                 $('#sVcss').innerHTML = html;
+                // Step 4 meter : one component with 2 named variants (~14 lines) vs two separate components (~26)
+                setMeter('sVmeter', 14, 26);
             }
             function sVrenderHTML() {
                 // Three pages, each calling app-button with the variant that fits their need
@@ -3150,7 +3224,7 @@
                     blocks.forEach(function (blk, i) {
                         if (i > 0) html += L(n++) + '\n';
                         html += L(n++) + '<span class="cm">/* ' + blk.label + ' — ' + blk.note + ' */</span>\n';
-                        html += L(n++) + '<span class="se">.btn</span> <span class="punc">{</span>\n';
+                        html += L(n++) + '<span class="se">.btn-' + (i + 1) + '</span> <span class="punc">{</span>\n';
                         buildBlockLines(blk.tok).forEach(function (line) {
                             html += L(n++) + line + '\n';
                         });
@@ -3171,17 +3245,19 @@
                         L(7) + lines[3] + '\n' +
                         L(8) + '<span class="punc">}</span>';
                 }
+                // Step 3 meter : 1 component block (~8) vs 3 copied blocks (~23)
+                setMeter('s3meter', 8, 23);
             }
             function s3cHTML() {
                 if (s3mode === 'copies') {
                     $('#s3htmlfn').textContent = 'the HTML on each page · full markup ×3';
                     $('#s3html').innerHTML =
                         L(1) + '<span class="cm">&lt;!-- Page A --&gt;</span>\n' +
-                        L(2) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
+                        L(2) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-1"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
                         L(3) + '<span class="cm">&lt;!-- Page B --&gt;</span>\n' +
-                        L(4) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
+                        L(4) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-2"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
                         L(5) + '<span class="cm">&lt;!-- Page C --&gt;</span>\n' +
-                        L(6) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>';
+                        L(6) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-3"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>';
                 } else {
                     $('#s3htmlfn').textContent = 'the HTML on each page · just a tag ×3';
                     $('#s3html').innerHTML =
@@ -3343,6 +3419,29 @@
                 }
                 html += L(ln) + '<span class="punc">&lt;/</span><span class="se">app-card</span><span class="punc">&gt;</span>';
                 $('#wcode').innerHTML = html;
+                // Step 5 meter : 1 line per element with DS, ~3-5 lines without (raw markup + ad hoc CSS)
+                var withLines = pItemsLines();
+                var withoutLines = pItemsWithoutDsLines();
+                setMeter('wmeter', withLines, withoutLines);
+            }
+            // Helpers for the meter on step 5
+            function pItemsLines() {
+                // wcode: 1 line per item + <app-card> opening + closing = items.length + 2
+                if (wItems.length === 0) return 3; // empty stub still has 3 lines incl. comment
+                return wItems.length + 2;
+            }
+            function pItemsWithoutDsLines() {
+                // Without DS: raw markup + flat CSS per element.
+                // title=2, input=4, divider=2, button=5 (label + styles)
+                if (wItems.length === 0) return 0;
+                var n = 4; // <div class="card"> wrapper + closing + 2 CSS lines for the card
+                wItems.forEach(function (it) {
+                    if (it.type === 'title') n += 2;
+                    else if (it.type === 'input') n += 4;
+                    else if (it.type === 'divider') n += 2;
+                    else if (it.type === 'button') n += 5;
+                });
+                return n;
             }
 
             // Render the *visual* widget (what an end user would see)
@@ -3604,6 +3703,13 @@
                 }
                 html += L(ln) + '<span class="punc">&lt;/</span><span class="se">page-host</span><span class="punc">&gt;</span>';
                 $('#pcode').innerHTML = html;
+                // Step 6 meter : 1 self-closing tag per widget with DS vs full markup per widget without
+                var WITHOUT_PER_WIDGET = { header: 8, hero: 12, signup: 18, cards: 22, footer: 6 };
+                var w = pItems.length === 0 ? 3 : pItems.length + 2;
+                var wo = 0;
+                pItems.forEach(function (it) { wo += WITHOUT_PER_WIDGET[it.type] || 8; });
+                if (pItems.length > 0) wo += 4; // page wrapper + base CSS
+                setMeter('pmeter', w, wo);
             }
 
             // Light visual simulation: each widget renders as a sober mini-mockup
