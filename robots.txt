@@ -2,5 +2,6 @@ user-agent: *
 Disallow: /admin/
 Disallow: /resources/
 Disallow: /node_modules/
+Disallow: /demo
 
 sitemap: https://www.craft-it.io/sitemap.xml
