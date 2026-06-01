@@ -316,6 +316,52 @@
             overflow: hidden
         }
 
+        /* Collapsible code section (native <details>) */
+        .codedrop {
+            margin-top: 16px;
+        }
+        .codedrop > summary {
+            list-style: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 13px;
+            font-family: var(--mono);
+            font-size: 11.5px;
+            color: var(--txt2);
+            background: var(--bg2);
+            border: 1px solid var(--line2);
+            border-radius: 9px;
+            transition: .15s;
+            user-select: none;
+        }
+        .codedrop > summary::-webkit-details-marker { display: none; }
+        .codedrop > summary:hover {
+            color: var(--txt);
+            border-color: var(--accent2);
+        }
+        .codedrop > summary .cdrop-arrow {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--txt3);
+            transition: transform .2s;
+        }
+        .codedrop[open] > summary .cdrop-arrow {
+            transform: rotate(90deg);
+            color: var(--accent2);
+        }
+        .codedrop > summary .cdrop-label-open { display: none; }
+        .codedrop[open] > summary .cdrop-label-open { display: inline; }
+        .codedrop[open] > summary .cdrop-label-closed { display: none; }
+        .codedrop .codedrop-body {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+        .codedrop .codedrop-body .editor { margin-top: 0; }
+
         .editor .gutterbar {
             display: flex;
             align-items: center;
@@ -2110,12 +2156,6 @@
 
 <body>
 
-    <div class="titlebar">
-        <div class="dots"><span></span><span></span><span></span></div>
-        <span class="filename"><b>follow-along</b> · tap your step</span>
-        <span class="stepbadge" id="stepBadge">01 / 06</span>
-    </div>
-
     <div class="rail" id="rail">
         <div class="tab on" data-t="0">01· the problem</div>
         <div class="tab" data-t="1">02· tokens</div>
@@ -2141,12 +2181,6 @@
 
             </div>
             <div class="s-right">
-                <div class="editor">
-                    <div class="gutterbar"><span class="fn">Button.css</span><span class="tag">hard-coded
-                            ×2</span><button class="copybtn" data-copy="s1code" title="Copy">⧉</button></div>
-                    <div class="code" id="s1code"></div>
-                </div>
-
                 <div class="stage">
                     <span class="stagelbl">// preview</span>
                     <div class="btnrow">
@@ -2232,6 +2266,20 @@
                     </div>
                 </div>
 
+                <details class="codedrop">
+                    <summary>
+                        <span class="cdrop-arrow">▶</span>
+                        <span class="cdrop-label-closed">show source code</span>
+                        <span class="cdrop-label-open">hide source code</span>
+                    </summary>
+                    <div class="codedrop-body">
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn">Button.css</span><span class="tag">hard-coded ×2</span><button class="copybtn" data-copy="s1code" title="Copy">⧉</button></div>
+                            <div class="code" id="s1code"></div>
+                        </div>
+                    </div>
+                </details>
+
                 <div class="note warn" id="s1note">
                     <b>Button B never moved.</b> Your styles live only inside A — copy-pasted, isolated. To match them
                     on B you'd
@@ -2297,16 +2345,9 @@
 
                 <p class="lede" style="margin-top:16px">So we collect those named decisions into a small <b>style
                         guide</b> —
-                    the dictionary the whole app looks things up in. Build yours:</p>
+                    the dictionary the whole app looks things up in. Build yours below.</p>
 
-                <div class="editor">
-                    <div class="gutterbar"><span class="fn">tokens.css</span><span class="tag">your style
-                            guide</span><button class="copybtn" data-copy="s2code" title="Copy">⧉</button></div>
-                    <div class="code" id="s2code"></div>
-                </div>
-
-                <p class="lede" style="margin-top:16px">Now we point <b>both buttons</b> at those tokens — same A and B
-                    as
+                <p class="lede" style="margin-top:16px">We point <b>both buttons</b> at those tokens — same A and B as
                     before. But this time, watch what happens when you tweak the <b>shared</b> values:</p>
 
                 <div class="stage">
@@ -2353,6 +2394,20 @@
                         </div>
                     </div>
                 </div>
+
+                <details class="codedrop">
+                    <summary>
+                        <span class="cdrop-arrow">▶</span>
+                        <span class="cdrop-label-closed">show source code</span>
+                        <span class="cdrop-label-open">hide source code</span>
+                    </summary>
+                    <div class="codedrop-body">
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn">tokens.css</span><span class="tag">your style guide</span><button class="copybtn" data-copy="s2code" title="Copy">⧉</button></div>
+                            <div class="code" id="s2code"></div>
+                        </div>
+                    </div>
+                </details>
 
                 <div class="note ok" id="s2note">
                     <b>Both moved at once.</b> Same panel as step 1 — but now you're editing <b>one shared token</b>,
@@ -2415,17 +2470,26 @@
                     <div class="erctl"><span class="erc">border</span><div class="tokenchips" id="s3bordChips"></div></div>
                 </div>
 
-                <div class="editor">
-                    <div class="gutterbar"><span class="fn" id="s3cssfn">page-a.css · ×3 copies</span><button
-                            class="copybtn" data-copy="s3css" title="Copy">⧉</button></div>
-                    <div class="code" id="s3css"></div>
-                </div>
+                <details class="codedrop">
+                    <summary>
+                        <span class="cdrop-arrow">▶</span>
+                        <span class="cdrop-label-closed">show source code</span>
+                        <span class="cdrop-label-open">hide source code</span>
+                    </summary>
+                    <div class="codedrop-body">
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn" id="s3cssfn">page-a.css · ×3 copies</span><button
+                                    class="copybtn" data-copy="s3css" title="Copy">⧉</button></div>
+                            <div class="code" id="s3css"></div>
+                        </div>
 
-                <div class="editor" style="margin-top:11px">
-                    <div class="gutterbar"><span class="fn" id="s3htmlfn">the HTML on each page</span><button
-                            class="copybtn" data-copy="s3html" title="Copy">⧉</button></div>
-                    <div class="code" id="s3html"></div>
-                </div>
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn" id="s3htmlfn">the HTML on each page</span><button
+                                    class="copybtn" data-copy="s3html" title="Copy">⧉</button></div>
+                            <div class="code" id="s3html"></div>
+                        </div>
+                    </div>
+                </details>
 
                 <div class="note ok" id="s3note">
                     <b>Copies drift, the component doesn't.</b> In Copies mode, only the page you touched changed — the
@@ -2471,17 +2535,24 @@
                     <div class="erctl"><span class="erc">border</span><div class="tokenchips" id="sVbordChips"></div></div>
                 </div>
 
-                <!-- Component definition code -->
-                <div class="editor">
-                    <div class="gutterbar"><span class="fn">button.component.ts</span><button class="copybtn" data-copy="sVcss" title="Copy">⧉</button></div>
-                    <div class="code" id="sVcss"></div>
-                </div>
-
-                <!-- HTML usage across pages -->
-                <div class="editor" style="margin-top:11px">
-                    <div class="gutterbar"><span class="fn">pages call the same component, with their variant</span><button class="copybtn" data-copy="sVhtml" title="Copy">⧉</button></div>
-                    <div class="code" id="sVhtml"></div>
-                </div>
+                <!-- Component definition + HTML usage (foldable) -->
+                <details class="codedrop">
+                    <summary>
+                        <span class="cdrop-arrow">▶</span>
+                        <span class="cdrop-label-closed">show source code</span>
+                        <span class="cdrop-label-open">hide source code</span>
+                    </summary>
+                    <div class="codedrop-body">
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn">button.component.ts</span><button class="copybtn" data-copy="sVcss" title="Copy">⧉</button></div>
+                            <div class="code" id="sVcss"></div>
+                        </div>
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn">pages call the same component, with their variant</span><button class="copybtn" data-copy="sVhtml" title="Copy">⧉</button></div>
+                            <div class="code" id="sVhtml"></div>
+                        </div>
+                    </div>
+                </details>
 
                 <!-- Synthesis: variants can go further -->
                 <div class="grow">
@@ -2567,11 +2638,20 @@
                     </div>
                 </div>
 
-                <!-- Generated code -->
-                <div class="editor" style="margin-top:14px">
-                    <div class="gutterbar"><span class="fn">signup-form.component.html</span><button class="copybtn" data-copy="wcode" title="Copy">⧉</button></div>
-                    <div class="code" id="wcode"></div>
-                </div>
+                <!-- Generated code (foldable) -->
+                <details class="codedrop">
+                    <summary>
+                        <span class="cdrop-arrow">▶</span>
+                        <span class="cdrop-label-closed">show source code</span>
+                        <span class="cdrop-label-open">hide source code</span>
+                    </summary>
+                    <div class="codedrop-body">
+                        <div class="editor">
+                            <div class="gutterbar"><span class="fn">signup-form.component.html</span><button class="copybtn" data-copy="wcode" title="Copy">⧉</button></div>
+                            <div class="code" id="wcode"></div>
+                        </div>
+                    </div>
+                </details>
 
                 <div class="note ok" id="wnote">
                     <b>You just composed a widget.</b> One <code>&lt;app-card&gt;</code>, a few elements from your library, two buttons with different variants — all declared once, configured through tokens, assembled here. <b>Same atoms. Bigger picture.</b>
@@ -2649,11 +2729,20 @@
                 </div>
             </div>
 
-            <!-- Generated code -->
-            <div class="editor" style="margin-top:14px">
-                <div class="gutterbar"><span class="fn">landing.page.html</span><button class="copybtn" data-copy="pcode" title="Copy">⧉</button></div>
-                <div class="code" id="pcode"></div>
-            </div>
+            <!-- Generated code (foldable) -->
+            <details class="codedrop">
+                <summary>
+                    <span class="cdrop-arrow">▶</span>
+                    <span class="cdrop-label-closed">show source code</span>
+                    <span class="cdrop-label-open">hide source code</span>
+                </summary>
+                <div class="codedrop-body">
+                    <div class="editor">
+                        <div class="gutterbar"><span class="fn">landing.page.html</span><button class="copybtn" data-copy="pcode" title="Copy">⧉</button></div>
+                        <div class="code" id="pcode"></div>
+                    </div>
+                </div>
+            </details>
 
             <div class="note ok" id="s5note">
                 <b>That's the whole chain.</b> Tokens flow into elements, elements into widgets, widgets into pages. Same mechanic at every scale — <b>declare once, compose, reference</b>. The two-button chaos can't happen anymore: every decision lives somewhere, named, ready to change once.
@@ -3717,7 +3806,7 @@
                 maxReached = Math.max(maxReached, scene);
                 scenes.forEach(function (s, i) { s.classList.toggle('on', i === scene) });
                 renderTabs();
-                $('#stepBadge').textContent = '0' + (scene + 1) + ' / 0' + TOTAL;
+                var badge = $('#stepBadge'); if (badge) badge.textContent = '0' + (scene + 1) + ' / 0' + TOTAL;
                 $('#prevBtn').style.visibility = scene === 0 ? 'hidden' : 'visible';
                 var nb = $('#nextBtn');
                 if (scene === TOTAL - 1) { nb.textContent = '↻ restart'; nb.classList.add('done') }
