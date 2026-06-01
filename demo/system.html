@@ -3224,7 +3224,7 @@
                     blocks.forEach(function (blk, i) {
                         if (i > 0) html += L(n++) + '\n';
                         html += L(n++) + '<span class="cm">/* ' + blk.label + ' — ' + blk.note + ' */</span>\n';
-                        html += L(n++) + '<span class="se">.btn-' + (i + 1) + '</span> <span class="punc">{</span>\n';
+                        html += L(n++) + '<span class="se">.btn</span> <span class="punc">{</span>\n';
                         buildBlockLines(blk.tok).forEach(function (line) {
                             html += L(n++) + line + '\n';
                         });
@@ -3253,11 +3253,11 @@
                     $('#s3htmlfn').textContent = 'the HTML on each page · full markup ×3';
                     $('#s3html').innerHTML =
                         L(1) + '<span class="cm">&lt;!-- Page A --&gt;</span>\n' +
-                        L(2) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-1"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
+                        L(2) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
                         L(3) + '<span class="cm">&lt;!-- Page B --&gt;</span>\n' +
-                        L(4) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-2"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
+                        L(4) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>\n' +
                         L(5) + '<span class="cm">&lt;!-- Page C --&gt;</span>\n' +
-                        L(6) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn-3"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>';
+                        L(6) + '<span class="punc">&lt;</span><span class="se">button</span> <span class="pr">class</span><span class="punc">=</span><span class="vl">"btn"</span><span class="punc">&gt;</span>Save<span class="punc">&lt;/</span><span class="se">button</span><span class="punc">&gt;</span>';
                 } else {
                     $('#s3htmlfn').textContent = 'the HTML on each page · just a tag ×3';
                     $('#s3html').innerHTML =
